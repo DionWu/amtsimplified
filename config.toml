@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "AMT Simplified"
 theme = "minimal"
-googleAnalytics = ""
+googleAnalytics = "UA-171252878-1"
 
 [params]
     author = "Dion Wu"
