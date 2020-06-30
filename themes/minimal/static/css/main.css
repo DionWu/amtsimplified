@@ -106,3 +106,13 @@ a:hover {
 footer {
     border-bottom: var(--border-width) solid var(--accent);
 }
+
+.home-nav-button {
+    max-width: fit-content;
+    display: inline-block;
+    font-size: x-large;
+}
+
+.home-nav-button a:hover{
+    text-decoration: none;
+}
