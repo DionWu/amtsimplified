@@ -10,6 +10,7 @@ _In addition, this article only highlights some of the most commonly used parts 
 How to calculate the AMT
 ----
 How the Alternative Minimum Tax is determined can be broken up into a few broad steps:
+
 1. Figure out or estimate your **Total Income**
 2. Subtract **total adjustments** to get your **Adjusted Gross Income (AGI)**
 3. Subtract eligible **deductions** to get your **Alternative Minimum Taxable Income (AMTI)**
@@ -41,6 +42,7 @@ If, however, you are here to plan for any potential tax you may have to owe to U
 We'll start by assessing your total income, which includes not just your salary and wages, but also things such as capital gain/loss from stock or real estate investments, social security benefits, IRA distributions, pensions, etc. 
 
 For the purposes of this example, let's assume:
+
 - You are filing as Single
 - You have a salaried job that pays $140,000 a year
 - And you have also dabbled around with the stock market, but due to unforseen global pandemics, you've lost or are projected to lose a good $20,000 on the year. 
@@ -61,6 +63,7 @@ Step 2: Subtract Adjustments and get your Adjusted Gross Income (AGI)
 There is a laundry list of possible adjustments that can be found in your 1040 Schedule 1, so we will only use some of the most common. I will also include any Traditional 401k contributions you've made here as well just to make the math crystal clear.
 
 Let's say you are a few years out of college in your late 20s so you:
+
 - Contributed to a Traditional 401k through work
 - Are in a High Deductible Health Plan and contributing to an HSA,
 - Invested in a Roth IRA, to diversify potential tax risk in the future
@@ -130,6 +133,7 @@ Step 5: Figure out your Alternative Minimum Taxable Income (AMTI)
 Using the Regular Taxable Income we've determined as the starting point, we need to add in a few things to determine our AMTI. These are commonly **specific ineligible deductions** and your **ISO Exercise Spread**. 
 
 For the first piece, the most common AMT specific ineligible deductions include the below. [You can read more about the differences here](/posts/amt-regular-tax-differences).
+
 - Personal Exemptions (which are currently removed from the tax system altogether)
 - The Standard Deduction, if you took it. Else, if you took the itemized deduction:
 - Medical Expense Deductions
@@ -177,6 +181,7 @@ Step 6: Subtract your AMT Exemption to get your Final AMTI
 The AMT Exemption is a special exemption you can take as part of the AMT tax system. It is a very straightforward calculation up until you start making in excess of around $500,000 as a single filer, or over around $1 million dollars as married, filing jointly. If you fall into this category, I would advise you to spend a minute or two reading up on [the math behind the phaseout thresholds](/posts/amt-regular-tax-differences).
 
 This is essentially a large chunk of money you can subtract from your AMTI before calculating the actual AMT you owe. Think of it like a special type of standard deduction, that almost everyone can take. The exemption is:
+
 - $72,900 for single filers in 2020 and 
 - $113,400 for Married, Filing Jointly in 2020
  
