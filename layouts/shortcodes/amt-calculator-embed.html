@@ -7,27 +7,27 @@
 </select> <br><br>
 Salary <input type="text" value="0" class="calculate-form" id="salary"><br>
 Capital Gains <input type="text" value="0" class="calculate-form" id="capital-gains"><br>
-<h1 id="total_income"> </h1><br><br>
+<h3 id="total_income"> </h3>
 Traditional 401k <input type="text" value="0" class="calculate-form" id="trad-401k"><br>
 HSA <input type="text" value="0" class="calculate-form" id="hsa"><br>
-<h1 id="magi"> </h1><br>
+<h3 id="magi"> </h3>
 Traditional IRA <input type="text" value="0" class="calculate-form" id="trad-ira"><br>
 Student Loan Interest <input type="text" value="0" class="calculate-form" id="sli"><br>
-<h1 id="agi"> </h1><br>
+<h3 id="agi"> </h3>
 <!--Standard Deduction <input type="text" value="0" class="calculate-form" id="standard-deduction"><br>-->
 Medical Expenses <input type="text" value="0" class="calculate-form" id="medical-expenses"><br>
 SALT <input type="text" value="0" class="calculate-form" id="salt"><br>
 Mortgage Interest <input type="text" value="0" class="calculate-form" id="mortgage-interest"><br>
-<h1 id="final_deduction"> </h1><br>
-<h1 id="taxable_income"> </h1><br>
+<h3 id="final_deduction"> </h3>
+<h3 id="taxable_income"> </h3>
 Shares Exercised <input type="text" value="0" class="calculate-form" id="shares-exercised"><br>
 Strike Price <input type="text" value="0" class="calculate-form" id="strike-price"><br>
 Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><br>
-<h1 id="iso_spread_subtotal"> </h1><br>
-<h1 id="amti"> </h1><br>
-<h1 id="amt_deduction"> </h1><br>
-<h1 id="amti_final"> </h1><br>
-<h1 id="amt_tax_owed"> </h1>
+<h3 id="iso_spread_subtotal"> </h3>
+<h3 id="amti"> </h3>
+<h3 id="amt_deduction"> </h3>
+<h3 id="amti_final"> </h3>
+<h3 id="amt_tax_owed"> </h3>
 
 <button onclick="calculate_taxes()"> Calculate </button>
 
@@ -100,14 +100,16 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
     if (magi > sli_max) {
       sli = 0;
     } else if (magi > sli_phase) {
-      var sli_multiplier = (agi - sli_phase) / sli_divider;
+      var sli_multiplier = (magi - sli_phase) / sli_divider;
       if (sli_multiplier > 1) {
         sli_multiplier = 1;
       } else if (sli_multiplier < 0) {
         sli_multiplier = 0;
+      } else {
+        sli_multiplier = sli_multiplier.toFixed(3);
       }
-      sli_correction = sli*sli_multiplier;
-      sli_correction = sli_correction.toFixed(3);
+      
+      sli_correction = parseFloat(sli) * parseFloat(sli_multiplier);
       sli = sli - parseFloat(sli_correction);
       sli = sli.toFixed(2);
     } 
@@ -140,7 +142,12 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
     // Calculate ISO Spread
     var iso_spread_subtotal = parseFloat(shares_exercised) * (parseFloat(fmv) - parseFloat(strike_price));
     // Calculate AMTI (before AMT deduction)
-    var amti = taxable_income + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+    if (deduction_category == 'Standard Deduction') {
+      var amti = taxable_income + iso_spread_subtotal + standard_deduction;
+    } else {
+      var amti = taxable_income + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+
+    }
     // AMT Deduction Calculation, including Phase Out
     if (amti > amt_phase) {
       amt_deduction = amt_deduction - (0.25 * (amti - amt_phase))
@@ -159,7 +166,7 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
     
     // AMT CREDIT?
     // DEPENDENT CREDIT?
-    
+
     //if (!isNaN(agi)) {
         document.getElementById("total_income").innerHTML="Total Income is " + total_income;
         document.getElementById("magi").innerHTML="MAGI is " + magi;
