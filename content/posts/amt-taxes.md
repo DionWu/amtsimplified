@@ -15,11 +15,11 @@ How the Alternative Minimum Tax is determined can be broken up into a few broad 
 2. Subtract **total adjustments** to get your **Adjusted Gross Income (AGI)**
 3. Subtract eligible **deductions** to get your **Alternative Minimum Taxable Income (AMTI)**
 4. Subtract the **AMT exemption**, if eligible, to get your 'Final Alternative Minimum Taxable Income'. Oddly enough, there's actually no formal term for this, so let's just call it **FAMTI**
-5. Calculate your **Alternative Minimum Tax**
+5. Calculate your **Alternative Minimum Tax** based on the tax brackets.
 
 But Actually...
 ----
-In practice, the above process can often be a bit confusing because you are doing things differently than you would when calculating regular taxes. Thus, what is normally done is to add in a few extra steps that will seem a bit circuitous, but will generally be helpful for determining not just your AMTI but also your Regular Income Tax. This can come in handy when wanting to do things such as plan out your [ISO exercise schedule](/posts/iso-exercise-planner).
+In practice, the above process can often be a bit confusing because you are doing things differently than you would when calculating regular taxes. Thus, what is normally done is to add in a few extra steps that will seem a bit circuitous, but will generally be helpful for determining not just your AMTI but also your Regular Income Tax. This can come in handy when wanting to do things such as [plan out when to exercise your ISOs](/posts/iso-exercise-planner).
 
 So instead, we will do the following:
 
@@ -27,17 +27,17 @@ So instead, we will do the following:
 2. Subtract **total adjustments** to get your **Adjusted Gross Income (AGI)**
 3. Figure out if you want to take the **Standard Deduction** or an **Itemized Deduction**
 4. Subtract whichever **Deductions** to get your **Regular Taxable Income**
-5. Figure out your ISO Exercise Spread, and add that alongside certain ineligible deductions to determine your **Alternative Minimum Taxable Income (AMTI)**. 
-6. Take your AMTI and subtract the **AMT exemption**, if eligible, to get your 'Final Alternative Minimum Taxable Income' **(FAMTI)**
+5. Figure out your ISO Exercise Spread, and add that alongside certain deductions that are ineligible in the AMT system to determine your **Alternative Minimum Taxable Income (AMTI)**. 
+6. Take your AMTI and subtract the **AMT exemption** to get your 'Final Alternative Minimum Taxable Income' **(FAMTI)**
 7. Calculate your **Alternative Minimum Tax**
 8. Calculate your **Regular Income Tax**, which we won't go over in detail here but is automatically done [using our AMT calculator](/amt-calculator)
-9. Figure out which tax is higher, and you'll be paying that one
+9. Figure out which tax is higher. You only need to pay the higher one!
 
 Step 1: Figure out / Estimate your Total Income
 ----
-If you're on this website in the midst of tax season and you have all of your financial statements ready, and are just curious about how the proverbial sausage is made, I invite you to pull out those statements and follow alongside me.
+If you're on this website in the midst of tax season and you have all of your financial statements ready, I invite you to pull out those statements and follow alongside me.
 
-If, however, you are here to plan for any potential tax you may have to owe to Uncle Sam, or here to [plan your ISO exercise schedule](/posts/iso-exercise-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
+If, however, you are here to plan for any potential tax you may have to owe to Uncle Sam, or are here to [plan your ISO exercise schedule](/posts/iso-exercise-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
 
 We'll start by assessing your total income, which includes not just your salary and wages, but also things such as capital gain/loss from stock or real estate investments, social security benefits, IRA distributions, pensions, etc. 
 
@@ -45,18 +45,21 @@ For the purposes of this example, let's assume:
 
 - You are filing as Single
 - You have a salaried job that pays $140,000 a year
-- And you have also dabbled around with the stock market, but due to unforseen global pandemics, you've lost or are projected to lose a good $20,000 on the year. 
+- And you have also dabbled around with the stock market, but due to an unforseen global pandemic, you've lost or are projected to lose a good $20,000 on the year. 
 
 You would end up with the below:
 
 {{<table "table table-striped table-bordered" >}}
-  Line Item | Value 
+  Item | Value 
   ------------- | -------------
  Wages, Salaries, Tips | $140,000
  Capital Loss | ($20,000)
+ |
  Total Income | $120,000
 {{</table>}}
-_*Important to note here is that if you contribute to a Traditional 401k through your employer, the actual line item in your W2 will already reflect those contributions. So for example, if your salary is $140,000 and you are going to contribute the max amount to your 401k in 2020 (19,500), your W2 would report total wages as $120,500. For the purposes of this, we will just use your gross income (everything before contributions)._
+_*Important to note here is that if you contribute to a Traditional 401k through your employer, the actual line item in your W2 for 'Wages, Salaries, Tips' will already reflect those contributions. So for example, if your salary is $140,000 and you are going to contribute the max amount to your 401k in 2020 (19,500), your W2 would report total wages as $120,500._
+
+_For the purposes of this example, we will use your gross income (before 401k contributions)._
 
 Step 2: Subtract Adjustments and get your Adjusted Gross Income (AGI)
 ----
@@ -64,37 +67,37 @@ There is a laundry list of possible adjustments that can be found in your 1040 S
 
 Let's say you are a few years out of college in your late 20s so you:
 
-- Contributed to a Traditional 401k through work
+- Maxed out your Traditional 401k through work
 - Are in a High Deductible Health Plan and contributing to an HSA,
 - Invested in a Roth IRA, to diversify potential tax risk in the future
-- In addition you're still paying off those darn student loans
+- And you're still paying off those darn student loans
 
 Your updated table might look like the following now:
 
 {{<table "table table-striped table-bordered" >}}
-  Line Item | Value 
+ Item| Value 
   ------------- | -------------
  Total Income | $120,000
  |
  Adjustment: Traditional 401k | 19,500
  Adjustment: HSA | 3550
- Adjustment: Traditional IRA | 0 (Remember, you're in a Roth)
+ Adjustment: Traditional IRA | 0 (Remember, you're in a Roth IRA)
  Adjustment: Student Loan Interest* | $500
  |
- Total Adjustments | $23,550
+ Subtract Total Adjustments | $23,550
  |
- Adjusted Gross Income (AGI) (Total Income - Total Adjustments) | $96,950
+ Adjusted Gross Income (AGI) | $96,950
 {{</table>}}
 <!--*There may be a chance you cannot deduct all of your student loan interest! You can read a simplified breakdown of the details here.-->
 
 Step 3: Standard Deduction or Itemized Deduction?
 ----
-The next step is to determine which deduction to take. If you can itemize a number of eligible deductions such that they all add up to more than the standard deduction, you should take the itemized deduction. 
+The next step is to determine which deduction to take. If you can itemize a number of eligible deductions such that they all add up to more than the standard deduction, you should take the itemized deduction. If you are unsure which to take, that is fine. Our calculator and most tax programs will do the math for you. 
 
-Here are some of the most common things to look out for that might make it more beneficial for you to itemize, with articles into each of how they're calculated:
+But as a guideline, here are some of the most common things to look out for that might make it more beneficial for you to itemize, each with articles of how they're calculated:
 
 - A large amount of medical and dental expenses paid
-- State and local real estate / property taxes (SALT)
+- State and local real estate / property taxes (SALT Tax)
 - Home Mortgage interest
 - Large amounts of gifts to charity
 
@@ -244,20 +247,24 @@ In our case, luckily, our FAMTI of $30,050 is much lower than the thershold of $
 
  Step 8: Calculate your Regular Income Tax
 ----
-But do you actually need to pay **$7,813?**
+But do you actually need to pay that **$7,813?**
 
-It all depends if this number is greater than or less than your regular income tax! There are many websites show you how to calculate the regular income tax you may owe, so I won't go into detail here. Using all the same parameters that we have used throughout this example:
+It all depends if this number is greater than or less than your regular income tax! There are many websites that show you how to calculate the regular income tax you may owe, so I won't go into detail here. Using all the same parameters that we have used throughout this example:
 
 Take my word for it, but your regular income tax would come out to: **$10,181**
 
  Step 9: So... what do I owe?
 ----
-Because your AMT comes out to less than your Regular Income Tax, in this case, you wouldn't need to worry about your AMT at all! Just pay your regular income tax as you normally would, and you'll be good to go. Like I mentioned, most tax programs will account for all of this.
+You would owe: $10,181
 
-I should also mention that all of this is still within the realm of federal income taxes (FICA). None of this takes into account state taxes, which is a whole 'nother ball game. Luckily, only a few states have AMT at the state level, and we'll have an article up soon detailing this.
+Because your AMT comes out to less than your Regular Income Tax, you wouldn't need to worry about your AMT at all! Just pay your regular income tax as you normally would, and you'll be good to go. 
 
-This exercise is most useful if you want to plan for how much of your ISO to exercise this year, such that this exact scenario arises. This way, you could avoid having to pay any additional taxes beyond your regular income tax. If you don't feel like doing it manually, [we've luckily built out a planning tool here](/iso-exercise-planner)
+In the event that your AMT is higher than your Regular income tax, your tax program may just register the net difference as an additional line item. For example, if your AMT came out to $12,000 and your Regular Income Tax came out to $10,000, you might just see a line item saying "$2,000 for AMT" such that your total tax owed comes out to $12,000. 
+
+I should also mention that all of this is still within the realm of **FEDERAL** income taxes (FICA). None of this takes into account state taxes, which is a whole 'nother ball game. Luckily, only a few states have AMT at the state level, and we'll have an article up soon detailing this.
+
+This exercise is most useful if you want to plan for how much of your ISO to exercise this year, such that this exact scenario arises. This way, you could exercise the maximum amount of options early enough, but not exercise too many to trigger having to pay AMT. You could do the math yourself on Excel, but if you don't feel like doing it manually, [we've luckily built out a planning tool here](/iso-exercise-planner)
 
 ------
 
-In conclusion, I hope this was helpful. Please feel free to submit any additional questions you may have
+In conclusion, I hope this was helpful! Please feel free to submit any additional questions you may have to an email that is soon to come...
