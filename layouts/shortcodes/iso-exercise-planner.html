@@ -1,0 +1,270 @@
+
+<h3> Step 1: Figure out your Regular Income Tax </h3>
+<label for="filing_status">Choose your Filing Status</label>
+<select name="filing_status" id="filing_status">
+  <option value="single">Single</option>
+  <option value="married_separately">Married, Filing Separately</option>
+  <option value="married">Married, Filing Together</option>
+</select> <br><br>
+Salary <input type="text" value="0" class="calculate-form" id="salary"><br>
+Capital Gains <input type="text" value="0" class="calculate-form" id="capital-gains"><br>
+<h4 id="total_income"> </h4>
+Traditional 401k <input type="text" value="0" class="calculate-form" id="trad-401k"><br>
+HSA <input type="text" value="0" class="calculate-form" id="hsa"><br>
+<h4 id="magi"> </h4>
+Traditional IRA <input type="text" value="0" class="calculate-form" id="trad-ira"><br>
+Student Loan Interest <input type="text" value="0" class="calculate-form" id="sli"><br>
+<h4 id="agi"> </h4>
+<!--Standard Deduction <input type="text" value="0" class="calculate-form" id="standard-deduction"><br>-->
+Medical Expenses <input type="text" value="0" class="calculate-form" id="medical-expenses"><br>
+SALT <input type="text" value="0" class="calculate-form" id="salt"><br>
+Mortgage Interest <input type="text" value="0" class="calculate-form" id="mortgage-interest"><br>
+<h4 id="final_deduction"> </h4>
+<h4 id="taxable_income"> </h4>
+<h4 id="regular_income_tax"></h4>
+<h3> Step 2: Input ISO Details </h3>
+<!--Shares Able to be Exercised <input type="text" value="0" class="calculate-form" id="shares-able-exercise"><br>-->
+Strike Price <input type="text" value="0" class="calculate-form" id="strike-price"><br>
+Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><br>
+<!--<h4 id="iso_spread_subtotal"> </h4>
+<h4 id="amti"> </h4>
+<h4 id="amt_deduction"> </h4>
+<h4 id="amti_final"> </h4>
+<h4 id="amt_tax_owed"> </h4>-->
+<h3> Results: </h3>
+<h4 id="max_shares_exercisable"> </h4>
+
+<h2 id="placeholder"></h2>
+<button onclick="calculate_taxes()"> Calculate </button>
+
+<script>
+    function calculate_taxes() {
+    var filing_status_obj = document.getElementById("filing_status");
+    var filing_status = filing_status_obj.options[filing_status_obj.selectedIndex].value;
+    
+    if (filing_status == 'single') {
+      var amt_deduction=72900;
+      var amt_phase = 518400;
+      var amt_tax_brackets = 197900;
+      var standard_deduction=12400;
+      var salt_deduction_max = 10000;
+      var sli_phase = 70000;
+      var sli_max = 85000;
+      var sli_divider = 15000;
+      //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
+      var hsa_limit = 3550;
+      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,518400];
+
+    } else if (filing_status == 'married_separately') {
+      var amt_deduction=56700;
+      var amt_phase = 518400;
+      var amt_tax_brackets = 98950;
+      var standard_deduction=12400;
+      var salt_deduction_max = 5000;
+      var sli_phase = 0;
+      var sli_max = 0;
+      var sli_divider = 0;
+      var hsa_limit = 7100;
+      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,311025];
+
+    } else if (filing_status == 'married') {
+      var amt_deduction=113400;
+      var amt_phase = 1036800;
+      var amt_tax_brackets = 197900;
+      var standard_deduction=24800;
+      var salt_deduction_max = 10000;
+      var sli_phase = 140000;
+      var sli_max = 170000;
+      var sli_divider = 30000;
+      var hsa_limit = 7100;
+      var reg_income_tax_bracket = [0,19750,80250,171050,326600,414700,622050];
+
+    }
+
+    var salary=document.getElementById("salary").value;
+    var capital_gains=document.getElementById("capital-gains").value;
+    var trad_401k=document.getElementById("trad-401k").value;
+    var hsa=document.getElementById("hsa").value;
+    var trad_ira=document.getElementById("trad-ira").value;
+    var sli=document.getElementById("sli").value;
+    var medical_expenses=document.getElementById("medical-expenses").value;
+    var salt=document.getElementById("salt").value;
+    var mortgage_interest=document.getElementById("mortgage-interest").value;
+    //var shares_exercised=document.getElementById("shares-exercised").value;
+    //var shares_able_exercise=document.getElementById("shares-able-exercise").value;
+    var strike_price=document.getElementById("strike-price").value;
+    var fmv=document.getElementById("fmv").value;
+    var salary=document.getElementById("salary").value;
+    
+    if (salt > salt_deduction_max) {
+      salt = salt_deduction_max;
+    }
+
+    var total_income = parseFloat(salary) + parseFloat(capital_gains);
+    
+    // HSA Limitation
+    if (hsa > hsa_limit) {
+      hsa = hsa_limit;
+    }
+
+    // MAGI - AGI but includes Trad IRA, SLI
+    var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
+
+    if (magi > sli_max) {
+      sli = 0;
+    } else if (magi > sli_phase) {
+      var sli_multiplier = (magi - sli_phase) / sli_divider;
+      if (sli_multiplier > 1) {
+        sli_multiplier = 1;
+      } else if (sli_multiplier < 0) {
+        sli_multiplier = 0;
+      } else {
+        sli_multiplier = sli_multiplier.toFixed(3);
+      }
+      
+      sli_correction = parseFloat(sli) * parseFloat(sli_multiplier);
+      sli = sli - parseFloat(sli_correction);
+      sli = sli.toFixed(2);
+    } 
+
+    // Calculate AGI
+    var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
+    
+    // Medical Expenses Deduction - only include if more than 10% of AGI, else 0
+    if (medical_expenses > (agi * 0.1)) {
+      medical_expenses = medical_expenses - (agi * 0.1);
+    } else {
+      medical_expenses = 0;
+    }
+    
+    // Standard vs Itemized Deduction
+    var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);
+    if (itemized_deduction > standard_deduction) {
+      var regular_deduction_final = itemized_deduction;
+      var deduction_category = 'Itemized Deduction';
+    } else {
+      var regular_deduction_final = standard_deduction;
+      var deduction_category = 'Standard Deduction';
+    }
+
+    // Calculate Regular taxable income
+    var taxable_income = agi - regular_deduction_final;
+    
+    // CALCULATE REGULAR TAXES
+    var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+    // Returns index of first tax bracket threshold greater than taxable_income, so subtract 1 (JS is index 0)
+    var taxable_income_index = reg_income_tax_bracket.findIndex(function(number) {
+        return number > taxable_income;
+    }) - 1;
+    
+    var regular_income_tax = 0;
+    for (var i = taxable_income_index; i >= 0; i--) {
+        if (i == taxable_income_index) {
+            regular_income_tax += reg_income_tax_rate[taxable_income_index] * (taxable_income - reg_income_tax_bracket[taxable_income_index]);
+        } else {
+            regular_income_tax += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
+        }
+    }
+
+    // Calculate AMTI Baseline (before ISO spread, AMT exemption)
+    if (deduction_category == 'Standard Deduction') {
+      var amti_baseline = taxable_income + standard_deduction;
+    } else {
+      var amti_baseline = taxable_income + parseFloat(salt) + parseFloat(medical_expenses);
+    }
+    
+    // Calculate ISO Spread Per Share
+    var iso_spread_pershare = (parseFloat(fmv) - parseFloat(strike_price));
+    //var iso_spread_max_subtotal = parseFloat(shares_able_exercise) * iso_spread_pershare;
+
+    if (amti_baseline - amt_deduction > amt_tax_brackets) {
+        var max_shares_exercisable = (regular_income_tax + 0.02 * amt_tax_brackets - 0.28 * amti_baseline + 0.28 * parseFloat(amt_deduction)) / (0.28 * iso_spread_pershare);
+        max_shares_exercisable = Math.floor(max_shares_exercisable);
+    }
+    else {
+        var max_shares_exercisable = (regular_income_tax / 0.26 - amti_baseline + parseFloat(amt_deduction)) / iso_spread_pershare;
+        max_shares_exercisable = Math.floor(max_shares_exercisable);
+    }
+    
+
+    /* AMT Deduction Calculation, including Phase Out
+    var amti = amti_baseline + iso_spread_pershare;
+
+    if (amti > amt_phase) {
+      amt_deduction = amt_deduction - (0.25 * (amti - amt_phase))
+    }
+    if (amt_deduction < 0) {
+      amt_deduction = 0
+    }
+    var amti_final = amti - parseFloat(amt_deduction); 
+    
+    // Caculate AMT Tax, including Brackets
+    if (amti_final > amt_tax_brackets) {
+      var amt_tax_owed = ((amti_final - amt_tax_brackets) * 0.28) + (amt_tax_brackets * 0.26);
+    } else {
+      var amt_tax_owed = amti_final * 0.26;
+    }
+    
+    //
+    if (regular_income_tax > amt_tax_owed) {
+        var test = "You're good to go!";
+    }
+    */
+
+
+
+
+    /*
+    // if (Baseline + ISO Spread * Shares - amt_deduction) > amt_tax_brackets
+    //      var amt_tax_owed = ((placeholder - amt_tax_brackets) * 0.28) + (amt_tax_brackets * 0.26);
+    // else var amt_tax_owed = (placeholder * 0.26);
+    // var amt_tax_owed < regular_income_tax
+    if ()
+    var max_shares_exercisable = (regular_income_tax / 0.26 - amti_baseline + parseFloat(amt_deduction)) / iso_spread_pershare;
+    var max_shares_exercisable = (regular_income_tax + 0.02 * amt_tax_brackets + 0.28 * parseFloat(amt_deduction) - 0.28 * amti_baseline) / (0.28 * iso_spread_pershare)
+    //regular_income_tax = ((Baseline + ISO Spread * Shares - amt_deduction) - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26
+    //= 0.28baseline +0.28*iso_Spread*shares - 0.28amt_deduction - 0.02amt_tax_bracket
+    //(regular_income_tax + 0.02amt_tax_bracket + 0.28amt_deduction - 0.28amtibaseline) / (0.28 * iso_spread)
+    // if crosses 26/28% threshold
+    // amt deduction phase out
+    // sliding scale
+    // not just the number of shares but basically the max value iso_spread_Subtotal
+    amti = amti_baseline + iso_spread_pershare * shares_exercised
+    amt_deduction = amt_deduction - 
+    discount = (0.25 * (amti_baseline + iso_spread_pershare * shares_exercised - amt_phase))
+    shares_exercised = (amt_phase - amti_baseline) / iso_spread_pershare
+
+    if (AMTI_final > 197800) 
+    { (AMTI_final - 197800) * .28 + 197800 * 0.26 }
+    else {AMTI_final * 0.26}
+
+    
+    AMTI_final = AMTI - amt_deduction
+    AMTI = amti_baseline + iso_spread_pershare * max_shares_exercisable
+    amt_deduction = AMTI - 500,000
+
+    */
+
+    
+    
+    // AMT CREDIT?
+    // DEPENDENT CREDIT?
+
+    //if (!isNaN(agi)) {
+        document.getElementById("total_income").innerHTML="Total Income is " + total_income;
+        document.getElementById("magi").innerHTML="MAGI is " + magi;
+        document.getElementById("agi").innerHTML="AGI is " + agi;
+        document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
+        document.getElementById("taxable_income").innerHTML="Taxable Income is " + taxable_income;
+        document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
+        //document.getElementById("iso_spread_subtotal").innerHTML="ISO Spread is " + iso_spread_subtotal;
+        //document.getElementById("amti").innerHTML="AMT Taxable Income is " + amti;
+        //document.getElementById("amt_deduction").innerHTML="Your AMT deduction is " + amt_deduction;
+        //document.getElementById("amti_final").innerHTML="Final AMT Taxable Income is " + amti_final;
+        //document.getElementById("amt_tax_owed").innerHTML="AMT tax owed is " + amt_tax_owed;
+        document.getElementById("max_shares_exercisable").innerHTML= "With the tax information you have input, you would be able to exercise " + max_shares_exercisable + " options this year at a strike price of " + strike_price + " dollars and at a FMV of " + fmv + " and not trigger AMT.";
+        //document.getElementById("placeholder").innerHTML= max_shares_exercisable;
+
+    //}
+    }
+</script>

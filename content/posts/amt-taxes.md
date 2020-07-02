@@ -251,11 +251,11 @@ But do you actually need to pay that **$7,813?**
 
 It all depends if this number is greater than or less than your regular income tax! There are many websites that show you how to calculate the regular income tax you may owe, so I won't go into detail here. Using all the same parameters that we have used throughout this example:
 
-Take my word for it, but your regular income tax would come out to: **$10,181**
+Take my word for it, but your regular income tax would come out to: **$14,391**
 
  Step 9: So... what do I owe?
 ----
-You would owe: $10,181
+You would owe: $14,391
 
 Because your AMT comes out to less than your Regular Income Tax, you wouldn't need to worry about your AMT at all! Just pay your regular income tax as you normally would, and you'll be good to go. 
 

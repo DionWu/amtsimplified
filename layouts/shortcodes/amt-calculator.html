@@ -1,4 +1,3 @@
-
 <label for="filing_status">Choose your Filing Status</label>
 <select name="filing_status" id="filing_status">
   <option value="single">Single</option>
@@ -7,28 +6,30 @@
 </select> <br><br>
 Salary <input type="text" value="0" class="calculate-form" id="salary"><br>
 Capital Gains <input type="text" value="0" class="calculate-form" id="capital-gains"><br>
-<h3 id="total_income"> </h3>
+<h4 id="total_income"> </h4>
 Traditional 401k <input type="text" value="0" class="calculate-form" id="trad-401k"><br>
 HSA <input type="text" value="0" class="calculate-form" id="hsa"><br>
-<h3 id="magi"> </h3>
+<h4 id="magi"> </h4>
 Traditional IRA <input type="text" value="0" class="calculate-form" id="trad-ira"><br>
 Student Loan Interest <input type="text" value="0" class="calculate-form" id="sli"><br>
-<h3 id="agi"> </h3>
-<!--Standard Deduction <input type="text" value="0" class="calculate-form" id="standard-deduction"><br>-->
+<h4 id="agi"> </h4>
 Medical Expenses <input type="text" value="0" class="calculate-form" id="medical-expenses"><br>
 SALT <input type="text" value="0" class="calculate-form" id="salt"><br>
 Mortgage Interest <input type="text" value="0" class="calculate-form" id="mortgage-interest"><br>
-<h3 id="final_deduction"> </h3>
-<h3 id="taxable_income"> </h3>
+<h4 id="final_deduction"> </h4>
+<h4 id="taxable_income"> </h4>
+<h4 id="regular_income_tax"></h4>
 Shares Exercised <input type="text" value="0" class="calculate-form" id="shares-exercised"><br>
 Strike Price <input type="text" value="0" class="calculate-form" id="strike-price"><br>
 Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><br>
-<h3 id="iso_spread_subtotal"> </h3>
-<h3 id="amti"> </h3>
-<h3 id="amt_deduction"> </h3>
-<h3 id="amti_final"> </h3>
-<h3 id="amt_tax_owed"> </h3>
+<h4 id="iso_spread_subtotal"> </h4>
+<h4 id="amti"> </h4>
+<h4 id="amt_deduction"> </h4>
+<h4 id="amti_final"> </h4>
+<h4 id="amt_tax_owed"> </h4>
+<h4 id="tax_confirmation_phrase"> </h4>
 
+<!--<h2 id="placeholder"></h2>-->
 <button onclick="calculate_taxes()"> Calculate </button>
 
 <script>
@@ -45,8 +46,10 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
       var sli_phase = 70000;
       var sli_max = 85000;
       var sli_divider = 15000;
- //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
+      //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
       var hsa_limit = 3550;
+      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,518400];
+
     } else if (filing_status == 'married_separately') {
       var amt_deduction=56700;
       var amt_phase = 518400;
@@ -57,6 +60,8 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
       var sli_max = 0;
       var sli_divider = 0;
       var hsa_limit = 7100;
+      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,311025];
+
     } else if (filing_status == 'married') {
       var amt_deduction=113400;
       var amt_phase = 1036800;
@@ -67,6 +72,8 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
       var sli_max = 170000;
       var sli_divider = 30000;
       var hsa_limit = 7100;
+      var reg_income_tax_bracket = [0,19750,80250,171050,326600,414700,622050];
+
     }
 
     var salary=document.getElementById("salary").value;
@@ -138,10 +145,24 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
     var taxable_income = agi - regular_deduction_final;
     
     // CALCULATE REGULAR TAXES
+    var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+    // Returns index of first tax bracket threshold greater than taxable_income, so subtract 1 (JS is index 0)
+    var taxable_income_index = reg_income_tax_bracket.findIndex(function(number) {
+        return number > taxable_income;
+    }) - 1;
+    
+    var regular_income_tax = 0;
+    for (var i = taxable_income_index; i >= 0; i--) {
+        if (i == taxable_income_index) {
+            regular_income_tax += reg_income_tax_rate[taxable_income_index] * (taxable_income - reg_income_tax_bracket[taxable_income_index]);
+        } else {
+            regular_income_tax += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
+        }
+    }
 
     // Calculate ISO Spread
     var iso_spread_subtotal = parseFloat(shares_exercised) * (parseFloat(fmv) - parseFloat(strike_price));
-    // Calculate AMTI (before AMT deduction)
+    // Calculate AMTI (before AMT exemption)
     if (deduction_category == 'Standard Deduction') {
       var amti = taxable_income + iso_spread_subtotal + standard_deduction;
     } else {
@@ -163,6 +184,13 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
     } else {
       var amt_tax_owed = amti_final * 0.26;
     }
+
+    if (regular_income_tax >= amt_tax_owed) {
+      var tax_confirmation_phrase = "Because your Regular Income Tax is more than your AMT, you do not need to pay any additional AMT!";
+    } else {
+      var tax_diff = amt_tax_owed - regular_income_tax;
+      var tax_confirmation_phrase = `Because your AMT is greater than your Regular Income Tax, you will need to pay ${tax_diff} more in taxes this year`;
+    }
     
     // AMT CREDIT?
     // DEPENDENT CREDIT?
@@ -173,11 +201,14 @@ Fair Market Value <input type="text" value="0" class="calculate-form" id="fmv"><
         document.getElementById("agi").innerHTML="AGI is " + agi;
         document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
         document.getElementById("taxable_income").innerHTML="Taxable Income is " + taxable_income;
+        document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
         document.getElementById("iso_spread_subtotal").innerHTML="ISO Spread is " + iso_spread_subtotal;
         document.getElementById("amti").innerHTML="AMT Taxable Income is " + amti;
         document.getElementById("amt_deduction").innerHTML="Your AMT deduction is " + amt_deduction;
         document.getElementById("amti_final").innerHTML="Final AMT Taxable Income is " + amti_final;
-        document.getElementById("amt_tax_owed").innerHTML="AMT tax owed is " + amt_tax_owed;
+        document.getElementById("amt_tax_owed").innerHTML="AMT owed is " + amt_tax_owed;
+        document.getElementById("tax_confirmation_phrase").innerHTML= tax_confirmation_phrase;
+        //document.getElementById("placeholder").innerHTML= taxable_income_index;
 
     //}
     }
