@@ -267,4 +267,4 @@ This exercise is most useful if you want to plan for how much of your ISO to exe
 
 ------
 
-In conclusion, I hope this was helpful! Please feel free to submit any additional questions you may have to an email that is soon to come...
+In conclusion, I hope this was helpful! If you have any additional questions, feel free to email us at amtsimplified@gmail.com. We'd love to hear from you!
