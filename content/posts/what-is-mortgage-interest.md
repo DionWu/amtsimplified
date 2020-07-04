@@ -3,6 +3,7 @@ title: What is the Mortgage Interest Deduction?
 description: Details, caveats, and limitations on the mortgage interest deduction
 weight: 5
 ---
+_Please note details in this article are relevant for the 2020 tax year (filing in 2021)_
 
 Quick Summary
 ====
@@ -83,3 +84,5 @@ Each method has some basic assumptions you need to satisfy in order to do them, 
 Calculating your mortgage interest deduction is not just useful to calculating your regular taxes, but also for determining if you owe any AMT. To find out more, [you can use our handy calculator here](/amt-calculator). 
 
 In addition, your mortgage interest deduction is important in planning out how much ISOs you would want to exercise in a given year to avoid having to pay AMT, if your company grants ISOs. [Our planner factors in all of that as well!](/iso-exercise-planner)
+
+Additional questions? Please feel free to email us at amtsimplified@gmail.com

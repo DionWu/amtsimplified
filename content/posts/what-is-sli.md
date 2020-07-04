@@ -5,8 +5,6 @@ weight: 4
 ---
 _Please note details in this article are relevant for the 2020 tax year (filing in 2021)_
 
-_In addition, this article only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions_
-
 Quick Summary
 ====
 
@@ -16,7 +14,7 @@ Quick Summary
 
 Do I Qualify?
 ====
-Honestly, you really should refer to the [IRS's own student loan interest helper here](https://www.irs.gov/help/ita/can-i-claim-a-deduction-for-student-loan-interest). But if you want a high level list of qualifications, they are:
+Honestly, you really should refer to the [IRS\'s own student loan interest helper here](https://www.irs.gov/help/ita/can-i-claim-a-deduction-for-student-loan-interest). But if you want a high level list of qualifications, they are:
 
 - You actually paid interest on a qualified student loan (most of your higher level education loans)
 - You are filing as 'Single' or 'Married, Filing Jointly'
@@ -108,3 +106,5 @@ That means when Karen is filing out her tax form, or when her program is calcula
 If you don't want to deal with all of this, and you'd rather have an easy, automated calculator that just factors in your student loan interest when calculating your AMT, [you can use our handy dandy tool here](/amt-calculator). 
 
 In addition your student loan interest is important in planning out how much ISOs you would want to exercise in a given year to avoid having to pay AMT, and [this planner does all the math behind the scenes too!](/iso-exercise-planner)
+
+Additional questions? Please feel free to email us at amtsimplified@gmail.com

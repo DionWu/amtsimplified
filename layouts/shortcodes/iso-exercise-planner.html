@@ -6,31 +6,53 @@
   <option value="married_separately">Married, Filing Separately</option>
   <option value="married">Married, Filing Together</option>
 </select> <br><br>
-Salary <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="salary"><p class="amt-calculator-validation-p" id="salary-p"></p><br>
-Capital Gains <input type="text" value="0" class="calculate-form" id="capital-gains">
+<div class="calculator-input-text">Salary: 
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salary"> <p class="calculator-validation-p" id="salary-p"></p><br>
+
+<div class="calculator-input-text">Capital Gains: </div>
+<input type="number" placeholder="0" class="calculate-form" id="capital-gains"><br>
+
 <h4 id="total_income"> </h4>
-Traditional 401k <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="trad-401k"><p class="amt-calculator-validation-p" id="trad-401k-p"></p><br>
-HSA <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="hsa"><p class="amt-calculator-validation-p" id="hsa-p"></p><br>
-<h4 id="magi"> </h4>
-Traditional IRA <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="amt-calculator-validation-p" id="trad-ira-p"></p><br>
-Student Loan Interest <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="amt-calculator-validation-p" id="sli-p"></p><br>
+<div class="calculator-input-text">Traditional 401k Contributions: </div> 
+<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-401k"><p class="calculator-validation-p" id="trad-401k-p"></p><br>
+
+<div class="calculator-input-text">HSA Contributions: </div>
+<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="hsa"><p class="calculator-validation-p" id="hsa-p"></p><br>
+<!--<h4 id="magi"> </h4>-->
+<div class="calculator-input-text">Traditional IRA Contributions: </div>
+<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="calculator-validation-p" id="trad-ira-p"></p><br>
+
+<div class="calculator-input-text calculator-tooltip">Student Loan Interest Paid: 
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-sli">Read More Here</a></span>
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="calculator-validation-p" id="sli-p"></p><br>
+
 <h4 id="agi"> </h4>
-<!--Standard Deduction <input type="text" value="0" class="calculate-form" id="standard-deduction"><br>-->
-Medical Expenses <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="amt-calculator-validation-p" id="medical-expenses-p"></p><br>
-SALT <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="amt-calculator-validation-p" id="salt-p"></p><br>
-Mortgage Interest <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="amt-calculator-validation-p" id="mortgagage-interest-p"></p><br>
+<div class="calculator-input-text calculator-tooltip">Medical Expenses: 
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-medical-expense">Read More Here</a></span>
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="calculator-validation-p" id="medical-expenses-p"></p><br>
+<div class="calculator-input-text calculator-tooltip">State and Local Tax (SALT): 
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-salt">Read More Here</a></span>
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="calculator-validation-p" id="salt-p"></p><br>
+<div class="calculator-input-text calculator-tooltip">Mortgage Interest Paid: 
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-mortgage-interest">Read More Here</a></span>
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="calculator-validation-p" id="mortgage-interest-p"></p><br>
+
 <h4 id="final_deduction"> </h4>
 <h4 id="taxable_income"> </h4>
 <h4 id="regular_income_tax"></h4>
+
 <h3> Step 2: Input ISO Details </h3>
-<!--Shares Able to be Exercised <input type="text" value="0" class="calculate-form" id="shares-able-exercise"><br>-->
-Strike Price <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="strike-price"><p class="amt-calculator-validation-p" id="strike-price-p"></p><br>
-Fair Market Value <input type="text" value="0" class="calculate-form" onchange=check_min(this) id="fmv"><p class="amt-calculator-validation-p" id="fmv-p"></p><br>
+<div class="calculator-input-text">Strike Price: </div>
+<input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price"><p class="calculator-validation-p" id="strike-price-p"></p><br>
+<div class="calculator-input-text">Fair Market Value: </div>
+<input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="fmv"><p class="calculator-validation-p" id="fmv-p"></p><br>
+
 <!--<h4 id="iso_spread_subtotal"> </h4>
 <h4 id="amti"> </h4>
 <h4 id="amt_deduction"> </h4>
 <h4 id="amti_final"> </h4>
 <h4 id="amt_tax_owed"> </h4>-->
+
 <input type="button" onclick="calculate_taxes()" value="Calculate">
 </form>
 <h3> Results: </h3>
@@ -235,7 +257,7 @@ Fair Market Value <input type="text" value="0" class="calculate-form" onchange=c
 
     //if (!isNaN(agi)) {
         document.getElementById("total_income").innerHTML="Total Income is " + total_income;
-        document.getElementById("magi").innerHTML="MAGI is " + magi;
+        //document.getElementById("magi").innerHTML="MAGI is " + magi;
         document.getElementById("agi").innerHTML="AGI is " + agi;
         document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
         document.getElementById("taxable_income").innerHTML="Taxable Income is " + taxable_income;

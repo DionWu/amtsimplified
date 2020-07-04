@@ -10,20 +10,47 @@
     }
 
     /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
 
-    .amt-calculator-validation-p {
+    .calculator-input-text {
+        display: inline-block;
+    }
+    .calculator-validation-p {
         display: inline;
         color: red;
+    }
+    .calculator-tooltip {
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .calculator-tooltip .calculator-tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    /*margin: -50px 0 0 -20px;*/
+    padding: 5px 0;
+    border-radius: 6px;
+    
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .calculator-tooltip:hover .calculator-tooltip-text {
+    visibility: visible;
     }
 </style>
 

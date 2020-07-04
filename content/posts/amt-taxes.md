@@ -1,6 +1,6 @@
 ---
 title: How to Calculate the Alternative Minimum Tax
-description: AKA How the 'AMT sausage' is made
+description: Detailed step by step guide with an example
 weight: 3
 ---
 _Please note details in this article are relevant for the 2020 tax year (filing in 2021)_

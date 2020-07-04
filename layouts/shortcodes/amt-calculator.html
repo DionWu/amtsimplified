@@ -5,24 +5,49 @@
     <option value="married_separately">Married, Filing Separately</option>
     <option value="married">Married, Filing Together</option>
   </select> <br><br>
-  Salary <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salary"> <p class="amt-calculator-validation-p" id="salary-p"></p><br>
-  Capital Gains <input type="number" placeholder="0" class="calculate-form" id="capital-gains"><br>
+
+  <div class="calculator-input-text">Salary: 
+  </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salary"> <p class="calculator-validation-p" id="salary-p"></p><br>
+  
+  <div class="calculator-input-text">Capital Gains: </div>
+  <input type="number" placeholder="0" class="calculate-form" id="capital-gains"><br>
+
   <h4 id="total_income"> </h4>
-  Traditional 401k <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-401k"><p class="amt-calculator-validation-p" id="trad-401k-p"></p><br>
-  HSA <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="hsa"><p class="amt-calculator-validation-p" id="hsa-p"></p><br>
+  <div class="calculator-input-text">Traditional 401k Contributions: </div> 
+  <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-401k"><p class="calculator-validation-p" id="trad-401k-p"></p><br>
+  
+  <div class="calculator-input-text">HSA Contributions: </div>
+  <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="hsa"><p class="calculator-validation-p" id="hsa-p"></p><br>
   <!--<h4 id="magi"> </h4>-->
-  Traditional IRA <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="amt-calculator-validation-p" id="trad-ira-p"></p><br>
-  Student Loan Interest <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="amt-calculator-validation-p" id="sli-p"></p><br>
+  <div class="calculator-input-text">Traditional IRA Contributions: </div>
+  <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="calculator-validation-p" id="trad-ira-p"></p><br>
+  
+  <div class="calculator-input-text calculator-tooltip">Student Loan Interest Paid: 
+    <span class="calculator-tooltip-text"><a href="/posts/what-is-sli">Read More Here</a></span>
+  </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="calculator-validation-p" id="sli-p"></p><br>
+  
   <h4 id="agi"> </h4>
-  Medical Expenses <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="amt-calculator-validation-p" id="medical-expenses-p"></p><br>
-  SALT <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="amt-calculator-validation-p" id="salt-p"></p><br>
-  Mortgage Interest <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="amt-calculator-validation-p" id="mortgage-interest-p"></p><br>
+  <div class="calculator-input-text calculator-tooltip">Medical Expenses: 
+    <span class="calculator-tooltip-text"><a href="/posts/what-is-medical-expense">Read More Here</a></span>
+  </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="calculator-validation-p" id="medical-expenses-p"></p><br>
+  <div class="calculator-input-text calculator-tooltip">State and Local Tax (SALT): 
+    <span class="calculator-tooltip-text"><a href="/posts/what-is-salt">Read More Here</a></span>
+  </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="calculator-validation-p" id="salt-p"></p><br>
+  <div class="calculator-input-text calculator-tooltip">Mortgage Interest Paid: 
+    <span class="calculator-tooltip-text"><a href="/posts/what-is-mortgage-interest">Read More Here</a></span>
+  </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="calculator-validation-p" id="mortgage-interest-p"></p><br>
+  
   <h4 id="final_deduction"> </h4>
   <h4 id="taxable_income"> </h4>
   <h4 id="regular_income_tax"></h4>
-  Shares Exercised <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="shares-exercised"><p class="amt-calculator-validation-p" id="shares-exercised-p"></p><br>
-  Strike Price <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price"><p class="amt-calculator-validation-p" id="strike-price-p"></p><br>
-  Fair Market Value <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="fmv"><p class="amt-calculator-validation-p" id="fmv-p"></p><br>
+
+  <div class="calculator-input-text">Shares Exercised: </div>
+  <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="shares-exercised"><p class="calculator-validation-p" id="shares-exercised-p"></p><br>
+  <div class="calculator-input-text">Strike Price: </div>
+  <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price"><p class="calculator-validation-p" id="strike-price-p"></p><br>
+  <div class="calculator-input-text">Fair Market Value: </div>
+  <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="fmv"><p class="calculator-validation-p" id="fmv-p"></p><br>
+  
   <h4 id="iso_spread_subtotal"> </h4>
   <h4 id="amti"> </h4>
   <h4 id="amt_deduction"> </h4>
@@ -30,7 +55,7 @@
   <h4 id="amt_tax_owed"> </h4>
   <h4 id="tax_confirmation_phrase"> </h4>
 
-  <input type="button" id="amt-calculator-submit" onclick=calculate_taxes() value="Calculate my AMT!">
+  <input type="button" id="calculator-submit" onclick=calculate_taxes() value="Calculate my AMT!">
 </form>
 <!--<h2 id="placeholder"></h2>-->
 
@@ -47,6 +72,13 @@
     }
 
     function calculate_taxes() {
+
+    // First clear any error / validation messages. Any further validation below will re-set them if needed
+    var all_validation_messages = document.getElementsByClassName("calculator-validation-p");
+    for (i=0;i<all_validation_messages.length;i++) {
+      all_validation_messages[i].innerHTML = "";
+    }
+
     // Get 'value' of filing status selected to use to set tax limitations by filing status
     var filing_status_obj = document.getElementById("filing_status");
     var filing_status = filing_status_obj.options[filing_status_obj.selectedIndex].value;
@@ -155,6 +187,11 @@
       sli = sli - parseFloat(sli_correction);
       sli = sli.toFixed(2);
     } 
+
+    if (filing_status == 'married_separately') {
+      document.getElementById("sli").value = 0;
+      document.getElementById('sli-p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
+    }
 
     // Calculate AGI
     var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
