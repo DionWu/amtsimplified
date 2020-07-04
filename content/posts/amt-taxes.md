@@ -7,6 +7,8 @@ _Please note details in this article are relevant for the 2020 tax year (filing 
 
 _In addition, this article only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions_
 
+------------------
+
 How to calculate the AMT
 ----
 How the Alternative Minimum Tax is determined can be broken up into a few broad steps:
@@ -148,7 +150,14 @@ The second piece is around your ISO Exercise Spread. The short definition of the
 
 <!--There are many other caveats such as whether you sell any of your exercised options in the same calendar year. For more details, check out this article which explains everything in simple terms!-->
 
-For this example, let's assume you exercised 1,500 options at a strike price of $1.00. At the time of exercising, your company has a Fair Market Value (FMV) of $5.00. Let's calculate the spread.
+It is important to mention a not so well known fact here:
+
+If you exercise options and sell them in the same **calendar year**, those options/stocks are not eliigble for AMT
+----
+
+In other words, you do not include them in the below calculation! But they would, by default, be included in your capital gains line item above (i.e. they would be included in your regular income tax calculation and classified as short term gains, so it's not like you're 'saving' money).
+
+For this example, let's assume you exercised 1,500 options at a strike price of $1.00. At the time of exercising, your company has a Fair Market Value (FMV) of $5.00. And to keep the example simple, you did not sell any of these exercised options this year. Let's calculate the spread.
 
 {{<table "table table-striped table-bordered" >}}
   Line Item | Value 

@@ -7,6 +7,8 @@ _Please note details in this article are relevant for the 2020 tax year (filing 
 
 _In addition, this article only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions_
 
+------------------
+
 Before diving into how the AMT is actually calculated, it may be helpful to visually see the differences between the ordinary income tax that you may be familiar with and the alternative minimum tax. We will dive into each in detail.
 
 [If you just want to know how the taxes are determined, feel free to skip to this article](/posts/amt-taxes)

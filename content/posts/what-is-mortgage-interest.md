@@ -5,6 +5,8 @@ weight: 5
 ---
 _Please note details in this article are relevant for the 2020 tax year (filing in 2021)_
 
+------------------
+
 Quick Summary
 ====
 
