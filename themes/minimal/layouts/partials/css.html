@@ -32,21 +32,26 @@
     border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
     }
 
-    /* Tooltip text */
+    /*Tooltip text */
     .calculator-tooltip .calculator-tooltip-text {
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #fff;
+    color: white;
     text-align: center;
-    /*margin: -50px 0 0 -20px;*/
+    margin: -30px;
     padding: 5px 0;
     border-radius: 6px;
-    
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
+    } 
+
+
+    /* change default link color of tooltip to white */
+    .calculator-tooltip .calculator-tooltip-text a{
+    color: white;
     }
+
 
     /* Show the tooltip text when you mouse over the tooltip container */
     .calculator-tooltip:hover .calculator-tooltip-text {

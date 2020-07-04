@@ -22,19 +22,23 @@
 <div class="calculator-input-text">Traditional IRA Contributions: </div>
 <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="calculator-validation-p" id="trad-ira-p"></p><br>
 
-<div class="calculator-input-text calculator-tooltip">Student Loan Interest Paid: 
-  <span class="calculator-tooltip-text"><a href="/posts/what-is-sli">Read More Here</a></span>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-sli" target="_blank">Learn about the SLI Deduction</a></span>
+  Student Loan Interest Paid: 
 </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="calculator-validation-p" id="sli-p"></p><br>
 
 <h4 id="agi"> </h4>
-<div class="calculator-input-text calculator-tooltip">Medical Expenses: 
-  <span class="calculator-tooltip-text"><a href="/posts/what-is-medical-expense">Read More Here</a></span>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-medical-expense" target="_blank">Learn about medical expenses</a></span>
+  Medical Expenses: 
 </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="calculator-validation-p" id="medical-expenses-p"></p><br>
-<div class="calculator-input-text calculator-tooltip">State and Local Tax (SALT): 
-  <span class="calculator-tooltip-text"><a href="/posts/what-is-salt">Read More Here</a></span>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-salt" target="_blank">Read about the SALT</a></span>
+  State and Local Tax (SALT): 
 </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="calculator-validation-p" id="salt-p"></p><br>
-<div class="calculator-input-text calculator-tooltip">Mortgage Interest Paid: 
-  <span class="calculator-tooltip-text"><a href="/posts/what-is-mortgage-interest">Read More Here</a></span>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-mortgage-interest" target="_blank">Learn about your mortgage interest</a></span>
+  Mortgage Interest Paid: 
 </div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="calculator-validation-p" id="mortgage-interest-p"></p><br>
 
 <h4 id="final_deduction"> </h4>
@@ -256,11 +260,11 @@
     // DEPENDENT CREDIT?
 
     //if (!isNaN(agi)) {
-        document.getElementById("total_income").innerHTML="Total Income is " + total_income;
+        document.getElementById("total_income").innerHTML="Your Total Income is " + total_income;
         //document.getElementById("magi").innerHTML="MAGI is " + magi;
-        document.getElementById("agi").innerHTML="AGI is " + agi;
+        document.getElementById("agi").innerHTML="Your Adjusted Gross Income (AGI) is " + agi;
         document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
-        document.getElementById("taxable_income").innerHTML="Taxable Income is " + taxable_income;
+        document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
         document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
         //document.getElementById("iso_spread_subtotal").innerHTML="ISO Spread is " + iso_spread_subtotal;
         //document.getElementById("amti").innerHTML="AMT Taxable Income is " + amti;
