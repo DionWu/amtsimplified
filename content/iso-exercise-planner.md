@@ -1,6 +1,6 @@
 ---
 title: ISO Exercise Planner
-description: A tool to plan out how much and when to exercise ISOs to minimize AMT
+description: A tool to minimize AMT by calculating how many ISOs you can exercise
 ---
 _Please note details in this article are relevant for the 2020 tax year (filing in 2021)_
 
@@ -8,7 +8,7 @@ _Please note details in this article are relevant for the 2020 tax year (filing 
 
 ------------------
 
-Calculate how much ISOs you can exercise without having to pay the AMT
+Calculate how many ISOs you can exercise without having to pay the AMT
 ----
 
 **Instructions:** Fill in the below information with either real numbers (if you know them) or estimates of how much each line item will be for the given year.

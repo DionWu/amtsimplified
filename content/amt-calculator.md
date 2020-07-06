@@ -11,7 +11,9 @@ _Please note details in this article are relevant for the 2020 tax year (filing 
 Calculate how much AMT you may owe
 ----
 
-**Instructions:** Fill in the below information with either real numbers (if you know them) or estimates of how much each line item will be for the given year.
+**Instructions:** Fill in the below information with either real numbers (if you know them) or estimates of how much each line item will be for the given year. 
+
+This calculator is only relevant if you exercised Incentive Stock Options (ISO). 
 
 _This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions_
 
