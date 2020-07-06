@@ -9,7 +9,7 @@ Hi, I'm Dion. The way I found out about AMT was likely the same way you found ou
 
 - [What AMT is](/posts/amt-introduction)
 - [How it is calculated,](/posts/amt-taxes) and
-- [How I can avoid having to pay the AMT again the next year, namely via ISO exercise planning](/iso-exercise-planner)
+- [How you can avoid having to pay the AMT again next year, via planning how much ISOs to exercise](/iso-exercise-planner)
 
 This obscure tax system rarely impacts the vast majority of people, so there are very few resources on the subject. Even the sites that write about AMT all seem to just copy and paste from one another - no one seems to go into any granular details about how it actually works.  Working in Tech myself, this disproportionately affects a significant amount of my friends and colleagues. And in talking to those folks, everyone seems to have the same issues around lack of education and resources. 
 

@@ -54,7 +54,9 @@
   <option value="iso_forms_count_three">3</option>
 </select> 
 <div id="iso-form-container-for-all">
-  <br><div class="calculator-input-text">Fair Market Value: </div>
+  <br><div class="calculator-input-text calculator-tooltip">
+    <span class="calculator-tooltip-text">Enter the current FMV or your best estimate for when you plan to exercise </span>
+    Fair Market Value: </div>
     <input type="number" placeholder="0.00" class="calculate-form required_field" onchange=check_min(this) id="fmv" ><p class="calculator-validation-p" id="fmv-p"></p><br>
   
     <div class ="iso-form-containers" id="iso-form-container-1">
@@ -198,17 +200,24 @@
 
 
   function check_min(input) {
-      var input_id = document.getElementById(input.id).id;
-      var p_id = input_id.concat('-p');
-      if (input.value < 0) {
-        input.value = "";
-        document.getElementById(p_id).innerHTML = "This number must not be negative";
-      } else {
-        document.getElementById(p_id).innerHTML = "";
-      }
+    var input_id = document.getElementById(input.id).id;
+    var p_id = input_id.concat('-p');
+    if (input.value < 0) {
+      input.value = "";
+      document.getElementById(p_id).innerHTML = "This number must not be negative";
+    } else {
+      document.getElementById(p_id).innerHTML = "";
     }
+  }
+  
+  var currency_formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
 
-    function calculate_taxes() {
+  var number_formatter = new Intl.NumberFormat('en-US');
+
+  function calculate_taxes() {
 
     // First clear any error / validation messages. Any further validation below will re-set them if needed
     var all_validation_messages = document.getElementsByClassName("calculator-validation-p");
@@ -378,12 +387,14 @@
     }) - 1;
     
     var regular_income_tax = 0;
-    for (var i = taxable_income_index; i >= 0; i--) {
-        if (i == taxable_income_index) {
-            regular_income_tax += reg_income_tax_rate[taxable_income_index] * (taxable_income - reg_income_tax_bracket[taxable_income_index]);
-        } else {
-            regular_income_tax += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
-        }
+    if (taxable_income > 0) {
+      for (var i = taxable_income_index; i >= 0; i--) {
+          if (i == taxable_income_index) {
+              regular_income_tax += reg_income_tax_rate[taxable_income_index] * (taxable_income - reg_income_tax_bracket[taxable_income_index]);
+          } else {
+              regular_income_tax += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
+          }
+      }
     }
 
     // Calculate AMTI Baseline (before ISO spread, AMT exemption)
@@ -424,138 +435,163 @@
     // Display result message
     // If user did not enter anything (submitted all with 0s or 0.00s)
     if (iso_input_array.every(function(i) {return i === 0;} )) {
-        var result_validation_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
+      var result_validation_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
+      //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
+      regular_income_tax = currency_formatter.format(regular_income_tax);
     // Else if user somehow entered FMV and strike prices that were the same
     } else if (iso_spread_array.every(function(i) {return i === 0;} )) {
-        var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT!";
+      var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT!";
+      //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
+      regular_income_tax = currency_formatter.format(regular_income_tax);
     // Calculate the total ISO Spread allowed (the spread resulting in no diff between regular income tax and the tax you would pay for AMT)
     } else {
 
-        // Determine how much wiggle room you have before hitting the 28% threshold
-        var iso_subtotal_1 = shares_exercisable_1_parsed * iso_spread_pershare_1;
-        var iso_subtotal_2 = shares_exercisable_2_parsed * iso_spread_pershare_2;
-        var iso_subtotal_3 = shares_exercisable_3_parsed * iso_spread_pershare_3;
-        var iso_subtotal_all = iso_subtotal_1 + iso_subtotal_2 + iso_subtotal_3;
-        var iso_spread_threshold = amt_tax_brackets - (amti_baseline + iso_subtotal_all - amt_deduction);
-        // If iso_spread_threshold is negative, that means there is the possibility you exceed the amt_tax_bracket threshold, so you should use the 28% calculator
-        if (iso_spread_threshold < 0) {
-          var iso_spread_allowed =  (regular_income_tax - amt_tax_brackets * 0.26) / 0.28 + amt_tax_brackets + amt_deduction - amti_baseline;
+      // Determine how much wiggle room you have before hitting the 28% threshold
+      var iso_subtotal_1 = shares_exercisable_1_parsed * iso_spread_pershare_1;
+      var iso_subtotal_2 = shares_exercisable_2_parsed * iso_spread_pershare_2;
+      var iso_subtotal_3 = shares_exercisable_3_parsed * iso_spread_pershare_3;
+      var iso_subtotal_all = iso_subtotal_1 + iso_subtotal_2 + iso_subtotal_3;
+      var iso_spread_threshold = amt_tax_brackets - (amti_baseline + iso_subtotal_all - amt_deduction);
+      // If iso_spread_threshold is negative, that means there is the possibility you exceed the amt_tax_bracket threshold, so you should use the 28% calculator
+      if (iso_spread_threshold < 0) {
+        var iso_spread_allowed =  (regular_income_tax - amt_tax_brackets * 0.26) / 0.28 + amt_tax_brackets + amt_deduction - amti_baseline;
+      } else {
+        var iso_spread_allowed =  regular_income_tax / 0.26 - amti_baseline + amt_deduction;
+      }
+      // If the total amount of ISOs you can exercise is less than what is allowed, you can exercise them all
+      if (iso_subtotal_all <= iso_spread_allowed) {
+        var famti = amti_baseline + iso_subtotal_all - amt_deduction;
+        if (famti - amt_tax_brackets > 0) {
+          var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
         } else {
-          var iso_spread_allowed =  regular_income_tax / 0.26 - amti_baseline + amt_deduction;
+          var amt_taxes_owed = famti * 0.26;
         }
-        // If the total amount of ISOs you can exercise is less than what is allowed, you can exercise them all
-        if (iso_subtotal_all <= iso_spread_allowed) {
-          var famti = amti_baseline + iso_subtotal_all - amt_deduction;
-          if (famti - amt_tax_brackets > 0) {
-            var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
-          } else {
-            var amt_taxes_owed = famti * 0.26;
-          }
+        amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
+        regular_income_tax = currency_formatter.format(regular_income_tax);
+
+        var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
+        var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
+        var shares_to_exercise_allowed_from3 = shares_exercisable_3_parsed;
+        var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
+        var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;
+        
+        var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+      // Else, return how many of each lot to exercise, going from oldest to newest    
+      } else {
+        if (iso_subtotal_1 > iso_spread_allowed) {
+          var shares_to_exercise_allowed_from1 = Math.floor(iso_spread_allowed / iso_spread_pershare_1);
+          var shares_to_exercise_allowed_from2 = 0;
+          var shares_to_exercise_allowed_from3 = 0;
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1;
+          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed;
+          var famti = amti_baseline - amt_deduction + shares_to_exercise_allowed * iso_spread_pershare_1;
+        } else if (iso_subtotal_2 + iso_subtotal_1 > iso_spread_allowed) {
+          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1;
+          var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
+          var shares_to_exercise_allowed_from2 = Math.floor(iso_spread_remaining / iso_spread_pershare_2);
+          var shares_to_exercise_allowed_from3 = 0;
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2;
+          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed;
+          var famti = amti_baseline - amt_deduction + iso_subtotal_1 + shares_to_exercise_allowed_from2 * iso_spread_pershare_2;
+        } else {
+          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1 - iso_subtotal_2;
           var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
           var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
-          var shares_to_exercise_allowed_from3 = shares_exercisable_3_parsed;
+          var shares_to_exercise_allowed_from3 = Math.floor(iso_spread_remaining / iso_spread_pershare_3);
           var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
-          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;
-          var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
-        // Else, return how many of each lot to exercise, going from oldest to newest    
+          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;;
+          var famti = amti_baseline - amt_deduction + iso_subtotal_1 + iso_subtotal_2 + shares_to_exercise_allowed_from3 * iso_spread_pershare_3;
+        }
+        if (famti - amt_tax_brackets > 0) {
+          var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
         } else {
-            if (iso_subtotal_1 > iso_spread_allowed) {
-                var shares_to_exercise_allowed_from1 = Math.floor(iso_spread_allowed / iso_spread_pershare_1);
-                var shares_to_exercise_allowed_from2 = 0;
-                var shares_to_exercise_allowed_from3 = 0;
-                var shares_to_exercise_allowed = shares_to_exercise_allowed_from1;
-                var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed;
-                var famti = amti_baseline - amt_deduction + shares_to_exercise_allowed * iso_spread_pershare_1;
-            } else if (iso_subtotal_2 + iso_subtotal_1 > iso_spread_allowed) {
-                var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1;
-                var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
-                var shares_to_exercise_allowed_from2 = Math.floor(iso_spread_remaining / iso_spread_pershare_2);
-                var shares_to_exercise_allowed_from3 = 0;
-                var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2;
-                var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed;
-                var famti = amti_baseline - amt_deduction + iso_subtotal_1 + shares_to_exercise_allowed_from2 * iso_spread_pershare_2;
-            } else {
-                var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1 - iso_subtotal_2;
-                var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
-                var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
-                var shares_to_exercise_allowed_from3 = Math.floor(iso_spread_remaining / iso_spread_pershare_3);
-                var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
-                var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;;
-                var famti = amti_baseline - amt_deduction + iso_subtotal_1 + iso_subtotal_2 + shares_to_exercise_allowed_from3 * iso_spread_pershare_3;
-            }
-            if (famti - amt_tax_brackets > 0) {
-              var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
-            } else {
-              var amt_taxes_owed = famti * 0.26;
-            }
-            var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+          var amt_taxes_owed = famti * 0.26;
         }
-        
-        //var result_validation_message = "Based on the above inputs, the total value of your ISO Spread, multiplied by shares exercised is: " + iso_spread_allowed;
+        amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
+        regular_income_tax = currency_formatter.format(regular_income_tax);
+        shares_to_exercise_allowed_formatted = number_formatter.format(shares_to_exercise_allowed);
+        var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+      }
 
-        // Populate Results Table dynamically
-        document.getElementById("iso-planner-result-table").classList.remove("hidden");
-        if (iso_form_count == "iso_forms_count_one") {
-          document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
-          document.getElementById("iso-planner-result-row-2").classList.add("hidden");
-          document.getElementById("iso-planner-result-row-3").classList.add("hidden");
+      // Calculate cost to exercise and format
+      cost_to_exercise1 = strike_price_1_parsed * shares_to_exercise_allowed_from1;
+      cost_to_exercise2 = strike_price_2_parsed * shares_to_exercise_allowed_from2;
+      cost_to_exercise3 = strike_price_3_parsed * shares_to_exercise_allowed_from3;
+      cost_to_exercise1 = currency_formatter.format(cost_to_exercise1);
+      cost_to_exercise2 = currency_formatter.format(cost_to_exercise2);
+      cost_to_exercise3 = currency_formatter.format(cost_to_exercise3);
+      strike_price_1_parsed = currency_formatter.format(strike_price_1_parsed);
+      strike_price_2_parsed = currency_formatter.format(strike_price_2_parsed);
+      strike_price_3_parsed = currency_formatter.format(strike_price_3_parsed);
 
-          document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
-          document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1;
-          document.getElementById("iso-planner-result-cost_1").innerHTML = strike_price_1_parsed * shares_to_exercise_allowed_from1;
+      shares_to_exercise_allowed_from1_formatted = number_formatter.format(shares_to_exercise_allowed_from1);
+      shares_to_exercise_allowed_from2_formatted = number_formatter.format(shares_to_exercise_allowed_from2);
+      shares_to_exercise_allowed_from3_formatted = number_formatter.format(shares_to_exercise_allowed_from3);
+      
+      // Populate Results Table dynamically
+      document.getElementById("iso-planner-result-table").classList.remove("hidden");
+      if (iso_form_count == "iso_forms_count_one") {
+        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-2").classList.add("hidden");
+        document.getElementById("iso-planner-result-row-3").classList.add("hidden");
 
-        } else if (iso_form_count == "iso_forms_count_two") {
-          document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
-          document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
-          document.getElementById("iso-planner-result-row-3").classList.add("hidden");
+        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
+        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
 
-          document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
-          document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1;
-          document.getElementById("iso-planner-result-cost_1").innerHTML = strike_price_1_parsed * shares_to_exercise_allowed_from1;
-          document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
-          document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2;
-          document.getElementById("iso-planner-result-cost_2").innerHTML = strike_price_2_parsed * shares_to_exercise_allowed_from2;
+      } else if (iso_form_count == "iso_forms_count_two") {
+        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-3").classList.add("hidden");
 
-        } else if (iso_form_count == "iso_forms_count_three") {
-          document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
-          document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
-          document.getElementById("iso-planner-result-row-3").classList.remove("hidden");
+        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
+        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
+        document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2_formatted;
+        document.getElementById("iso-planner-result-cost_2").innerHTML = cost_to_exercise2;
 
-          document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
-          document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1;
-          document.getElementById("iso-planner-result-cost_1").innerHTML = strike_price_1_parsed * shares_to_exercise_allowed_from1;
-          document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
-          document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2;
-          document.getElementById("iso-planner-result-cost_2").innerHTML = strike_price_2_parsed * shares_to_exercise_allowed_from2;
-          document.getElementById("iso-planner-result-strike-price_3").innerHTML = strike_price_3_parsed;
-          document.getElementById("iso-planner-result-shares-exercise_3").innerHTML = shares_to_exercise_allowed_from3;
-          document.getElementById("iso-planner-result-cost_3").innerHTML = strike_price_3_parsed * shares_to_exercise_allowed_from3;
-        }
-        // Populate Total Row
-        var average_strike_price = cost_to_exercise / shares_to_exercise_allowed;
-        average_strike_price = average_strike_price.toFixed(2);
-        document.getElementById("iso-planner-result-strike-price_total").innerHTML = "Average: " + average_strike_price;
-        document.getElementById("iso-planner-result-shares-exercise_total").innerHTML = shares_to_exercise_allowed;
-        document.getElementById("iso-planner-result-cost_total").innerHTML = cost_to_exercise;
+      } else if (iso_form_count == "iso_forms_count_three") {
+        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-3").classList.remove("hidden");
+
+        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
+        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
+        document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2_formatted;
+        document.getElementById("iso-planner-result-cost_2").innerHTML = cost_to_exercise2;
+        document.getElementById("iso-planner-result-strike-price_3").innerHTML = strike_price_3_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_3").innerHTML = shares_to_exercise_allowed_from3_formatted;
+        document.getElementById("iso-planner-result-cost_3").innerHTML = cost_to_exercise3;
+      }
+        // Populate Total Row of Results Table
+      var average_strike_price = cost_to_exercise / shares_to_exercise_allowed;
+      average_strike_price = currency_formatter.format(average_strike_price);
+      cost_to_exercise = currency_formatter.format(cost_to_exercise);
+
+      document.getElementById("iso-planner-result-strike-price_total").innerHTML = "Average: " + average_strike_price;
+      document.getElementById("iso-planner-result-shares-exercise_total").innerHTML = shares_to_exercise_allowed_formatted;
+      document.getElementById("iso-planner-result-cost_total").innerHTML = cost_to_exercise;
 
     }
-
-
-
 
     // AMT CREDIT?
     // DEPENDENT CREDIT?
 
-    //if (!isNaN(agi)) {
-        document.getElementById("total_income").innerHTML="Your Total Income is " + total_income;
-        document.getElementById("agi").innerHTML="Your Adjusted Gross Income (AGI) is " + agi;
-        document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
-        document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
-        document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
-        document.getElementById("result_validation_message").innerHTML= result_validation_message;
-//        document.getElementById("placeholder").innerHTML= placeholder;
+    total_income = currency_formatter.format(total_income);
+    agi = currency_formatter.format(agi);
+    regular_deduction_final = currency_formatter.format(regular_deduction_final);
+    taxable_income = currency_formatter.format(taxable_income);
 
+    document.getElementById("total_income").innerHTML="Your Total Income is " + total_income;
+    document.getElementById("agi").innerHTML="Your Adjusted Gross Income (AGI) is " + agi;
+    document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
+    document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
+    document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
+    document.getElementById("result_validation_message").innerHTML= result_validation_message;
+    //document.getElementById("placeholder").innerHTML= placeholder;
 
-    //}
-    }
+  }
 </script>
