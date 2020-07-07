@@ -473,6 +473,7 @@
         var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
         var shares_to_exercise_allowed_from3 = shares_exercisable_3_parsed;
         var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
+        var shares_to_exercise_allowed_formatted = currency_formatter.format(shares_to_exercise_allowed);
         var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;
         
         var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
@@ -517,9 +518,12 @@
       cost_to_exercise1 = strike_price_1_parsed * shares_to_exercise_allowed_from1;
       cost_to_exercise2 = strike_price_2_parsed * shares_to_exercise_allowed_from2;
       cost_to_exercise3 = strike_price_3_parsed * shares_to_exercise_allowed_from3;
+      var cost_to_exercise = cost_to_exercise1 + cost_to_exercise2 + cost_to_exercise3;
+    
       cost_to_exercise1 = currency_formatter.format(cost_to_exercise1);
       cost_to_exercise2 = currency_formatter.format(cost_to_exercise2);
       cost_to_exercise3 = currency_formatter.format(cost_to_exercise3);
+      
       strike_price_1_parsed = currency_formatter.format(strike_price_1_parsed);
       strike_price_2_parsed = currency_formatter.format(strike_price_2_parsed);
       strike_price_3_parsed = currency_formatter.format(strike_price_3_parsed);
