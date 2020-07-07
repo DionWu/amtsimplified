@@ -13,7 +13,7 @@ main {
     margin: auto;
     padding: 25px;
     flex: 1 0 auto;
-    max-width: 750px;
+    max-width: 90%;
 }
 
 img {
@@ -23,17 +23,23 @@ img {
 /* Homepage */
 
 .intro {
-    transform: translateY(22vh);
+    /* transform: translateY(11vh); */
+    margin: 10% 10% 0 10%;
 }
 
 .intro > h1 {
     color: #212121;
-    font-size: 12vh;
+    font-size: 8vh;
 }
 
 .intro > h2 {
     color: #757575;
-    font-size: 3vmin;
+    font-size: 4vh;
+}
+
+#home-nav-button-wrapper {
+    /* transform: translateY(22vh) */
+    margin: 10%;
 }
 
 /* Page content */
