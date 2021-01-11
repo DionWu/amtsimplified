@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>How to Calculate the Alternative Minimum Tax</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Montserrat,sans-serif', sans-serif;
+        background-color: white;
+    }
+    :root {
+        --accent: green;
+        --border-width:  5px ;
+    }
+
+    #homepage-description {
+        color: var(--accent);
+    }
+
+     
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+     
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .calculator-input-text {
+        display: inline-block;
+    }
+    .calculator-validation-p {
+        display: inline;
+        color: red;
+    }
+    .calculator-tooltip {
+    border-bottom: 1px dotted black;  
+    }
+
+     
+    .calculator-tooltip .calculator-tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: -30px;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    } 
+
+
+     
+    .calculator-tooltip .calculator-tooltip-text a{
+    color: white;
+    }
+
+
+     
+    .calculator-tooltip:hover .calculator-tooltip-text {
+    visibility: visible;
+    }
+
+     
+    #iso-planner-result-header {
+        background-color: var(--accent);
+        color: white;
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://amtsimplified.com/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%2csans-serif">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.73.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171252878-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-171252878-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+<script data-ad-client="ca-pub-3493120493138233" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">How to Calculate the Alternative Minimum Tax</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/posts/">Learn about the AMT</a></li>
+                            
+                                <li><a href="/amt-calculator/">AMT Calculator</a></li>
+                            
+                                <li><a href="/iso-exercise-planner/">Incentive Stock Option Tax Planner</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:amtsimplified@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>How to Calculate the Alternative Minimum Tax</h2>
+        <h5>Detailed step by step guide with an example</h5>
+        
+
+    </div>
+
+    <div align="start" class="content"><p><em>Please note details in this article are relevant for the 2020 tax year (filing in 2021)</em></p>
+<p><em>In addition, this article only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions</em></p>
+<hr>
+<h2 id="how-to-calculate-the-amt">How to calculate the AMT</h2>
+<p>How the Alternative Minimum Tax is determined can be broken up into a few broad steps:</p>
+<ol>
+<li>Figure out or estimate your <strong>Total Income</strong></li>
+<li>Subtract <strong>total adjustments</strong> to get your <strong>Adjusted Gross Income (AGI)</strong></li>
+<li>Subtract eligible <strong>deductions</strong> to get your <strong>Alternative Minimum Taxable Income (AMTI)</strong></li>
+<li>Subtract the <strong>AMT exemption</strong>, if eligible, to get your &lsquo;Final Alternative Minimum Taxable Income&rsquo;. Oddly enough, there&rsquo;s actually no formal term for this, so let&rsquo;s just call it <strong>FAMTI</strong></li>
+<li>Calculate your <strong>Alternative Minimum Tax</strong> based on the tax brackets.</li>
+</ol>
+<h2 id="but-actually">But Actually&hellip;</h2>
+<p>In practice, the above process can often be a bit confusing because you are doing things differently than you would when calculating regular taxes. Thus, what is normally done is to add in a few extra steps that will seem a bit circuitous, but will generally be helpful for determining not just your AMTI but also your Regular Income Tax. This can come in handy when wanting to do things such as <a href="/posts/iso-exercise-planner">plan out when to exercise your ISOs</a>
+.</p>
+<p>So instead, we will do the following:</p>
+<ol>
+<li>Figure out or estimate your <strong>Total Income</strong></li>
+<li>Subtract <strong>total adjustments</strong> to get your <strong>Adjusted Gross Income (AGI)</strong></li>
+<li>Figure out if you want to take the <strong>Standard Deduction</strong> or an <strong>Itemized Deduction</strong></li>
+<li>Subtract whichever <strong>Deductions</strong> to get your <strong>Regular Taxable Income</strong></li>
+<li>Figure out your ISO Exercise Spread, and add that alongside certain deductions that are ineligible in the AMT system to determine your <strong>Alternative Minimum Taxable Income (AMTI)</strong>.</li>
+<li>Take your AMTI and subtract the <strong>AMT exemption</strong> to get your &lsquo;Final Alternative Minimum Taxable Income&rsquo; <strong>(FAMTI)</strong></li>
+<li>Calculate your <strong>Alternative Minimum Tax</strong></li>
+<li>Calculate your <strong>Regular Income Tax</strong>, which we won&rsquo;t go over in detail here but is automatically done <a href="/amt-calculator">using our AMT calculator</a>
+</li>
+<li>Figure out which tax is higher. You only need to pay the higher one!</li>
+</ol>
+<h2 id="step-1-figure-out--estimate-your-total-income">Step 1: Figure out / Estimate your Total Income</h2>
+<p>If you&rsquo;re on this website in the midst of tax season and you have all of your financial statements ready, I invite you to pull out those statements and follow alongside me.</p>
+<p>If, however, you are here to plan for any potential tax you may have to owe to Uncle Sam, or are here to <a href="/posts/iso-exercise-planner">plan your ISO exercise schedule</a>
+ and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year&rsquo;s tax return can be helpful.</p>
+<p>We&rsquo;ll start by assessing your total income, which includes not just your salary and wages, but also things such as capital gain/loss from stock or real estate investments, social security benefits, IRA distributions, pensions, etc.</p>
+<p>For the purposes of this example, let&rsquo;s assume:</p>
+<ul>
+<li>You are filing as Single</li>
+<li>You have a salaried job that pays $140,000 a year</li>
+<li>And you have also dabbled around with the stock market, but due to an unforseen global pandemic, you&rsquo;ve lost or are projected to lose a good $20,000 on the year.</li>
+</ul>
+<p>You would end up with the below:</p>
+<p>
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wages, Salaries, Tips</td>
+<td>$140,000</td>
+</tr>
+<tr>
+<td>Capital Loss</td>
+<td>($20,000)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total Income</td>
+<td>$120,000</td>
+</tr>
+</tbody>
+</table>
+
+<em>*Important to note here is that if you contribute to a Traditional 401k through your employer, the actual line item in your W2 for &lsquo;Wages, Salaries, Tips&rsquo; will already reflect those contributions. So for example, if your salary is $140,000 and you are going to contribute the max amount to your 401k in 2020 (19,500), your W2 would report total wages as $120,500.</em></p>
+<p><em>For the purposes of this example, we will use your gross income (before 401k contributions).</em></p>
+<h2 id="step-2-subtract-adjustments-and-get-your-adjusted-gross-income-agi">Step 2: Subtract Adjustments and get your Adjusted Gross Income (AGI)</h2>
+<p>There is a laundry list of possible adjustments that can be found in your 1040 Schedule 1, so we will only use some of the most common. I will also include any Traditional 401k contributions you&rsquo;ve made here as well just to make the math crystal clear.</p>
+<p>Let&rsquo;s say you are a few years out of college in your late 20s so you:</p>
+<ul>
+<li>Maxed out your Traditional 401k through work</li>
+<li>Are in a High Deductible Health Plan and contributing to an HSA,</li>
+<li>Invested in a Roth IRA, to diversify potential tax risk in the future</li>
+<li>And you&rsquo;re still paying off those darn student loans</li>
+</ul>
+<p>Your updated table might look like the following now:</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Income</td>
+<td>$120,000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Adjustment: Traditional 401k</td>
+<td>19,500</td>
+</tr>
+<tr>
+<td>Adjustment: HSA</td>
+<td>3550</td>
+</tr>
+<tr>
+<td>Adjustment: Traditional IRA</td>
+<td>0 (Remember, you&rsquo;re in a Roth IRA)</td>
+</tr>
+<tr>
+<td>Adjustment: Student Loan Interest*</td>
+<td>$500</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Subtract Total Adjustments</td>
+<td>$23,550</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Adjusted Gross Income (AGI)</td>
+<td>$96,950</td>
+</tr>
+</tbody>
+</table>
+
+<!-- raw HTML omitted -->
+<h2 id="step-3-standard-deduction-or-itemized-deduction">Step 3: Standard Deduction or Itemized Deduction?</h2>
+<p>The next step is to determine which deduction to take. If you can itemize a number of eligible deductions such that they all add up to more than the standard deduction, you should take the itemized deduction. If you are unsure which to take, that is fine. Our calculator and most tax programs will do the math for you.</p>
+<p>But as a guideline, here are some of the most common things to look out for that might make it more beneficial for you to itemize, each with articles of how they&rsquo;re calculated:</p>
+<ul>
+<li>A large amount of medical and dental expenses paid</li>
+<li>State and local real estate / property taxes (SALT Tax)</li>
+<li>Home Mortgage interest</li>
+<li>Large amounts of gifts to charity</li>
+</ul>
+<p>For the purposes of this exercise, we&rsquo;ll assume you recently bought a home and have been paying your mortgage, with a large property tax bill coming up. In addition, you don&rsquo;t expect any huge medical or dental procedures this year.</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Deductions</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home Mortgage Interest Paid</td>
+<td>$8,000</td>
+</tr>
+<tr>
+<td>SALT (via property tax)</td>
+<td>$2,500</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total Itemized Deduction</td>
+<td>$10,500</td>
+</tr>
+<tr>
+<td>Standard Deduction</td>
+<td>$12,400</td>
+</tr>
+</tbody>
+</table>
+
+<p>Based on these calculations above, this means you should just take the <strong>standard deduction</strong> to reduce your taxes!</p>
+<h2 id="step-4-subtract-your-deduction-from-your-agi-to-get-your-regular-taxable-income">Step 4: Subtract your deduction from your AGI to get your Regular Taxable Income</h2>
+<p>Remember, this is the &lsquo;taxable income&rsquo; you would use to calculate your Regular Income Tax
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Line Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Income</td>
+<td>$120,000</td>
+</tr>
+<tr>
+<td>Subtract Total Adjustments</td>
+<td>$23,550</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Adjusted Gross Income (AGI)</td>
+<td>$96,950</td>
+</tr>
+<tr>
+<td>Subtract Standard Deduction</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Regular Taxable Income</td>
+<td>$84,550</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h2 id="step-5-figure-out-your-alternative-minimum-taxable-income-amti">Step 5: Figure out your Alternative Minimum Taxable Income (AMTI)</h2>
+<p>Using the Regular Taxable Income we&rsquo;ve determined as the starting point, we need to add in a few things to determine our AMTI. These are commonly <strong>specific ineligible deductions</strong> and your <strong>ISO Exercise Spread</strong>.</p>
+<p>For the first piece, the most common AMT specific ineligible deductions include the below. <a href="/posts/amt-regular-tax-differences">You can read more about the differences here</a>
+.</p>
+<ul>
+<li>Personal Exemptions (which are currently removed from the tax system altogether)</li>
+<li>The Standard Deduction, if you took it. Else, if you took the itemized deduction:</li>
+<li>Medical Expense Deductions</li>
+<li>State and local real estate / property taxes (SALT)</li>
+</ul>
+<p>In our case we, we only took the standard deduction ($12,400) so we only need to worry about that.</p>
+<p>The second piece is around your ISO Exercise Spread. The short definition of the ISO Exercise Spread is the difference between your Strike Price and the Fair Market Value of your company&rsquo;s stock at time of exercise. You then take your spread and multiply it by the number of options exercised. You can think of this almost like the &lsquo;total discount&rsquo; you &lsquo;received&rsquo; when exercising your options.</p>
+<!-- raw HTML omitted -->
+<p>It is important to mention a not so well known fact here:</p>
+<h2 id="if-you-exercise-options-and-sell-them-in-the-same-calendar-year-those-optionsstocks-are-not-eliigble-for-amt">If you exercise options and sell them in the same <strong>calendar year</strong>, those options/stocks are not eliigble for AMT</h2>
+<p>In other words, you do not include them in the below calculation! But they would, by default, be included in your capital gains line item above (i.e. they would be included in your regular income tax calculation and classified as short term gains, so it&rsquo;s not like you&rsquo;re &lsquo;saving&rsquo; money).</p>
+<p>For this example, let&rsquo;s assume you exercised 1,500 options at a strike price of $1.00. At the time of exercising, your company has a Fair Market Value (FMV) of $5.00. And to keep the example simple, you did not sell any of these exercised options this year. Let&rsquo;s calculate the spread.</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Line Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of Options Exercised</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>Fair Market Value</td>
+<td>$5.00</td>
+</tr>
+<tr>
+<td>Strike Price</td>
+<td>$1.00</td>
+</tr>
+<tr>
+<td>Spread (per option)</td>
+<td>$4.00</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total &lsquo;ISO Exercise Spread&rsquo;</td>
+<td>$6,000</td>
+</tr>
+</tbody>
+</table>
+
+<p>Now that we have our 2 additional components, let&rsquo;s calculate the AMTI</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Line Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Income</td>
+<td>$120,000</td>
+</tr>
+<tr>
+<td>Subtract Total Adjustments</td>
+<td>$23,550</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Adjusted Gross Income (AGI)</td>
+<td>$96,950</td>
+</tr>
+<tr>
+<td>Subtract Standard Deduction</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Regular Taxable Income</td>
+<td>$84,550</td>
+</tr>
+<tr>
+<td>Add back in Ineligible Deductions (standard deduction, in our case)</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td>Add in your ISO Exercise Spread</td>
+<td>$6,000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alternative Minimum Taxable Income (AMTI)</td>
+<td>$102,950</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="step-6-subtract-your-amt-exemption-to-get-your-final-amti">Step 6: Subtract your AMT Exemption to get your Final AMTI</h2>
+<p>The AMT Exemption is a special exemption you can take as part of the AMT tax system. It is a very straightforward calculation up until you start making in excess of around $500,000 as a single filer, or over around $1 million dollars as married, filing jointly. If you fall into this category, I would advise you to spend a minute or two reading up on <a href="/posts/amt-regular-tax-differences">the math behind the phaseout thresholds</a>
+.</p>
+<p>This is essentially a large chunk of money you can subtract from your AMTI before calculating the actual AMT you owe. Think of it like a special type of standard deduction, that almost everyone can take. The exemption is:</p>
+<ul>
+<li>$72,900 for single filers in 2020 and</li>
+<li>$113,400 for Married, Filing Jointly in 2020</li>
+</ul>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Line Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Income</td>
+<td>$120,000</td>
+</tr>
+<tr>
+<td>Subtract Total Adjustments</td>
+<td>$23,550</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Adjusted Gross Income (AGI)</td>
+<td>$96,950</td>
+</tr>
+<tr>
+<td>Subtract Standard Deduction</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Regular Taxable Income</td>
+<td>$84,550</td>
+</tr>
+<tr>
+<td>Add back in Ineligible Deductions (standard deduction, in our case)</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td>Add in your ISO Exercise Spread</td>
+<td>$6,000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alternative Minimum Taxable Income (AMTI)</td>
+<td>$102,950</td>
+</tr>
+<tr>
+<td>Subtract AMT Exemption</td>
+<td>$72,900</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&lsquo;Final Alternative Minimum Taxable Income (FAMTI)&rsquo;</td>
+<td>$30,050</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="step-7-calculate-your-alternative-minimum-tax">Step 7: Calculate your Alternative Minimum Tax</h2>
+<p>We&rsquo;re at the home stretch! All that&rsquo;s left is to calculate your AMT and Regular Income tax, and figure out which is larger.</p>
+<p>The AMT tax bracket functions just like the regular income tax brackets, in that it is marginal tax, but much simpler. There are only 2 tax rates. Everything under a certain amount is taxed at one percentage, and everything over is at the other.</p>
+<p>Note, this is one of the few instances where being Married could increase the overall taxes you owe. See below and notice how the 28% tax rate threshold is the same regardless of if you&rsquo;re single or not.</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Alternative Minimum Tax Rate</th>
+<th>Single Filing, Taxable Income Over</th>
+<th>Married, Filing Jointly, Taxable Income Over</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26%</td>
+<td>$0</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>28%</td>
+<td>$197,900</td>
+<td>$197,900</td>
+</tr>
+</tbody>
+</table>
+
+<p>In our case, luckily, our FAMTI of $30,050 is much lower than the thershold of $197,900. This means everything will be taxed at a 26% tax rate, which brings us to our final number - the AMT we actually owe!</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Line Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Income</td>
+<td>$120,000</td>
+</tr>
+<tr>
+<td>Subtract Total Adjustments</td>
+<td>$23,550</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Adjusted Gross Income (AGI)</td>
+<td>$96,950</td>
+</tr>
+<tr>
+<td>Subtract Standard Deduction</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Regular Taxable Income</td>
+<td>$84,550</td>
+</tr>
+<tr>
+<td>Add back in Ineligible Deductions (standard deduction, in our case)</td>
+<td>$12,400</td>
+</tr>
+<tr>
+<td>Add in your ISO Exercise Spread</td>
+<td>$6,000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alternative Minimum Taxable Income (AMTI)</td>
+<td>$102,950</td>
+</tr>
+<tr>
+<td>Subtract AMT Exemption</td>
+<td>$72,900</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&lsquo;Final Alternative Minimum Taxable Income (FAMTI)&rsquo;</td>
+<td>$30,050</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alternative Minimum Tax Owed (Taxed @ 26%)</td>
+<td>$7,813</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="step-8-calculate-your-regular-income-tax">Step 8: Calculate your Regular Income Tax</h2>
+<p>But do you actually need to pay that <strong>$7,813?</strong></p>
+<p>It all depends if this number is greater than or less than your regular income tax! There are many websites that show you how to calculate the regular income tax you may owe, so I won&rsquo;t go into detail here. Using all the same parameters that we have used throughout this example:</p>
+<p>Take my word for it, but your regular income tax would come out to: <strong>$14,391</strong></p>
+<h2 id="step-9-so-what-do-i-owe">Step 9: So&hellip; what do I owe?</h2>
+<p>You would owe: $14,391</p>
+<p>Because your AMT comes out to less than your Regular Income Tax, you wouldn&rsquo;t need to worry about your AMT at all! Just pay your regular income tax as you normally would, and you&rsquo;ll be good to go.</p>
+<p>In the event that your AMT is higher than your Regular income tax, your tax program may just register the net difference as an additional line item. For example, if your AMT came out to $12,000 and your Regular Income Tax came out to $10,000, you might just see a line item saying &ldquo;$2,000 for AMT&rdquo; such that your total tax owed comes out to $12,000.</p>
+<p>I should also mention that all of this is still within the realm of <strong>FEDERAL</strong> income taxes (FICA). None of this takes into account state taxes, which is a whole &lsquo;nother ball game. Luckily, only a few states have AMT at the state level, and we&rsquo;ll have an article up soon detailing this.</p>
+<p>This exercise is most useful if you want to plan for how much of your ISO to exercise this year, such that this exact scenario arises. This way, you could exercise the maximum amount of options early enough, but not exercise too many to trigger having to pay AMT. You could do the math yourself on Excel, but if you don&rsquo;t feel like doing it manually, <a href="/iso-exercise-planner">we&amp;rsquo;ve luckily built out a planning tool here</a>
+</p>
+<hr>
+<p>In conclusion, I hope this was helpful! If you have any additional questions, feel free to email us at <a href="mailto:amtsimplified@gmail.com">amtsimplified@gmail.com</a>. We&rsquo;d love to hear from you!</p>
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

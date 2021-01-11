@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Introduction to the AMT</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Montserrat,sans-serif', sans-serif;
+        background-color: white;
+    }
+    :root {
+        --accent: green;
+        --border-width:  5px ;
+    }
+
+    #homepage-description {
+        color: var(--accent);
+    }
+
+     
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+     
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .calculator-input-text {
+        display: inline-block;
+    }
+    .calculator-validation-p {
+        display: inline;
+        color: red;
+    }
+    .calculator-tooltip {
+    border-bottom: 1px dotted black;  
+    }
+
+     
+    .calculator-tooltip .calculator-tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: -30px;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    } 
+
+
+     
+    .calculator-tooltip .calculator-tooltip-text a{
+    color: white;
+    }
+
+
+     
+    .calculator-tooltip:hover .calculator-tooltip-text {
+    visibility: visible;
+    }
+
+     
+    #iso-planner-result-header {
+        background-color: var(--accent);
+        color: white;
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://amtsimplified.com/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%2csans-serif">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.73.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171252878-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-171252878-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+<script data-ad-client="ca-pub-3493120493138233" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Introduction to the AMT</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/posts/">Learn about the AMT</a></li>
+                            
+                                <li><a href="/amt-calculator/">AMT Calculator</a></li>
+                            
+                                <li><a href="/iso-exercise-planner/">Incentive Stock Option Tax Planner</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:amtsimplified@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Introduction to the AMT</h2>
+        <h5>High level overview of the Alternative Minimum Tax</h5>
+        
+
+    </div>
+
+    <div align="start" class="content"><p><em>Please note details in this article are relevant for the 2020 tax year (filing in 2021)</em></p>
+<hr>
+<p>The Alternative Minimum Tax (AMT) is a separate tax that you have to calculate in parallel to your regular income tax. Each has a <a href="/posts/amt-regular-tax-differences">slightly different set of rules</a>
+ for what is deductible and different limits to the marginal tax brackets.</p>
+<p>Every year you, or your tax filing program, actually calculates both your regular income tax and alternative minimum tax. <strong>You only end up paying the higher of the two.</strong></p>
+<p>But for the vast majority of people and for most of your tax filing years, your regular income tax is far greater, so you will not need to worry about calculating the AMT. This is likely why you may not have heard about the AMT until now.</p>
+<p>However, it is important to keep in mind that some of the most common cases for when the AMT might trigger:</p>
+<h2 id="exercising-incentive-stock-options-isos">Exercising Incentive Stock Options (ISOs)</h2>
+<p>This is by far the most common reason why AMT is triggered. If you exercise ISOs received from your employer and do not sell them in the same calendar year, the spread of your exercise (difference between fair market value and strike price at time of exercise) factors into the AMT calculation and may make you eligible for AMT. <a href="/posts/amt-taxes">You can read more about it here.</a>
+</p>
+<p>I will reiterate here, because it is often lost and not mentioned. If you exercise ISOs (that then turn into stocks) and then subsequently sell those stocks in the same calendar year, you <strong>do not include them as part of the ISO spread</strong>. However, they will be included as part of your short term capital gains, which is factored into both your regular income tax calculations and the starting point for AMT calculations. So you aren&rsquo;t going to be saving a bunch of money by forcing yourself to exercise and then sell. In fact, you&rsquo;re often better off waiting for long term capital gains tax to kick in.</p>
+<p>This is why, especially in the case of exercising ISOs, planning when to exercise and how much you can exercise is an often overlooked and significant money saving technique. Luckily, <a href="/iso-exercise-planner">we created a tool to help you plan for this!</a>
+</p>
+<h2 id="realizing-a-large-long-term-capital-gain">Realizing a large long term capital gain</h2>
+<p>Although you won&rsquo;t be taxed any differently on your long term capital gain, realizing too much may make you ineligible for certain AMT specific deductions, which could ultimately cause you to have to pay AMT.</p>
+<p>More to come on this point</p>
+<h2 id="making-too-much-money">Making too much money</h2>
+<p>Seriously - similar to the above if your ordinary income exceeds the phase-out thresholds for the AMT specific deductions, it may make you liable to pay the alternative minimum tax. Rest assured, this won&rsquo;t affect the majority of folks, as the AMT deduction phase out threshold <strong>starts</strong> at $518,400 for single filers and $1,036,800 for married.</p>
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

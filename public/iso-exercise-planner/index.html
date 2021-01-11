@@ -1,3 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Incentive Stock Option Tax Planner</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Montserrat,sans-serif', sans-serif;
+        background-color: white;
+    }
+    :root {
+        --accent: green;
+        --border-width:  5px ;
+    }
+
+    #homepage-description {
+        color: var(--accent);
+    }
+
+     
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+     
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .calculator-input-text {
+        display: inline-block;
+    }
+    .calculator-validation-p {
+        display: inline;
+        color: red;
+    }
+    .calculator-tooltip {
+    border-bottom: 1px dotted black;  
+    }
+
+     
+    .calculator-tooltip .calculator-tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: -30px;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    } 
+
+
+     
+    .calculator-tooltip .calculator-tooltip-text a{
+    color: white;
+    }
+
+
+     
+    .calculator-tooltip:hover .calculator-tooltip-text {
+    visibility: visible;
+    }
+
+     
+    #iso-planner-result-header {
+        background-color: var(--accent);
+        color: white;
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://amtsimplified.com/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%2csans-serif">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.73.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171252878-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-171252878-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+<script data-ad-client="ca-pub-3493120493138233" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Incentive Stock Option Tax Planner</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/posts/">Learn about the AMT</a></li>
+                            
+                                <li><a href="/amt-calculator/">AMT Calculator</a></li>
+                            
+                                <li><a href="/iso-exercise-planner/">Incentive Stock Option Tax Planner</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:amtsimplified@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Incentive Stock Option Tax Planner</h2>
+        <h5>Minimize your AMT by exercising the right amount of ISOs</h5>
+        
+
+    </div>
+
+    <div align="start" class="content"><p><em>Please note details in this article are relevant for the 2020 tax year (filing in 2021), and only applies to Federal Taxes</em></p>
+<p><em>This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions</em></p>
+<p><strong>Coming Soon:</strong> Allowing for inputs of if you sell exercised stock in the same calendar year, aesthetics, and having your inputs save over from this planner to the AMT calculator</p>
+<hr>
+<h2 id="calculate-how-many-isos-you-can-exercise-without-having-to-pay-the-amt">Calculate how many ISOs you can exercise without having to pay the AMT</h2>
+<p><strong>Instructions:</strong> Fill in the below information with either real numbers (if you know them) or estimates of how much each line item will be for the given year.</p>
+<hr>
 <form id="iso-exercise-planner-form">
 <h3> Step 1: Figure out your Regular Income Tax </h3>
 <label for="filing_status">Choose your Filing Status</label>
@@ -92,7 +295,7 @@
 <h3> Results: </h3>
 <h4 id="iso_spread_allowed" class="result-header"> </h4>
 <h4 id="result_validation_message" class="result-header"> </h4>
-<!--<h4 id="placeholder" class="result-header"> </h4>-->
+
 
 <table class="hidden table table-bordered table-striped" id="iso-planner-result-table">
   <tr id="iso-planner-result-header">
@@ -128,11 +331,11 @@
 </table>
 <script>
 
-  // Dyanmic forms for ISO Spread Details
-  // Starts with 1 ISO Grant Form shown
-  // Also clears the error / validation message after every change, and adds/removes required_field class for check_required
-  // Also hides/unhides the results table
-  // Also clears the results messages
+  
+  
+  
+  
+  
   $(document).ready(function() {
     $('#iso-form-container-2').hide();
     $('#iso-form-container-3').hide();
@@ -175,9 +378,9 @@
     })
   })
     
-  // Check to see if all required fields are filled out
-  // If they are, run calculate_taxes
-  // If they are not, show error message
+  
+  
+  
   function check_required() {
     var required_array = document.getElementsByClassName("required_field");
     var confirmation_array = [];
@@ -219,12 +422,12 @@
 
   function calculate_taxes() {
 
-    // First clear any error / validation messages. Any further validation below will re-set them if needed
+    
     var all_validation_messages = document.getElementsByClassName("calculator-validation-p");
     for (i=0;i<all_validation_messages.length;i++) {
       all_validation_messages[i].innerHTML = "";
     }
-    // Get 'value' of filing status selected to use to set tax limitations by filing status
+    
     var filing_status_obj = document.getElementById("filing_status");
     var filing_status = filing_status_obj.options[filing_status_obj.selectedIndex].value;
     
@@ -236,7 +439,7 @@
       var sli_phase = 70000;
       var sli_max = 85000;
       var sli_divider = 15000;
-      //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
+      
       var trad_401k_limit = 19500;
       var hsa_limit = 3550;
       var trad_ira_limit = 6000;
@@ -277,7 +480,7 @@
       return num;
     }
 
-    // Get all form inputs. For all null / empty inputs, assign value of 0
+    
     var salary=empty_to_zero(document.getElementById("salary").value);
     var short_term_capital_gains=empty_to_zero(document.getElementById("short-term-capital-gains").value);
     var trad_401k=empty_to_zero(document.getElementById("trad-401k").value);
@@ -299,37 +502,37 @@
     var shares_exercisable_3=empty_to_zero(document.getElementById("shares-exercisable-3").value);
     var strike_price_3=empty_to_zero(document.getElementById("strike-price-3").value);
     
-    // Does some validation based on the number of ISO Grants selected when user hits 'Calculate'. 
-    // Zeroes out any inputs from extra forms that were hidden
+    
+    
     if (iso_form_count == "iso_forms_count_one") {
       shares_exercisable_2 = strike_price_2 = shares_exercisable_3 = strike_price_3 = 0;
     } else if (iso_form_count == "iso_forms_count_two") {
       shares_exercisable_3 = strike_price_3 = 0;
     }
 
-    // Calculate Total Income
+    
     var total_income = parseFloat(salary) + parseFloat(short_term_capital_gains);
     
-    // Make sure number is under 401k limit
+    
     if (trad_401k > trad_401k_limit) {
       trad_401k = trad_401k_limit;
       document.getElementById("salt").value = trad_401k_limit;
       document.getElementById('trad-401k-p').innerHTML = "The 401k limit for your filing status is: " + trad_401k_limit;
     }
-    // Make sure number is under HSA limit
+    
     if (hsa > hsa_limit) {
       hsa = hsa_limit;
       document.getElementById("salt").value = hsa_limit;
       document.getElementById('hsa-p').innerHTML = "The HSA limit for your filing status is: " + hsa_limit;
     }
 
-    // Make sure number is under Trad IRA limit
+    
     if (trad_ira > trad_ira_limit) {
       trad_ira = trad_ira_limit;
       document.getElementById("salt").value = trad_ira_limit;
       document.getElementById('trad-ira-p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
     }
-    // MAGI - AGI but includes Trad IRA, SLI
+    
     var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
 
     if (magi > sli_max) {
@@ -349,24 +552,24 @@
       sli = sli.toFixed(2);
     } 
 
-    // Calculate AGI
+    
     var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
     
-    // Medical Expenses Deduction - only include if more than 10% of AGI, else 0
+    
     if (medical_expenses > (agi * 0.1)) {
       medical_expenses = medical_expenses - (agi * 0.1);
     } else {
       medical_expenses = 0;
     }
     
-    // Make sure SALT is under SALT limit
+    
     if (salt > salt_deduction_limit) {
       salt = salt_deduction_limit;
       document.getElementById("salt").value = salt_deduction_limit;
       document.getElementById('salt-p').innerHTML = "The SALT limit for your filing status is: " + salt_deduction_limit;
     }
 
-    // Standard vs Itemized Deduction
+    
     var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);
     if (itemized_deduction > standard_deduction) {
       var regular_deduction_final = itemized_deduction;
@@ -376,12 +579,12 @@
       var deduction_category = 'Standard Deduction';
     }
 
-    // Calculate Regular taxable income
+    
     var taxable_income = agi - regular_deduction_final;
     
-    // CALCULATE REGULAR TAXES
+    
     var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
-    // Returns index of first tax bracket threshold greater than taxable_income, so subtract 1 (JS is index 0)
+    
     var taxable_income_index = reg_income_tax_bracket.findIndex(function(number) {
         return number > taxable_income;
     }) - 1;
@@ -397,14 +600,14 @@
       }
     }
 
-    // Calculate AMTI Baseline (before ISO spread, AMT exemption)
+    
     if (deduction_category == 'Standard Deduction') {
       var amti_baseline = taxable_income + standard_deduction;
     } else {
       var amti_baseline = taxable_income + parseFloat(salt) + parseFloat(medical_expenses);
     }
     
-    // Calculate ISO Spread Per Share, per potential grant
+    
     var fmv_parsed = parseFloat(fmv);
     var shares_exercisable_1_parsed = parseFloat(shares_exercisable_1);
     var shares_exercisable_2_parsed = parseFloat(shares_exercisable_2);
@@ -432,33 +635,33 @@
     var iso_input_array = [fmv_parsed, shares_exercisable_1_parsed, shares_exercisable_2_parsed, shares_exercisable_3_parsed, strike_price_1_parsed, strike_price_2_parsed, strike_price_3_parsed];
     var iso_spread_array = [iso_spread_pershare_1,iso_spread_pershare_2,iso_spread_pershare_3];
 
-    // Display result message
-    // If user did not enter anything (submitted all with 0s or 0.00s)
+    
+    
     if (iso_input_array.every(function(i) {return i === 0;} )) {
       var result_validation_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
-      //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
+      
       regular_income_tax = currency_formatter.format(regular_income_tax);
-    // Else if user somehow entered FMV and strike prices that were the same
+    
     } else if (iso_spread_array.every(function(i) {return i === 0;} )) {
       var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT!";
-      //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
+      
       regular_income_tax = currency_formatter.format(regular_income_tax);
-    // Calculate the total ISO Spread allowed (the spread resulting in no diff between regular income tax and the tax you would pay for AMT)
+    
     } else {
 
-      // Determine how much wiggle room you have before hitting the 28% threshold
+      
       var iso_subtotal_1 = shares_exercisable_1_parsed * iso_spread_pershare_1;
       var iso_subtotal_2 = shares_exercisable_2_parsed * iso_spread_pershare_2;
       var iso_subtotal_3 = shares_exercisable_3_parsed * iso_spread_pershare_3;
       var iso_subtotal_all = iso_subtotal_1 + iso_subtotal_2 + iso_subtotal_3;
       var iso_spread_threshold = amt_tax_brackets - (amti_baseline + iso_subtotal_all - amt_deduction);
-      // If iso_spread_threshold is negative, that means there is the possibility you exceed the amt_tax_bracket threshold, so you should use the 28% calculator
+      
       if (iso_spread_threshold < 0) {
         var iso_spread_allowed =  (regular_income_tax - amt_tax_brackets * 0.26) / 0.28 + amt_tax_brackets + amt_deduction - amti_baseline;
       } else {
         var iso_spread_allowed =  regular_income_tax / 0.26 - amti_baseline + amt_deduction;
       }
-      // If the total amount of ISOs you can exercise is less than what is allowed, you can exercise them all
+      
       if (iso_subtotal_all <= iso_spread_allowed) {
         var famti = amti_baseline + iso_subtotal_all - amt_deduction;
         if (famti - amt_tax_brackets > 0) {
@@ -477,7 +680,7 @@
         var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;
         
         var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
-      // Else, return how many of each lot to exercise, going from oldest to newest    
+      
       } else {
         if (iso_subtotal_1 > iso_spread_allowed) {
           var shares_to_exercise_allowed_from1 = Math.floor(iso_spread_allowed / iso_spread_pershare_1);
@@ -514,7 +717,7 @@
         var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
       }
 
-      // Calculate cost to exercise and format
+      
       cost_to_exercise1 = strike_price_1_parsed * shares_to_exercise_allowed_from1;
       cost_to_exercise2 = strike_price_2_parsed * shares_to_exercise_allowed_from2;
       cost_to_exercise3 = strike_price_3_parsed * shares_to_exercise_allowed_from3;
@@ -532,7 +735,7 @@
       shares_to_exercise_allowed_from2_formatted = number_formatter.format(shares_to_exercise_allowed_from2);
       shares_to_exercise_allowed_from3_formatted = number_formatter.format(shares_to_exercise_allowed_from3);
       
-      // Populate Results Table dynamically
+      
       document.getElementById("iso-planner-result-table").classList.remove("hidden");
       if (iso_form_count == "iso_forms_count_one") {
         document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
@@ -570,7 +773,7 @@
         document.getElementById("iso-planner-result-shares-exercise_3").innerHTML = shares_to_exercise_allowed_from3_formatted;
         document.getElementById("iso-planner-result-cost_3").innerHTML = cost_to_exercise3;
       }
-        // Populate Total Row of Results Table
+        
       var average_strike_price = cost_to_exercise / shares_to_exercise_allowed;
       average_strike_price = currency_formatter.format(average_strike_price);
       cost_to_exercise = currency_formatter.format(cost_to_exercise);
@@ -581,8 +784,8 @@
 
     }
 
-    // AMT CREDIT?
-    // DEPENDENT CREDIT?
+    
+    
 
     total_income = currency_formatter.format(total_income);
     agi = currency_formatter.format(agi);
@@ -595,7 +798,23 @@
     document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
     document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
     document.getElementById("result_validation_message").innerHTML= result_validation_message;
-    //document.getElementById("placeholder").innerHTML= placeholder;
+    
 
   }
 </script>
+<!-- raw HTML omitted -->
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

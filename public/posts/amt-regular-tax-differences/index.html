@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Differences between AMT and Regular Income Tax</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Montserrat,sans-serif', sans-serif;
+        background-color: white;
+    }
+    :root {
+        --accent: green;
+        --border-width:  5px ;
+    }
+
+    #homepage-description {
+        color: var(--accent);
+    }
+
+     
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+     
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .calculator-input-text {
+        display: inline-block;
+    }
+    .calculator-validation-p {
+        display: inline;
+        color: red;
+    }
+    .calculator-tooltip {
+    border-bottom: 1px dotted black;  
+    }
+
+     
+    .calculator-tooltip .calculator-tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: -30px;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    } 
+
+
+     
+    .calculator-tooltip .calculator-tooltip-text a{
+    color: white;
+    }
+
+
+     
+    .calculator-tooltip:hover .calculator-tooltip-text {
+    visibility: visible;
+    }
+
+     
+    #iso-planner-result-header {
+        background-color: var(--accent);
+        color: white;
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://amtsimplified.com/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%2csans-serif">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.73.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171252878-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-171252878-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+<script data-ad-client="ca-pub-3493120493138233" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Differences between AMT and Regular Income Tax</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/posts/">Learn about the AMT</a></li>
+                            
+                                <li><a href="/amt-calculator/">AMT Calculator</a></li>
+                            
+                                <li><a href="/iso-exercise-planner/">Incentive Stock Option Tax Planner</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:amtsimplified@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Differences between AMT and Regular Income Tax</h2>
+        <h5>Comparing one tax system to another</h5>
+        
+
+    </div>
+
+    <div align="start" class="content"><p><em>Please note details in this article are relevant for the 2020 tax year (filing in 2021)</em></p>
+<p><em>In addition, this article only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions</em></p>
+<hr>
+<p>Before diving into how the AMT is actually calculated, it may be helpful to visually see the differences between the ordinary income tax that you may be familiar with and the alternative minimum tax. We will dive into each in detail.</p>
+<p><a href="/posts/amt-taxes">If you just want to know how the taxes are determined, feel free to skip to this article</a>
+</p>
+<p>Please note, when using the term &lsquo;Taxable Income&rsquo;, it is referring to the uniquely calculated taxable income in that tax system. So for the AMT tax bracket table later on in this article, &lsquo;Taxable Income&rsquo; is actually referring to a special &lsquo;Alternative Minimum Taxable Income&rsquo; (AMTI) number, which is generated differently than your standard &lsquo;Regular Taxable Income&rsquo; based on the things we&rsquo;ll outline in this article.</p>
+<p>
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Category</th>
+<th>Regular Income Tax</th>
+<th>Alternative Minimum Tax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marginal Tax Brackets</td>
+<td>7 brackets ranging from 0% - 37% marginal tax rate</td>
+<td>2 brackets, 26% and 28% marginal tax rate</td>
+</tr>
+<tr>
+<td>Adjustments &amp; Deductions</td>
+<td>Uses the Standard deduction or various Itemized deductions such as mortgage interest, HSA, Traditional IRA</td>
+<td>Cannot take a standard deduction, nor specific itemized deductions such as traditional IRA, medical expense deductions</td>
+</tr>
+<tr>
+<td>Exemptions</td>
+<td>None for year 2020*</td>
+<td>Significant exemption based on filing status and income</td>
+</tr>
+</tbody>
+</table>
+
+*The Tax Cuts and Jobs Act (TCJA) of 2017 removed all personal and dependent exemptions for your regular income tax. You can however, receive a Tax credit, which functions similarly for some of these things. We won&rsquo;t get into the details here however.</p>
+<h2 id="marginal-tax-brackets">Marginal Tax Brackets</h2>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Regular Income Tax Rate</th>
+<th>Single Filing, Taxable Income Over</th>
+<th>Married, Filing Joint, Taxable Income Over</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10%</td>
+<td>$0</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>12%</td>
+<td>$9,875</td>
+<td>$19,750</td>
+</tr>
+<tr>
+<td>22%</td>
+<td>$40,125</td>
+<td>$80,250</td>
+</tr>
+<tr>
+<td>24%</td>
+<td>$85,525</td>
+<td>$171,050</td>
+</tr>
+<tr>
+<td>32%</td>
+<td>$163,300</td>
+<td>$326,600</td>
+</tr>
+<tr>
+<td>35%</td>
+<td>$207,350</td>
+<td>$414,700</td>
+</tr>
+<tr>
+<td>37%</td>
+<td>$518,400</td>
+<td>$622,050</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Alternative Minimum Tax Rate</th>
+<th>Single Filing, Taxable Income Over</th>
+<th>Married, Filing Jointly, Taxable Income Over</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26%</td>
+<td>$0</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>28%</td>
+<td>$197,900</td>
+<td>$197,900</td>
+</tr>
+</tbody>
+</table>
+
+<p>In both tax systems, for <strong>Married, Filing Separately</strong>, simply divide the Married, Filing Jointly income numbers in half.</p>
+<p>A couple of things are worth noting:</p>
+<ul>
+<li>Your eyes do not deceive you! AMT is one of the rare instances where being married on your tax filing status may do your more harm than good. The marginal tax income cutoff is the same whether you are a single individual or a married couple, so if you are filing as a couple and both of you have AMT, you will likely be taxed more. And even in the case where you are married filing separately, each person will hit the 28% tax bracket after exceeding only 98,950 in AMTI.</li>
+<li>The AMT tax bracket system is also much easier to understand. There are only 2 brackets, so it&rsquo;s much easier to plan for that single cutoff number.</li>
+</ul>
+<h2 id="adjustments--deductions">Adjustments &amp; Deductions</h2>
+<p>
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Adjustments</th>
+<th>Included in Regular Income Tax system</th>
+<th>Included in AMT system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traditional 401k*</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HSA</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Traditional IRA</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Student Loan Interest</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
+*Your Traditional 401k is not technically classified as an adjustment (i.e. the items on your Form 1040 Schedule 1), as your employer likely has already reduced your taxable income throughout the year on each paycheck to allow for 401k contributions, but I am leaving it here to reduce confusion regarding any of the math that will be done.</p>
+<p>
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Deductions</th>
+<th>Included in Regular Income Tax system</th>
+<th>Included in AMT system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard Deduction</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Mortgage Interest*</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Personal Exemption*</td>
+<td>Removed in year 2020</td>
+<td>Removed in year 2020</td>
+</tr>
+<tr>
+<td>Medical Expenses*</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SALT*</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+
+*If you take the itemized deduction instead, these are some of the most frequently used deductions, specifically ones impacted by the AMT system.</p>
+<h2 id="exemptions">Exemptions</h2>
+<p>Given the Tax Cuts and Jobs Act that was passed in 2017, exemptions are no longer relevant for your Regular Income Tax (at least until 2025!). So the only major exemption we need to cover here is the <strong>AMT Exemption &amp; Phaseout Thresholds</strong>.</p>
+<p>The AMT Exemption &amp; Phaseout Thresholds dictates three things:</p>
+<ol>
+<li>If your AMTI is below the exemption amount, then you do not owe any AMT</li>
+<li>If your AMTI is above the exemption amount, you will be able to subtract the exemption amount from your AMTI to reach your actual final taxable income. This is similar to how a deduction works in your regular tax filings</li>
+<li>If your AMTI is over a Phaseout threshold, that means you cannot deduct the full AMT exemption amount. For every $4 of AMTI you have over the threshold, the exemption amount reduces by $1 (or 25% of the excess), until the exemption disappears completely.</li>
+</ol>
+<ul>
+<li>For example, if you are a single filer and your AMTI comes out to $528,400, you would be $10,000 over the phaseout threshold. As a result, the AMT exemption you can apply would be $2,500 (25% of 10,000) less than the normal $72,900 exemption amount, or $70,400.</li>
+</ul>
+<p><a href="/posts/amt-taxes">We will cover all of this in detail here, which shows how the Alternative Minimum Tax is actually calculated</a>
+</p>
+
+
+
+
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Filing Status</th>
+<th>AMT Exemption Amount</th>
+<th>AMT Phaseout Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single</td>
+<td>$72,900</td>
+<td>$518,400</td>
+</tr>
+<tr>
+<td>Married Filing Jointly</td>
+<td>$113,400</td>
+<td>$1,036,800</td>
+</tr>
+<tr>
+<td>Married Filing Separately</td>
+<td>$56,700</td>
+<td>$518,400</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
