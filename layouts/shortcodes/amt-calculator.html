@@ -107,7 +107,7 @@
 <h4 id="amt_tax_owed" class="result-header"> </h4>
 <h4 id="tax_confirmation_phrase" class="result-header"> </h4>
 
-<h2 id="placeholder"></h2>
+<!--<h2 id="placeholder"></h2>-->
 
 <script>
 
@@ -464,7 +464,7 @@
     amti_final = currency_formatter.format(amti_final);
     amt_tax_owed = currency_formatter.format(amt_tax_owed);
 
-    document.getElementById("placeholder").innerHTML=reg_income_tax_bracket[reg_income_tax_bracket.length - 1] + " " + taxable_income_index + " " + long_term_capital_gain_tax_bracket[long_term_capital_gain_tax_bracket.length - 1] + " " + long_term_tax_index;
+    //document.getElementById("placeholder").innerHTML=reg_income_tax_bracket[reg_income_tax_bracket.length - 1] + " " + taxable_income_index + " " + long_term_capital_gain_tax_bracket[long_term_capital_gain_tax_bracket.length - 1] + " " + long_term_tax_index;
 
     document.getElementById("total_income").innerHTML="Your Total Income is " + total_income;
     //document.getElementById("magi").innerHTML="MAGI is " + magi;
