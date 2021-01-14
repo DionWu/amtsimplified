@@ -1,4 +1,4 @@
-<form id="iso-exercise-planner-form">
+<!--<form id="iso-exercise-planner-form">
 <h3> Step 1: Figure out your Regular Income Tax </h3>
 <label for="filing_status">Choose your Filing Status</label>
 <select name="filing_status" id="filing_status">
@@ -92,100 +92,303 @@
 <h3> Results: </h3>
 <h4 id="iso_spread_allowed" class="result-header"> </h4>
 <h4 id="result_validation_message" class="result-header"> </h4>
-<!--<h4 id="placeholder" class="result-header"> </h4>-->
+<h4 id="placeholder" class="result-header"> </h4>-->
 
-<table class="hidden table table-bordered table-striped" id="iso-planner-result-table">
-  <tr id="iso-planner-result-header">
+
+<!---------------------- New code ------------------->
+<form>  
+  <div class="main">
+      <div class="container">
+          <form method="POST" class="calculator-form">
+              <h3> Step 1: Figure out your Regular Income Tax </h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <h4 class="form-header"> Basic Information </h4>
+                      <div class="form-select">
+                          <div class="label-flex">
+                              <label for="filing_status" class="required">Choose your filing status</label>
+                          </div>
+                          <div class="select-list">
+                              <select name="filing_status" id="filing_status">
+                                  <option value="single">Single</option>
+                                  <option value="married_separately">Married, Filing Separately</option>
+                                  <option value="married">Married, Filing Together</option>
+                              </select>
+                          </div>
+                      </div>
+                      <h4 class="form-header"> Income </h4>
+                      <div class="form-input">
+                          <label for="salary" class="required">Salary/Wages</label>
+                          <input type="number" name="salary" id="salary" class="required_field" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="salary_p"></p>
+                      </div>
+                      <div class="form-input">
+                          <div class="label-flex">
+                            <label for="short_term_capital_gains">Short Term Capital Gains</label>
+                            <!--<a href="#" class="form-link">Learn More</a>-->
+                          </div>
+                          <input type="number" name="short_term_capital_gains" id="short_term_capital_gains" placeholder="0" />
+                      </div>
+                      <div class="form-input">
+                          <div class="label-flex">
+                            <label for="long_term_capital_gains">Long Term Capital Gains</label>
+                            <!--<a href="#" class="form-link">Learn More</a>-->
+                          </div>
+                          <input type="number" name="long_term_capital_gains" id="long_term_capital_gains"  placeholder="0" />
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <h4 class="form-header"> Deductions / Exemptions </h4>
+                      <div class="form-input">
+                          <label for="trad_401k">Traditional 401k Contributions</label>
+                          <input type="number" name="trad_401k" id="trad_401k" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="trad_401k_p"></p>
+                      </div>
+                      <div class="form-input">
+                          <label for="trad_ira">Traditional IRA Contributions</label>
+                          <input type="number" name="trad_ira" id="trad_ira" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="trad_ira_p"></p>
+                      </div>
+                      <div class="form-input">
+                          <label for="hsa">HSA Contributions</label>
+                          <input type="number" name="hsa" id="hsa" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="hsa_p"></p>
+                      </div>
+                      
+                      <div class="form-input">
+                          <div class="label-flex">
+                              <label for="sli">Student Loan Interest Paid</label>
+                              <a href="/posts/what-is-student-load-interest-sli-deduction/" class="form-link">Learn More</a>
+                          </div>  
+                          <input type="number" name="sli" id="sli" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="sli_p"></p>
+                      </div>
+                      <div class="form-input">
+                          <div class="label-flex">
+                              <label for="medical_expenses">Medical Expenses</label>
+                              <a href="/posts/what-is-the-medical-expense-deduction" class="form-link">Learn More</a>
+                          </div> 
+                          <input type="number" name="medical_expenses" id="medical_expenses" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="medical_expenses_p"></p>
+                      </div>
+                      <div class="form-input">
+                          <div class="label-flex">
+                              <label for="salt">State and Local Tax (SALT)</label>
+                              <a href="/posts/what-is-the-state-and-local-talk-salt-deduction/" class="form-link">Learn More</a>
+                          </div> 
+                          <input type="number" name="salt" id="salt" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="salt_p"></p>
+                      </div>
+                      <div class="form-input">
+                          <div class="label-flex">
+                              <label for="mortgage_interest">Mortgage Interest Paid</label>
+                              <a href="/posts/what-is-the-mortgage-interest-deduction/" class="form-link">Learn More</a>
+                          </div> 
+                          <input type="number" name="mortgage_interest" id="mortgage_interest" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_validation_p calculator_minimum_p" id="mortgage_interest_p"></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <h3> Step 2: Input Exercisable ISO Grants </h3>
+                      <h4 class="form-header"> ISO Grant Details </h4>
+                      <div class="form-radio">
+                          <div class="label-flex">
+                              <label for="iso_forms_count" class="required">How many ISO grants did you exercise from?</label>
+                          </div>
+                          <div class="form-radio-group">            
+                              <div class="form-radio-item">
+                                  <input type="radio" name="iso_forms_count" id="iso_forms_count_one" value="iso_forms_count_one"checked>
+                                  <label for="iso_forms_count_one">1</label>
+                                  <span class="check"></span>
+                              </div>
+                              <div class="form-radio-item">
+                                  <input type="radio" name="iso_forms_count" id="iso_forms_count_two" value="iso_forms_count_two">
+                                  <label for="iso_forms_count_two">2</label>
+                                  <span class="check"></span>
+                              </div>
+                              <div class="form-radio-item">
+                                  <input type="radio" name="iso_forms_count" id="iso_forms_count_three" value="iso_forms_count_three">
+                                  <label for="iso_forms_count_three">3</label>
+                                  <span class="check"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-input">
+                            <label for="fmv" class="required">Current Fair Market Value</label>
+                            <input type="number" name="fmv" id="fmv" class="required_field" placeholder="0.00" onchange=check_min(this) />
+                            <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="fmv_p"></p>
+                      </div>
+                      <div id="iso_form_container">
+                        <div id="iso_form_one">
+                          <h4 class="iso_form_header"> Grant #1 </h4>
+                          <div class="form-input">
+                                <label for="shares_exercisable_one" class="required">Exercisable Shares</label>
+                                <input type="number" name="shares_exercisable_one" id="shares_exercisable_one" class="required_field" placeholder="0" onchange=check_min(this) />
+                                <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="shares_exercisable_one_p"></p>
+                          </div>
+                          <div class="form-input">
+                                <label for="strike_price_one" class="required">Strike Price</label>
+                                <input type="number" name="strike_price_one" id="strike_price_one" class="required_field" placeholder="0.00" onchange=check_min(this) />
+                                <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="strike_price_one_p"></p>
+                          </div>
+                        </div>
+                        <div id="iso_form_two">
+                          <h4 class="iso_form_header"> Grant #2 </h4>
+                          <div class="form-input">
+                                <label for="shares_exercisable_two" class="required">Exercisable Shares</label>
+                                <input type="number" name="shares_exercisable_two" id="shares_exercisable_two" placeholder="0" onchange=check_min(this) />
+                                <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="shares_exercisable_two_p"></p>
+                          </div>
+                          <div class="form-input">
+                                <label for="strike_price_two" class="required">Strike Price</label>
+                                <input type="number" name="strike_price_two" id="strike_price_two"placeholder="0.00" onchange=check_min(this) />
+                                <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="strike_price_two_p"></p>
+                          </div>
+                        </div>
+                        <div id="iso_form_three">
+                          <h4 class="iso_form_header"> Grant #3 </h4>
+                          <div class="form-input">
+                                <label for="shares_exercisable_three" class="required">Exercisable Shares</label>
+                                <input type="number" name="shares_exercisable_three" id="shares_exercisable_three" placeholder="0" onchange=check_min(this) />
+                                <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="shares_exercisable_three_p"></p>
+                          </div>
+                          <div class="form-input">
+                                <label for="strike_price_three" class="required">Strike Price</label>
+                                <input type="number" name="strike_price_three" id="strike_price_three"placeholder="0.00" onchange=check_min(this) />
+                                <p class="calculator_validation_iso_forms_p calculator_minimum_p" id="strike_price_three_p"></p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+  <input type="button" class="calculator_submit" value="Calculate" onclick=check_required()>
+</form>
+
+<h3> Results: </h3>
+<h4 id="iso_spread_allowed" class="result_header"> </h4>
+<h4 id="result_validation_message" class="result_header"> </h4>
+<h4 id="total_income" class="result_header"></h4>
+<h4 id="agi" class="result_header"> </h4>
+<h4 id="final_deduction" class="result_header"> </h4>
+<h4 id="taxable_income" class="result_header"> </h4>
+<h4 id="regular_income_tax_owed" class="result_header"> </h4>
+
+<table class="hidden table table-bordered table-striped" id="iso_planner_result_table">
+  <tr id="iso_planner_result_header">
     <th>Grant Number</th>
     <th>Strike Price</th>
     <th>Shares You Can Exercise</th>
     <th>Cost For You to Exercise</th>
   </tr>
-  <tr class="iso-planner-result-row" id="iso-planner-result-row-1">
-    <td id="iso-planner-result-grant-label_1">Grant #1</td>
-    <td id="iso-planner-result-strike-price_1"></td>
-    <td id="iso-planner-result-shares-exercise_1"></td>
-    <td id="iso-planner-result-cost_1"></td>
+  <tr class="iso_planner_result_row" id="iso_planner_result_row_one">
+    <td id="iso_planner_result_grant_label_one">Grant #1</td>
+    <td id="iso_planner_result_strike_price_one"></td>
+    <td id="iso_planner_result_shares_exercise_one"></td>
+    <td id="iso_planner_result_cost_one"></td>
   </tr>
-  <tr class="iso-planner-result-row" id="iso-planner-result-row-2">
-    <td id="iso-planner-result-grant-label_2">Grant #2</td>
-    <td id="iso-planner-result-strike-price_2"></td>
-    <td id="iso-planner-result-shares-exercise_2"></td>
-    <td id="iso-planner-result-cost_2"></td>
+  <tr class="iso_planner_result_row" id="iso_planner_result_row_two">
+    <td id="iso_planner_result_grant_label_two">Grant #2</td>
+    <td id="iso_planner_result_strike_price_two"></td>
+    <td id="iso_planner_result_shares_exercise_two"></td>
+    <td id="iso_planner_result_cost_two"></td>
   </tr>
-  <tr class="iso-planner-result-row" id="iso-planner-result-row-3">
-    <td id="iso-planner-result-grant-label_3">Grant #3</td>
-    <td id="iso-planner-result-strike-price_3"></td>
-    <td id="iso-planner-result-shares-exercise_3"></td>
-    <td id="iso-planner-result-cost_3"></td>
+  <tr class="iso_planner_result_row" id="iso_planner_result_row_three">
+    <td id="iso_planner_result_grant_label_three">Grant #3</td>
+    <td id="iso_planner_result_strike_price_three"></td>
+    <td id="iso_planner_result_shares_exercise_three"></td>
+    <td id="iso_planner_result_cost_three"></td>
   </tr>
-  <tr class="iso-planner-result-row" id="iso-planner-result-row-total">
-    <td id="iso-planner-result-grant-label_total">Total</td>
-    <td id="iso-planner-result-strike-price_total"></td>
-    <td id="iso-planner-result-shares-exercise_total"></td>
-    <td id="iso-planner-result-cost_total"></td>
+  <tr class="iso_planner_result_row" id="iso_planner_result_row_total">
+    <td id="iso_planner_result_grant_label_total">Total</td>
+    <td id="iso_planner_result_strike_price_total"></td>
+    <td id="iso_planner_result_shares_exercise_total"></td>
+    <td id="iso_planner_result_cost_total"></td>
   </tr>
 </table>
-<script>
 
+<script>
   // Dyanmic forms for ISO Spread Details
   // Starts with 1 ISO Grant Form shown
   // Also clears the error / validation message after every change, and adds/removes required_field class for check_required
   // Also hides/unhides the results table
   // Also clears the results messages
   $(document).ready(function() {
-    $('#iso-form-container-2').hide();
-    $('#iso-form-container-3').hide();
+    $('#iso_form_two').hide();
+    $('#iso_form_three').hide();
     
-    $('#iso_forms_count').change(function(){
+    $('input[name=iso_forms_count').change(function(){
       if ($(this).val() == "iso_forms_count_one") {
-        $('#iso-form-container-3').hide();
-        $('#iso-form-container-2').hide();
-        $('#iso-form-container-1').show();
-        $('.calculator-validation-iso-forms-p').text("");
-        $('#shares-exercisable-2').removeClass("required_field");
-        $('#strike-price-2').removeClass("required_field");
-        $('#shares-exercisable-3').removeClass("required_field");
-        $('#strike-price-3').removeClass("required_field");
-        $('#iso-planner-result-table').addClass("hidden");
-        $('.result-header').text('');
+        $('#iso_form_three').hide();
+        $('#iso_form_two').hide();
+        $('#iso_form_one').show();
+        $('.calculator_validation_iso_forms_p').text("");
+        $('#shares_exercisable_two').removeClass("required_field");
+        $('#strike_price_two').removeClass("required_field");
+        $('#shares_exercisable_three').removeClass("required_field");
+        $('#strike_price_three').removeClass("required_field");
+        $('#iso_planner_result_table').addClass("hidden");
+        $('.result_header').text('');
       } else if ($(this).val() == "iso_forms_count_two") {
-        $('#iso-form-container-3').hide();
-        $('#iso-form-container-1').show();
-        $('#iso-form-container-2').show();
-        $('.calculator-validation-iso-forms-p').text("");
-        $('#shares-exercisable-2').addClass("required_field");
-        $('#strike-price-2').addClass("required_field");
-        $('#shares-exercisable-3').removeClass("required_field");
-        $('#strike-price-3').removeClass("required_field");
-        $('#iso-planner-result-table').addClass("hidden");
-        $('.result-header').text('');
+        $('#iso_form_three').hide();
+        $('#iso_form_one').show();
+        $('#iso_form_two').show();
+        $('.calculator_validation_iso_forms_p').text("");
+        $('#shares_exercisable_two').addClass("required_field");
+        $('#strike_price_two').addClass("required_field");
+        $('#shares_exercisable_three').removeClass("required_field");
+        $('#strike_price_three').removeClass("required_field");
+        $('#iso_planner_result_table').addClass("hidden");
+        $('.result_header').text('');
       } else if ($(this).val() == "iso_forms_count_three") {
-        $('#iso-form-container-1').show();
-        $('#iso-form-container-2').show();
-        $('#iso-form-container-3').show();
-        $('.calculator-validation-iso-forms-p').text("");
-        $('#shares-exercisable-2').addClass("required_field");
-        $('#strike-price-2').addClass("required_field");
-        $('#shares-exercisable-3').addClass("required_field");
-        $('#strike-price-3').addClass("required_field");
-        $('#iso-planner-result-table').addClass("hidden");
-        $('.result-header').text('');
+        $('#iso_form_one').show();
+        $('#iso_form_two').show();
+        $('#iso_form_three').show();
+        $('.calculator_validation_iso_forms_p').text("");
+        $('#shares_exercisable_two').addClass("required_field");
+        $('#strike_price_two').addClass("required_field");
+        $('#shares_exercisable_three').addClass("required_field");
+        $('#strike_price_three').addClass("required_field");
+        $('#iso_planner_result_table').addClass("hidden");
+        $('.result_header').text('');
       }
     })
   })
-    
+
+  function check_min(input) {
+    var input_id = document.getElementById(input.id).id;
+    var p_id = input_id.concat('_p');
+    if (input.value < 0) {
+      input.value = "";
+      document.getElementById(p_id).innerHTML = "This number must not be negative";
+    } else {
+      document.getElementById(p_id).innerHTML = "";
+    }
+  }
+
   // Check to see if all required fields are filled out
   // If they are, run calculate_taxes
   // If they are not, show error message
   function check_required() {
+    //First clear any residual 'number must not be negative' errors
+    var minimum_p_array = document.getElementsByClassName("calculator_minimum_p");
+    [].slice.call(minimum_p_array).forEach(function (p) {
+      p.innerHTML = "";
+    });
+
+    // Then loop through each required_field input. If any is false, don't calulate_taxes
     var required_array = document.getElementsByClassName("required_field");
     var confirmation_array = [];
       
     for (i=0; i<required_array.length; i++) {
       if (required_array[i].value == "") {
         var p_id = required_array[i].id;
-        p_id = p_id.concat('-p');
+        p_id = p_id.concat('_p');
         document.getElementById(p_id).innerHTML = "This field is required";
         confirmation_array.push(false);
       } else {
@@ -197,18 +400,6 @@
       calculate_taxes();
     }
   }
-
-
-  function check_min(input) {
-    var input_id = document.getElementById(input.id).id;
-    var p_id = input_id.concat('-p');
-    if (input.value < 0) {
-      input.value = "";
-      document.getElementById(p_id).innerHTML = "This number must not be negative";
-    } else {
-      document.getElementById(p_id).innerHTML = "";
-    }
-  }
   
   var currency_formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -217,10 +408,11 @@
 
   var number_formatter = new Intl.NumberFormat('en-US');
 
-  function calculate_taxes() {
 
+
+  function calculate_taxes() {
     // First clear any error / validation messages. Any further validation below will re-set them if needed
-    var all_validation_messages = document.getElementsByClassName("calculator-validation-p");
+    var all_validation_messages = document.getElementsByClassName("calculator_validation_p");
     for (i=0;i<all_validation_messages.length;i++) {
       all_validation_messages[i].innerHTML = "";
     }
@@ -242,6 +434,14 @@
       var trad_ira_limit = 6000;
       var salt_deduction_limit = 10000;
       var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,518400];
+      var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+      var long_term_capital_gain_tax_bracket = [0,40000,441450];
+      var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+      var additional_medicare_tax_threshold = 200000;
+      var regular_medicare_tax_rate = 0.0145;
+      var additional_medicare_tax_rate = 0.009;
+      var ssi_income_limit = 137700;
+      var ssi_tax_rate = 0.062
 
     } else if (filing_status == 'married_separately') {
       var amt_deduction=56700;
@@ -256,6 +456,14 @@
       var trad_ira_limit = 6000;
       var salt_deduction_limit = 5000;
       var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,311025];
+      var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+      var long_term_capital_gain_tax_bracket = [0,40000,441450];
+      var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+      var additional_medicare_tax_threshold = 125000;
+      var regular_medicare_tax_rate = 0.0145;
+      var additional_medicare_tax_rate = 0.009;
+      var ssi_income_limit = 137700;
+      var ssi_tax_rate = 0.062
 
     } else if (filing_status == 'married') {
       var amt_deduction=113400;
@@ -270,8 +478,18 @@
       var trad_ira_limit = 12000;
       var salt_deduction_limit = 10000;
       var reg_income_tax_bracket = [0,19750,80250,171050,326600,414700,622050];
+      var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+      var long_term_capital_gain_tax_bracket = [0,40000,441450];
+      var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+      var additional_medicare_tax_threshold = 250000;
+      var regular_medicare_tax_rate = 0.0145;
+      var additional_medicare_tax_rate = 0.009;
+      // LOOK INTO IF SSI LIMIT IS DOUBLE FORMARRIED. I COULDNT FINDANYWHERE
+      var ssi_income_limit = 275400;
+      var ssi_tax_rate = 0.062
 
     }
+    
     function empty_to_zero(num) {
       if (num.length == 0) num = 0;
       return num;
@@ -279,32 +497,40 @@
 
     // Get all form inputs. For all null / empty inputs, assign value of 0
     var salary=empty_to_zero(document.getElementById("salary").value);
-    var short_term_capital_gains=empty_to_zero(document.getElementById("short-term-capital-gains").value);
-    var trad_401k=empty_to_zero(document.getElementById("trad-401k").value);
+    var short_term_capital_gains=empty_to_zero(document.getElementById("short_term_capital_gains").value);
+    var long_term_capital_gains=empty_to_zero(document.getElementById("long_term_capital_gains").value);
+    var trad_401k=empty_to_zero(document.getElementById("trad_401k").value);
     var hsa=empty_to_zero(document.getElementById("hsa").value);
-    var trad_ira=empty_to_zero(document.getElementById("trad-ira").value);
+    var trad_ira=empty_to_zero(document.getElementById("trad_ira").value);
     var sli=empty_to_zero(document.getElementById("sli").value);
-    var medical_expenses=empty_to_zero(document.getElementById("medical-expenses").value);
+    var medical_expenses=empty_to_zero(document.getElementById("medical_expenses").value);
     var salt=empty_to_zero(document.getElementById("salt").value);
-    var mortgage_interest=empty_to_zero(document.getElementById("mortgage-interest").value);
-
-    var iso_form_count_obj = document.getElementById("iso_forms_count");
-    var iso_form_count = iso_form_count_obj.options[iso_form_count_obj.selectedIndex].value;
+    var mortgage_interest=empty_to_zero(document.getElementById("mortgage_interest").value);
     
     var fmv=empty_to_zero(document.getElementById("fmv").value);    
-    var shares_exercisable_1=empty_to_zero(document.getElementById("shares-exercisable-1").value);
-    var strike_price_1=empty_to_zero(document.getElementById("strike-price-1").value);
-    var shares_exercisable_2=empty_to_zero(document.getElementById("shares-exercisable-2").value);
-    var strike_price_2=empty_to_zero(document.getElementById("strike-price-2").value);
-    var shares_exercisable_3=empty_to_zero(document.getElementById("shares-exercisable-3").value);
-    var strike_price_3=empty_to_zero(document.getElementById("strike-price-3").value);
-    
-    // Does some validation based on the number of ISO Grants selected when user hits 'Calculate'. 
-    // Zeroes out any inputs from extra forms that were hidden
+    var shares_exercisable_one=empty_to_zero(document.getElementById("shares_exercisable_one").value);
+    var strike_price_one=empty_to_zero(document.getElementById("strike_price_one").value);
+    var shares_exercisable_two=empty_to_zero(document.getElementById("shares_exercisable_two").value);
+    var strike_price_two=empty_to_zero(document.getElementById("strike_price_two").value);
+    var shares_exercisable_three=empty_to_zero(document.getElementById("shares_exercisable_three").value);
+    var strike_price_three=empty_to_zero(document.getElementById("strike_price_three").value);
+
+    //Get value of which radio input ISO # was selected 
+    var iso_form_count_obj = document.getElementsByName("iso_forms_count");
+    for (var i=0, length=iso_form_count_obj.length; i < length; i++)
+      {
+        if(iso_form_count_obj[i].checked) {
+          var iso_form_count = iso_form_count_obj[i].value;
+          break;
+        }
+      }
+
+    // Does some validation based on the number of ISO Granthiddens selected when user hits 'Calculate'. 
+    // Zeroes out any inputs from extra forms that were 
     if (iso_form_count == "iso_forms_count_one") {
-      shares_exercisable_2 = strike_price_2 = shares_exercisable_3 = strike_price_3 = 0;
+      shares_exercisable_two = strike_price_two = shares_exercisable_three = strike_price_three = 0;
     } else if (iso_form_count == "iso_forms_count_two") {
-      shares_exercisable_3 = strike_price_3 = 0;
+      shares_exercisable_three = strike_price_three = 0;
     }
 
     // Calculate Total Income
@@ -313,25 +539,28 @@
     // Make sure number is under 401k limit
     if (trad_401k > trad_401k_limit) {
       trad_401k = trad_401k_limit;
-      document.getElementById("salt").value = trad_401k_limit;
-      document.getElementById('trad-401k-p').innerHTML = "The 401k limit for your filing status is: " + trad_401k_limit;
+      document.getElementById("trad_401k").value = trad_401k_limit;
+      document.getElementById('trad_401k_p').innerHTML = "The 401k limit for your filing status is: " + trad_401k_limit;
     }
+    
     // Make sure number is under HSA limit
     if (hsa > hsa_limit) {
       hsa = hsa_limit;
-      document.getElementById("salt").value = hsa_limit;
-      document.getElementById('hsa-p').innerHTML = "The HSA limit for your filing status is: " + hsa_limit;
+      document.getElementById("hsa").value = hsa_limit;
+      document.getElementById('hsa_p').innerHTML = "The HSA limit for your filing status is: " + hsa_limit;
     }
 
-    // Make sure number is under Trad IRA limit
+    //Make sure number is under Trad IRA limit
     if (trad_ira > trad_ira_limit) {
       trad_ira = trad_ira_limit;
-      document.getElementById("salt").value = trad_ira_limit;
-      document.getElementById('trad-ira-p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
+      document.getElementById("trad_ira").value = trad_ira_limit;
+      document.getElementById('trad_ira_p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
     }
-    // MAGI - AGI but includes Trad IRA, SLI
+    
+    // MAGI: AGI but includes Trad IRA, SLI
     var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
 
+    // Calculate SLI - based on MAGI
     if (magi > sli_max) {
       sli = 0;
     } else if (magi > sli_phase) {
@@ -349,6 +578,12 @@
       sli = sli.toFixed(2);
     } 
 
+    // Married, Filing Separately cannot take the Student Loan Interest Deduction. Go Figure
+    if (filing_status == 'married_separately') {
+      document.getElementById("sli").value = 0;
+      document.getElementById('sli_p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
+    }
+
     // Calculate AGI
     var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
     
@@ -359,15 +594,16 @@
       medical_expenses = 0;
     }
     
-    // Make sure SALT is under SALT limit
+    //Make sure SALT is under SALT limit
     if (salt > salt_deduction_limit) {
       salt = salt_deduction_limit;
       document.getElementById("salt").value = salt_deduction_limit;
-      document.getElementById('salt-p').innerHTML = "The SALT limit for your filing status is: " + salt_deduction_limit;
+      document.getElementById('salt_p').innerHTML = "The SALT limit for your filing status is: " + salt_deduction_limit;
     }
 
     // Standard vs Itemized Deduction
     var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);
+    
     if (itemized_deduction > standard_deduction) {
       var regular_deduction_final = itemized_deduction;
       var deduction_category = 'Itemized Deduction';
@@ -377,25 +613,58 @@
     }
 
     // Calculate Regular taxable income
-    var taxable_income = agi - regular_deduction_final;
+    var taxable_income = agi - regular_deduction_final > 0 ? agi - regular_deduction_final : 0;
     
     // CALCULATE REGULAR TAXES
-    var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
-    // Returns index of first tax bracket threshold greater than taxable_income, so subtract 1 (JS is index 0)
-    var taxable_income_index = reg_income_tax_bracket.findIndex(function(number) {
+    // Returns index of first tax bracket threshold greater than taxable_income, so subtract 1 (Javascript arrays first elemnt is index 0)
+    var taxable_income_index = 0;
+    if(taxable_income > reg_income_tax_bracket[reg_income_tax_bracket.length - 1]) {
+      taxable_income_index = reg_income_tax_bracket.length - 1;
+    } else {
+      taxable_income_index = reg_income_tax_bracket.findIndex(function(number) {
         return number > taxable_income;
-    }) - 1;
-    
-    var regular_income_tax = 0;
-    if (taxable_income > 0) {
-      for (var i = taxable_income_index; i >= 0; i--) {
-          if (i == taxable_income_index) {
-              regular_income_tax += reg_income_tax_rate[taxable_income_index] * (taxable_income - reg_income_tax_bracket[taxable_income_index]);
-          } else {
-              regular_income_tax += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
-          }
-      }
+      }) - 1;
     }
+    
+    var regular_income_tax_owed = 0;
+    for (var i = taxable_income_index; i >= 0; i--) {
+        if (i == taxable_income_index) {
+            regular_income_tax_owed += reg_income_tax_rate[i] * (taxable_income - reg_income_tax_bracket[i]);
+        } else {
+            regular_income_tax_owed += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
+        }
+    }
+
+    // Calculate Medicare Tax
+    var medicare_tax_owed = 0;
+    var medicare_taxable_income = parseFloat(salary) - parseFloat(hsa);
+    // If your medicare taxable income exceeds the limit, multiply the additional amount by the additional rate, and the remaining (which should just be the threshold) by the regular rate
+    if (medicare_taxable_income > additional_medicare_tax_threshold) {
+      medicare_tax_owed = (medicare_taxable_income - additional_medicare_tax_threshold) * additional_medicare_tax_rate + (additional_medicare_tax_threshold * regular_medicare_tax_rate);
+    } else {
+      medicare_tax_owed = medicare_taxable_income * regular_medicare_tax_rate;
+    }
+
+    // Calculate Social Security Tax
+    var ssi_tax_owed = 0;
+    if (salary > ssi_income_limit) {
+      ssi_tax_owed = ssi_income_limit * ssi_tax_rate;
+    } else {
+      ssi_tax_owed = salary * ssi_tax_rate;
+    }
+
+    // Calculate Long Term Capital Gains tax (used in regular tax system and AMT system)
+    var long_term_tax_index = 0;
+    
+    if(taxable_income > long_term_capital_gain_tax_bracket[long_term_capital_gain_tax_bracket.length - 1]) {
+      long_term_tax_index = long_term_capital_gain_tax_bracket.length - 1;
+    } else {
+      long_term_tax_index = long_term_capital_gain_tax_bracket.findIndex(function(number) {
+        return number > taxable_income;
+      }) - 1;
+    }
+    var long_term_capital_gains_tax_owed = parseFloat(long_term_capital_gains) * long_term_capital_gains_tax_owed_rate[long_term_tax_index];
+
 
     // Calculate AMTI Baseline (before ISO spread, AMT exemption)
     if (deduction_category == 'Standard Deduction') {
@@ -404,59 +673,61 @@
       var amti_baseline = taxable_income + parseFloat(salt) + parseFloat(medical_expenses);
     }
     
+    // Calculate Total Regular Income Tax (Federal Income Tax, Medicare, SSI, Long Term)
+    regular_income_tax_owed = regular_income_tax_owed + medicare_tax_owed + ssi_tax_owed + long_term_capital_gains_tax_owed;
+
     // Calculate ISO Spread Per Share, per potential grant
     var fmv_parsed = parseFloat(fmv);
-    var shares_exercisable_1_parsed = parseFloat(shares_exercisable_1);
-    var shares_exercisable_2_parsed = parseFloat(shares_exercisable_2);
-    var shares_exercisable_3_parsed = parseFloat(shares_exercisable_3);
-    var strike_price_1_parsed = parseFloat(strike_price_1);
-    var strike_price_2_parsed = parseFloat(strike_price_2);
-    var strike_price_3_parsed = parseFloat(strike_price_3);
+    var shares_exercisable_one_parsed = parseFloat(shares_exercisable_one);
+    var shares_exercisable_two_parsed = parseFloat(shares_exercisable_two);
+    var shares_exercisable_three_parsed = parseFloat(shares_exercisable_three);
+    var strike_price_one_parsed = parseFloat(strike_price_one);
+    var strike_price_two_parsed = parseFloat(strike_price_two);
+    var strike_price_three_parsed = parseFloat(strike_price_three);
 
-    if (strike_price_1_parsed === 0) {
-      var iso_spread_pershare_1 = 0;
+    if (strike_price_one_parsed === 0) {
+      var iso_spread_pershare_one = 0;
     } else {
-      var iso_spread_pershare_1 = fmv_parsed - strike_price_1_parsed;
+      var iso_spread_pershare_one = fmv_parsed - strike_price_one_parsed;
     }
-    if (strike_price_2_parsed === 0) {
-      var iso_spread_pershare_2= 0;
+    if (strike_price_two_parsed === 0) {
+      var iso_spread_pershare_two= 0;
     } else {
-      var iso_spread_pershare_2 = fmv_parsed - strike_price_2_parsed;
+      var iso_spread_pershare_two = fmv_parsed - strike_price_two_parsed;
     }
-    if (strike_price_3_parsed === 0) {
-      var iso_spread_pershare_3 = 0;
+    if (strike_price_three_parsed === 0) {
+      var iso_spread_pershare_three = 0;
     } else {
-      var iso_spread_pershare_3 = fmv_parsed - strike_price_3_parsed;
+      var iso_spread_pershare_three = fmv_parsed - strike_price_three_parsed;
     }
 
-    var iso_input_array = [fmv_parsed, shares_exercisable_1_parsed, shares_exercisable_2_parsed, shares_exercisable_3_parsed, strike_price_1_parsed, strike_price_2_parsed, strike_price_3_parsed];
-    var iso_spread_array = [iso_spread_pershare_1,iso_spread_pershare_2,iso_spread_pershare_3];
+    var iso_input_array = [fmv_parsed, shares_exercisable_one_parsed, shares_exercisable_two_parsed, shares_exercisable_three_parsed, strike_price_one_parsed, strike_price_two_parsed, strike_price_three_parsed];
+    var iso_spread_array = [iso_spread_pershare_one,iso_spread_pershare_two,iso_spread_pershare_three];
 
     // Display result message
     // If user did not enter anything (submitted all with 0s or 0.00s)
     if (iso_input_array.every(function(i) {return i === 0;} )) {
       var result_validation_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
       //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
-      regular_income_tax = currency_formatter.format(regular_income_tax);
+      regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
     // Else if user somehow entered FMV and strike prices that were the same
     } else if (iso_spread_array.every(function(i) {return i === 0;} )) {
-      var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT!";
+      var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT as you would net a $0 gain per share exercised!";
       //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
-      regular_income_tax = currency_formatter.format(regular_income_tax);
+      regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
     // Calculate the total ISO Spread allowed (the spread resulting in no diff between regular income tax and the tax you would pay for AMT)
     } else {
-
       // Determine how much wiggle room you have before hitting the 28% threshold
-      var iso_subtotal_1 = shares_exercisable_1_parsed * iso_spread_pershare_1;
-      var iso_subtotal_2 = shares_exercisable_2_parsed * iso_spread_pershare_2;
-      var iso_subtotal_3 = shares_exercisable_3_parsed * iso_spread_pershare_3;
-      var iso_subtotal_all = iso_subtotal_1 + iso_subtotal_2 + iso_subtotal_3;
+      var iso_subtotal_one = shares_exercisable_one_parsed * iso_spread_pershare_one;
+      var iso_subtotal_two = shares_exercisable_two_parsed * iso_spread_pershare_two;
+      var iso_subtotal_three = shares_exercisable_three_parsed * iso_spread_pershare_three;
+      var iso_subtotal_all = iso_subtotal_one + iso_subtotal_two + iso_subtotal_three;
       var iso_spread_threshold = amt_tax_brackets - (amti_baseline + iso_subtotal_all - amt_deduction);
       // If iso_spread_threshold is negative, that means there is the possibility you exceed the amt_tax_bracket threshold, so you should use the 28% calculator
       if (iso_spread_threshold < 0) {
-        var iso_spread_allowed =  (regular_income_tax - amt_tax_brackets * 0.26) / 0.28 + amt_tax_brackets + amt_deduction - amti_baseline;
+        var iso_spread_allowed =  (regular_income_tax_owed - amt_tax_brackets * 0.26) / 0.28 + amt_tax_brackets + amt_deduction - amti_baseline;
       } else {
-        var iso_spread_allowed =  regular_income_tax / 0.26 - amti_baseline + amt_deduction;
+        var iso_spread_allowed =  regular_income_tax_owed / 0.26 - amti_baseline + amt_deduction;
       }
       // If the total amount of ISOs you can exercise is less than what is allowed, you can exercise them all
       if (iso_subtotal_all <= iso_spread_allowed) {
@@ -466,118 +737,123 @@
         } else {
           var amt_taxes_owed = famti * 0.26;
         }
-        amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
-        regular_income_tax = currency_formatter.format(regular_income_tax);
 
-        var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
-        var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
-        var shares_to_exercise_allowed_from3 = shares_exercisable_3_parsed;
-        var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
+        //if (amt_taxes_owed < 0) {amt_taxes_owed = 0;};
+
+        amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
+        regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
+
+        var shares_to_exercise_allowed_from_one = shares_exercisable_one_parsed;
+        var shares_to_exercise_allowed_from_two = shares_exercisable_two_parsed;
+        var shares_to_exercise_allowed_from_three = shares_exercisable_three_parsed;
+        var shares_to_exercise_allowed = shares_to_exercise_allowed_from_one + shares_to_exercise_allowed_from_two + shares_to_exercise_allowed_from_three;
         var shares_to_exercise_allowed_formatted = currency_formatter.format(shares_to_exercise_allowed);
-        var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;
+        var cost_to_exercise = shares_to_exercise_allowed_from_one * strike_price_one_parsed + shares_to_exercise_allowed_from_two * strike_price_two_parsed + shares_to_exercise_allowed_from_three * strike_price_three_parsed;
         
-        var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+        var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay AMT";
       // Else, return how many of each lot to exercise, going from oldest to newest    
       } else {
-        if (iso_subtotal_1 > iso_spread_allowed) {
-          var shares_to_exercise_allowed_from1 = Math.floor(iso_spread_allowed / iso_spread_pershare_1);
-          var shares_to_exercise_allowed_from2 = 0;
-          var shares_to_exercise_allowed_from3 = 0;
-          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1;
-          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed;
-          var famti = amti_baseline - amt_deduction + shares_to_exercise_allowed * iso_spread_pershare_1;
-        } else if (iso_subtotal_2 + iso_subtotal_1 > iso_spread_allowed) {
-          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1;
-          var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
-          var shares_to_exercise_allowed_from2 = Math.floor(iso_spread_remaining / iso_spread_pershare_2);
-          var shares_to_exercise_allowed_from3 = 0;
-          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2;
-          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed;
-          var famti = amti_baseline - amt_deduction + iso_subtotal_1 + shares_to_exercise_allowed_from2 * iso_spread_pershare_2;
+        if (iso_subtotal_one > iso_spread_allowed) {
+          var shares_to_exercise_allowed_from_one = Math.floor(iso_spread_allowed / iso_spread_pershare_one);
+          var shares_to_exercise_allowed_from_two = 0;
+          var shares_to_exercise_allowed_from_three = 0;
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from_one;
+          var cost_to_exercise = shares_to_exercise_allowed_from_one * strike_price_one_parsed;
+          var famti = amti_baseline - amt_deduction + shares_to_exercise_allowed * iso_spread_pershare_one;
+        } else if (iso_subtotal_two + iso_subtotal_one > iso_spread_allowed) {
+          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_one;
+          var shares_to_exercise_allowed_from_one = shares_exercisable_one_parsed;
+          var shares_to_exercise_allowed_from_two = Math.floor(iso_spread_remaining / iso_spread_pershare_two);
+          var shares_to_exercise_allowed_from_three = 0;
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from_one + shares_to_exercise_allowed_from_two;
+          var cost_to_exercise = shares_to_exercise_allowed_from_one * strike_price_one_parsed + shares_to_exercise_allowed_from_two * strike_price_two_parsed;
+          var famti = amti_baseline - amt_deduction + iso_subtotal_one + shares_to_exercise_allowed_from_two * iso_spread_pershare_two;
         } else {
-          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1 - iso_subtotal_2;
-          var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
-          var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
-          var shares_to_exercise_allowed_from3 = Math.floor(iso_spread_remaining / iso_spread_pershare_3);
-          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
-          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;;
-          var famti = amti_baseline - amt_deduction + iso_subtotal_1 + iso_subtotal_2 + shares_to_exercise_allowed_from3 * iso_spread_pershare_3;
+          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_one - iso_subtotal_two;
+          var shares_to_exercise_allowed_from_one = shares_exercisable_one_parsed;
+          var shares_to_exercise_allowed_from_two = shares_exercisable_two_parsed;
+          var shares_to_exercise_allowed_from_three = Math.floor(iso_spread_remaining / iso_spread_pershare_three);
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from_one + shares_to_exercise_allowed_from_two + shares_to_exercise_allowed_from_three;
+          var cost_to_exercise = shares_to_exercise_allowed_from_one * strike_price_one_parsed + shares_to_exercise_allowed_from_two * strike_price_two_parsed + shares_to_exercise_allowed_from_three * strike_price_three_parsed;;
+          var famti = amti_baseline - amt_deduction + iso_subtotal_one + iso_subtotal_two + shares_to_exercise_allowed_from_three * iso_spread_pershare_three;
         }
+
         if (famti - amt_tax_brackets > 0) {
           var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
         } else {
           var amt_taxes_owed = famti * 0.26;
         }
         amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
-        regular_income_tax = currency_formatter.format(regular_income_tax);
+        regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
         shares_to_exercise_allowed_formatted = number_formatter.format(shares_to_exercise_allowed);
-        var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+        var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay any of the AMT";
       }
 
       // Calculate cost to exercise and format
-      cost_to_exercise1 = strike_price_1_parsed * shares_to_exercise_allowed_from1;
-      cost_to_exercise2 = strike_price_2_parsed * shares_to_exercise_allowed_from2;
-      cost_to_exercise3 = strike_price_3_parsed * shares_to_exercise_allowed_from3;
-      var cost_to_exercise = cost_to_exercise1 + cost_to_exercise2 + cost_to_exercise3;
+      cost_to_exercise_one = strike_price_one_parsed * shares_to_exercise_allowed_from_one;
+      cost_to_exercise_two = strike_price_two_parsed * shares_to_exercise_allowed_from_two;
+      cost_to_exercise_three = strike_price_three_parsed * shares_to_exercise_allowed_from_three;
+      var cost_to_exercise = cost_to_exercise_one + cost_to_exercise_two + cost_to_exercise_three;
     
-      cost_to_exercise1 = currency_formatter.format(cost_to_exercise1);
-      cost_to_exercise2 = currency_formatter.format(cost_to_exercise2);
-      cost_to_exercise3 = currency_formatter.format(cost_to_exercise3);
+      cost_to_exercise_one = currency_formatter.format(cost_to_exercise_one);
+      cost_to_exercise_two = currency_formatter.format(cost_to_exercise_two);
+      cost_to_exercise_three = currency_formatter.format(cost_to_exercise_three);
       
-      strike_price_1_parsed = currency_formatter.format(strike_price_1_parsed);
-      strike_price_2_parsed = currency_formatter.format(strike_price_2_parsed);
-      strike_price_3_parsed = currency_formatter.format(strike_price_3_parsed);
+      strike_price_one_parsed = currency_formatter.format(strike_price_one_parsed);
+      strike_price_two_parsed = currency_formatter.format(strike_price_two_parsed);
+      strike_price_three_parsed = currency_formatter.format(strike_price_three_parsed);
 
-      shares_to_exercise_allowed_from1_formatted = number_formatter.format(shares_to_exercise_allowed_from1);
-      shares_to_exercise_allowed_from2_formatted = number_formatter.format(shares_to_exercise_allowed_from2);
-      shares_to_exercise_allowed_from3_formatted = number_formatter.format(shares_to_exercise_allowed_from3);
+      shares_to_exercise_allowed_from_one_formatted = number_formatter.format(shares_to_exercise_allowed_from_one);
+      shares_to_exercise_allowed_from_two_formatted = number_formatter.format(shares_to_exercise_allowed_from_two);
+      shares_to_exercise_allowed_from_three_formatted = number_formatter.format(shares_to_exercise_allowed_from_three);
       
       // Populate Results Table dynamically
-      document.getElementById("iso-planner-result-table").classList.remove("hidden");
+      document.getElementById("iso_planner_result_table").classList.remove("hidden");
       if (iso_form_count == "iso_forms_count_one") {
-        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
-        document.getElementById("iso-planner-result-row-2").classList.add("hidden");
-        document.getElementById("iso-planner-result-row-3").classList.add("hidden");
+        document.getElementById("iso_planner_result_row_one").classList.remove("hidden");
+        document.getElementById("iso_planner_result_row_two").classList.add("hidden");
+        document.getElementById("iso_planner_result_row_three").classList.add("hidden");
 
-        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
-        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
-        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
+        document.getElementById("iso_planner_result_strike_price_one").innerHTML = strike_price_one_parsed;
+        document.getElementById("iso_planner_result_shares_exercise_one").innerHTML = shares_to_exercise_allowed_from_one_formatted;
+        document.getElementById("iso_planner_result_cost_one").innerHTML = cost_to_exercise_one;
 
       } else if (iso_form_count == "iso_forms_count_two") {
-        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
-        document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
-        document.getElementById("iso-planner-result-row-3").classList.add("hidden");
+        document.getElementById("iso_planner_result_row_one").classList.remove("hidden");
+        document.getElementById("iso_planner_result_row_two").classList.remove("hidden");
+        document.getElementById("iso_planner_result_row_three").classList.add("hidden");
 
-        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
-        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
-        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
-        document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
-        document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2_formatted;
-        document.getElementById("iso-planner-result-cost_2").innerHTML = cost_to_exercise2;
+        document.getElementById("iso_planner_result_strike_price_one").innerHTML = strike_price_one_parsed;
+        document.getElementById("iso_planner_result_shares_exercise_one").innerHTML = shares_to_exercise_allowed_from_one_formatted;
+        document.getElementById("iso_planner_result_cost_one").innerHTML = cost_to_exerciseone;
+        document.getElementById("iso_planner_result_strike_price_two").innerHTML = strike_price_two_parsed;
+        document.getElementById("iso_planner_result_shares_exercise_two").innerHTML = shares_to_exercise_allowed_from_two_formatted;
+        document.getElementById("iso_planner_result_cost_two").innerHTML = cost_to_exercise_two;
 
       } else if (iso_form_count == "iso_forms_count_three") {
-        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
-        document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
-        document.getElementById("iso-planner-result-row-3").classList.remove("hidden");
+        document.getElementById("iso_planner_result_row_one").classList.remove("hidden");
+        document.getElementById("iso_planner_result_row_two").classList.remove("hidden");
+        document.getElementById("iso_planner_result_row_three").classList.remove("hidden");
 
-        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
-        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
-        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
-        document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
-        document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2_formatted;
-        document.getElementById("iso-planner-result-cost_2").innerHTML = cost_to_exercise2;
-        document.getElementById("iso-planner-result-strike-price_3").innerHTML = strike_price_3_parsed;
-        document.getElementById("iso-planner-result-shares-exercise_3").innerHTML = shares_to_exercise_allowed_from3_formatted;
-        document.getElementById("iso-planner-result-cost_3").innerHTML = cost_to_exercise3;
+        document.getElementById("iso_planner_result_strike_price_one").innerHTML = strike_price_one_parsed;
+        document.getElementById("iso_planner_result_shares_exercise_one").innerHTML = shares_to_exercise_allowed_from_one_formatted;
+        document.getElementById("iso_planner_result_cost_one").innerHTML = cost_to_exercise_one;
+        document.getElementById("iso_planner_result_strike_price_two").innerHTML = strike_price_two_parsed;
+        document.getElementById("iso_planner_result_shares_exercise_two").innerHTML = shares_to_exercise_allowed_from_two_formatted;
+        document.getElementById("iso_planner_result_cost_two").innerHTML = cost_to_exercise_two;
+        document.getElementById("iso_planner_result_strike_price_three").innerHTML = strike_price_three_parsed;
+        document.getElementById("iso_planner_result_shares_exercise_three").innerHTML = shares_to_exercise_allowed_from_three_formatted;
+        document.getElementById("iso_planner_result_cost_three").innerHTML = cost_to_exercise_three;
       }
-        // Populate Total Row of Results Table
+
+      // Populate Total Row of Results Table
       var average_strike_price = cost_to_exercise / shares_to_exercise_allowed;
       average_strike_price = currency_formatter.format(average_strike_price);
       cost_to_exercise = currency_formatter.format(cost_to_exercise);
 
-      document.getElementById("iso-planner-result-strike-price_total").innerHTML = "Average: " + average_strike_price;
-      document.getElementById("iso-planner-result-shares-exercise_total").innerHTML = shares_to_exercise_allowed_formatted;
-      document.getElementById("iso-planner-result-cost_total").innerHTML = cost_to_exercise;
+      document.getElementById("iso_planner_result_strike_price_total").innerHTML = "Average: " + average_strike_price;
+      document.getElementById("iso_planner_result_shares_exercise_total").innerHTML = shares_to_exercise_allowed_formatted;
+      document.getElementById("iso_planner_result_cost_total").innerHTML = cost_to_exercise;
 
     }
 
@@ -593,9 +869,8 @@
     document.getElementById("agi").innerHTML="Your Adjusted Gross Income (AGI) is " + agi;
     document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
     document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
-    document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
+    document.getElementById("regular_income_tax_owed").innerHTML= "Your Regular Income Tax Owed is: " + regular_income_tax_owed;
     document.getElementById("result_validation_message").innerHTML= result_validation_message;
-    //document.getElementById("placeholder").innerHTML= placeholder;
 
   }
 </script>

@@ -1,7 +1,7 @@
 <form>  
   <div class="main">
       <div class="container">
-          <form method="POST" class="calculator-form" id="register-form">
+          <form method="POST" class="calculator-form">
               <div class="form-row">
 
                   <div class="form-group">
@@ -178,7 +178,7 @@
       </div>
   </div>  
 
-  <input type="button" id="calculator_submit" onclick=check_required() value="Calculate my AMT!">
+  <input type="button" class="calculator_submit" onclick=check_required() value="Calculate my AMT!">
 </form>
 
 <h3> Results: </h3>
@@ -375,6 +375,7 @@
       var ssi_tax_rate = 0.062
 
     }
+
     function empty_to_zero(num) {
       if (num.length == 0) num = 0;
       return num;
@@ -392,15 +393,6 @@
     var salt=empty_to_zero(document.getElementById("salt").value);
     var mortgage_interest=empty_to_zero(document.getElementById("mortgage_interest").value);
 
-    var iso_form_count_obj = document.getElementsByName("iso_forms_count");
-    for (var i=0, length=iso_form_count_obj.length; i < length; i++)
-      {
-        if(iso_form_count_obj[i].checked) {
-          var iso_form_count = iso_form_count_obj[i].value;
-          break;
-        }
-      }
-
     var shares_exercised_1=empty_to_zero(document.getElementById("shares_exercised_one").value);
     var strike_price_1=empty_to_zero(document.getElementById("strike_price_one").value);
     var fmv_1=empty_to_zero(document.getElementById("fmv_one").value);
@@ -411,6 +403,16 @@
     var strike_price_3=empty_to_zero(document.getElementById("strike_price_three").value);
     var fmv_3=empty_to_zero(document.getElementById("fmv_three").value);
     
+    //Get value of which radio input ISO # was selected 
+    var iso_form_count_obj = document.getElementsByName("iso_forms_count");
+    for (var i=0, length=iso_form_count_obj.length; i < length; i++)
+      {
+        if(iso_form_count_obj[i].checked) {
+          var iso_form_count = iso_form_count_obj[i].value;
+          break;
+        }
+      }
+
     // Does some validation based on the number of ISO Grants selected when user hits 'Calculate'. 
     // Zeroes out any inputs from extra forms that were hidden
     if (iso_form_count == "iso_forms_count_one") {
@@ -489,6 +491,7 @@
 
     // Standard vs Itemized Deduction
     var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);
+
     if (itemized_deduction > standard_deduction) {
       var regular_deduction_final = itemized_deduction;
       var deduction_category = 'Itemized Deduction';
@@ -519,6 +522,7 @@
             regular_income_tax_owed += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
         }
     }
+
     // Calculate Medicare Tax
     var medicare_tax_owed = 0;
     var medicare_taxable_income = parseFloat(salary) - parseFloat(hsa);
