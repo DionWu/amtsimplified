@@ -7,38 +7,38 @@
   <option value="married">Married, Filing Together</option>
 </select> <br><br>
 <div class="calculator-input-text">Salary: 
-</div> <input type="number" placeholder="0" class="calculate-form required_field" onchange=check_min(this) id="salary" /> <p class="calculator-validation-p" id="salary-p"></p><br>
+</div> <input type="number" placeholder="0" class="calculator-input required_field" onchange=check_min(this) id="salary" /> <p class="calculator-validation-p" id="salary-p"></p><br>
 
 <div class="calculator-input-text">Short Term Capital Gains: </div>
-<input type="number" placeholder="0" class="calculate-form" id="short-term-capital-gains"><br>
+<input type="number" placeholder="0" class="calculator-input" id="short-term-capital-gains"><br>
 
 <h4 id="total_income" class="result-header"> </h4>
 <div class="calculator-input-text">Traditional 401k Contributions: </div> 
-<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-401k"><p class="calculator-validation-p" id="trad-401k-p"></p><br>
+<input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="trad-401k"><p class="calculator-validation-p" id="trad-401k-p"></p><br>
 
 <div class="calculator-input-text">HSA Contributions: </div>
-<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="hsa"><p class="calculator-validation-p" id="hsa-p"></p><br>
+<input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="hsa"><p class="calculator-validation-p" id="hsa-p"></p><br>
 <div class="calculator-input-text">Traditional IRA Contributions: </div>
-<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="calculator-validation-p" id="trad-ira-p"></p><br>
+<input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="trad-ira"><p class="calculator-validation-p" id="trad-ira-p"></p><br>
 
 <div class="calculator-input-text calculator-tooltip">
   <span class="calculator-tooltip-text"><a href="/posts/what-is-sli" target="_blank">Learn about the SLI Deduction here</a></span>
   Student Loan Interest Paid: 
-</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="calculator-validation-p" id="sli-p"></p><br>
+</div> <input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="sli"><p class="calculator-validation-p" id="sli-p"></p><br>
 
 <h4 id="agi" class="result-header"> </h4>
 <div class="calculator-input-text calculator-tooltip">
   <span class="calculator-tooltip-text"><a href="/posts/what-is-medical-expense" target="_blank">Learn about medical expenses here </a></span>
   Medical Expenses: 
-</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="calculator-validation-p" id="medical-expenses-p"></p><br>
+</div> <input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="medical-expenses"><p class="calculator-validation-p" id="medical-expenses-p"></p><br>
 <div class="calculator-input-text calculator-tooltip">
   <span class="calculator-tooltip-text"><a href="/posts/what-is-salt" target="_blank">Read about the SALT here</a></span>
   State and Local Tax (SALT): 
-</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="calculator-validation-p" id="salt-p"></p><br>
+</div> <input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="salt"><p class="calculator-validation-p" id="salt-p"></p><br>
 <div class="calculator-input-text calculator-tooltip">
   <span class="calculator-tooltip-text"><a href="/posts/what-is-mortgage-interest" target="_blank">Learn about your mortgage interest here</a></span>
   Mortgage Interest Paid: 
-</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="calculator-validation-p" id="mortgage-interest-p"></p><br>
+</div> <input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="mortgage-interest"><p class="calculator-validation-p" id="mortgage-interest-p"></p><br>
 
 <h4 id="final_deduction" class="result-header"> </h4>
 <h4 id="taxable_income" class="result-header"> </h4>
@@ -57,33 +57,33 @@
   <br><div class="calculator-input-text calculator-tooltip">
     <span class="calculator-tooltip-text">Enter the current FMV or your best estimate for when you plan to exercise </span>
     Fair Market Value: </div>
-    <input type="number" placeholder="0.00" class="calculate-form required_field" onchange=check_min(this) id="fmv" ><p class="calculator-validation-p" id="fmv-p"></p><br>
+    <input type="number" placeholder="0.00" class="calculator-input required_field" onchange=check_min(this) id="fmv" ><p class="calculator-validation-p" id="fmv-p"></p><br>
   
     <div class ="iso-form-containers" id="iso-form-container-1">
     <br>
     <h5 class="iso-form-labels" id="iso-form-label-1"> Input the details of grant #1 below </h5>
     <div class="calculator-input-text">Exercisable Shares: </div>
-    <input type="number" placeholder="0" class="calculate-form required_field" onchange=check_min(this) id="shares-exercisable-1" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-1-p"></p><br>
+    <input type="number" placeholder="0" class="calculator-input required_field" onchange=check_min(this) id="shares-exercisable-1" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-1-p"></p><br>
     <div class="calculator-input-text">Strike Price: </div>
-    <input type="number" placeholder="0.00" class="calculate-form required_field" onchange=check_min(this) id="strike-price-1" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-1-p"></p><br>
+    <input type="number" placeholder="0.00" class="calculator-input required_field" onchange=check_min(this) id="strike-price-1" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-1-p"></p><br>
     </div>
 
   <div class ="iso-form-containers" id="iso-form-container-2">
     <br>
     <h5 class="iso-form-labels" id="iso-form-label-2"> Input the details of grant #2 below </h5>
     <div class="calculator-input-text">Exercisable Shares: </div>
-    <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="shares-exercisable-2" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-2-p"></p><br>
+    <input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="shares-exercisable-2" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-2-p"></p><br>
     <div class="calculator-input-text">Strike Price: </div>
-    <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price-2" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-2-p"></p><br>
+    <input type="number" placeholder="0.00" class="calculator-input" onchange=check_min(this) id="strike-price-2" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-2-p"></p><br>
   </div>
   
   <div class ="iso-form-containers" id="iso-form-container-3">
     <br>
     <h5 class="iso-form-labels" id="iso-form-label-3"> Input the details of grant #3 below </h5>
     <div class="calculator-input-text">Exercisable Shares: </div>
-    <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="shares-exercisable-3" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-3-p"></p><br>
+    <input type="number" placeholder="0" class="calculator-input" onchange=check_min(this) id="shares-exercisable-3" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-3-p"></p><br>
     <div class="calculator-input-text">Strike Price: </div>
-    <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price-3" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-3-p"></p><br>
+    <input type="number" placeholder="0.00" class="calculator-input" onchange=check_min(this) id="strike-price-3" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-3-p"></p><br>
   </div>
 </div>
 

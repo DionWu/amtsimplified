@@ -6,7 +6,7 @@ _Please note details in this article are relevant for the 2020 tax year (filing 
 
 _This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions_
 
-**Coming Soon:** AMT calculators for non-ISOs, Additional Filing Statuses, Dependents Credits, and of course, a better design for this calculator (Minimum Viable Product!)
+**Coming Soon:** AMT calculators for non-ISOs, Dependents Credits, and a cleaner results section. This is a WIP!
 
 ------------------
 
