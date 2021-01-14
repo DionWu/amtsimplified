@@ -426,26 +426,27 @@
     if (trad_401k > trad_401k_limit) {
       trad_401k = trad_401k_limit;
       document.getElementById("trad_401k").value = trad_401k_limit;
-      document.getElementById('trad-401k-p').innerHTML = "The 401k limit for your filing status is: " + trad_401k_limit;
+      document.getElementById('trad_401k_p').innerHTML = "The 401k limit for your filing status is: " + trad_401k_limit;
     }
     
-    /* Make sure number is under HSA limit
+    // Make sure number is under HSA limit
     if (hsa > hsa_limit) {
       hsa = hsa_limit;
-      document.getElementById("salt").value = hsa_limit;
-      document.getElementById('hsa-p').innerHTML = "The HSA limit for your filing status is: " + hsa_limit;
+      document.getElementById("hsa").value = hsa_limit;
+      document.getElementById('hsa_p').innerHTML = "The HSA limit for your filing status is: " + hsa_limit;
     }
 
-    Make sure number is under Trad IRA limit
+    //Make sure number is under Trad IRA limit
     if (trad_ira > trad_ira_limit) {
       trad_ira = trad_ira_limit;
-      document.getElementById("salt").value = trad_ira_limit;
-      document.getElementById('trad-ira-p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
-    }*/
-    // MAGI - AGI but includes Trad IRA, SLI
-
+      document.getElementById("trad_ira").value = trad_ira_limit;
+      document.getElementById('trad_ira_p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
+    }
+    
+    // MAGI: AGI but includes Trad IRA, SLI
     var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
 
+    // Calculate SLI - based on MAGI
     if (magi > sli_max) {
       sli = 0;
     } else if (magi > sli_phase) {
@@ -463,10 +464,11 @@
       sli = sli.toFixed(2);
     } 
 
-    /*if (filing_status == 'married_separately') {
+    // Married, Filing Separately cannot take the Student Loan Interest Deduction. Go Figure
+    if (filing_status == 'married_separately') {
       document.getElementById("sli").value = 0;
-      document.getElementById('sli-p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
-    }*/
+      document.getElementById('sli_p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
+    }
 
     // Calculate AGI
     var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
@@ -478,12 +480,12 @@
       medical_expenses = 0;
     }
     
-    /* Make sure SALT is under SALT limit
+    //Make sure SALT is under SALT limit
     if (salt > salt_deduction_limit) {
       salt = salt_deduction_limit;
       document.getElementById("salt").value = salt_deduction_limit;
-      document.getElementById('salt-p').innerHTML = "The SALT limit for your filing status is: " + salt_deduction_limit;
-    }*/
+      document.getElementById('salt_p').innerHTML = "The SALT limit for your filing status is: " + salt_deduction_limit;
+    }
 
     // Standard vs Itemized Deduction
     var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);

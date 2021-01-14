@@ -6,7 +6,7 @@ _Please note details in this article are relevant for the 2020 tax year (filing 
 
 _This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions_
 
-**Coming Soon:** Allowing for inputs of if you sell exercised stock in the same calendar year, aesthetics, and having your inputs save over from this planner to the AMT calculator
+**Coming Soon:** Adapting the design of the AMT calculator to this, allowing for inputs of if you sell exercised stock in the same calendar year, aesthetics, and having your inputs save over from this planner to the AMT calculator
 
 ------------------
 
