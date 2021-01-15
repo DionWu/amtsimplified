@@ -86,7 +86,7 @@ Your updated table might look like the following now:
  Adjustment: Traditional IRA | 0 (Remember, you're in a Roth IRA)
  Adjustment: Student Loan Interest* | $500
  |
- Subtract Total Adjustments | $23,550
+ Subtract Total Adjustments | -$23,550
  |
  Adjusted Gross Income (AGI) | $96,950
 {{</table>}}
@@ -124,10 +124,10 @@ Remember, this is the 'taxable income' you would use to calculate your Regular I
   Line Item | Value 
   ------------- | -------------
  Total Income | $120,000
- Subtract Total Adjustments | $23,550
+ Subtract Total Adjustments | -$23,550
  |
  Adjusted Gross Income (AGI) | $96,950
- Subtract Standard Deduction | $12,400
+ Subtract Standard Deduction | -$12,400
  |
  Regular Taxable Income | $84,550
  {{</table>}}
@@ -176,14 +176,14 @@ Now that we have our 2 additional components, let's calculate the AMTI
   Line Item | Value 
   ------------- | -------------
  Total Income | $120,000
- Subtract Total Adjustments | $23,550
+ Subtract Total Adjustments | -$23,550
  |
  Adjusted Gross Income (AGI) | $96,950
- Subtract Standard Deduction | $12,400
+ Subtract Standard Deduction | -$12,400
  |
  Regular Taxable Income | $84,550
- Add back in Ineligible Deductions (standard deduction, in our case)| $12,400
- Add in your ISO Exercise Spread | $6,000
+ Add back in Ineligible Deductions (standard deduction, in our case)| +$12,400
+ Add in your ISO Exercise Spread | +$6,000
  | 
  Alternative Minimum Taxable Income (AMTI) | $102,950
  {{</table>}}
@@ -201,17 +201,17 @@ This is essentially a large chunk of money you can subtract from your AMTI befor
   Line Item | Value 
   ------------- | -------------
  Total Income | $120,000
- Subtract Total Adjustments | $23,550
+ Subtract Total Adjustments | -$23,550
  |
  Adjusted Gross Income (AGI) | $96,950
- Subtract Standard Deduction | $12,400
+ Subtract Standard Deduction | -$12,400
  |
  Regular Taxable Income | $84,550
- Add back in Ineligible Deductions (standard deduction, in our case)| $12,400
- Add in your ISO Exercise Spread | $6,000
+ Add back in Ineligible Deductions (standard deduction, in our case)| +$12,400
+ Add in your ISO Exercise Spread | +$6,000
  | 
  Alternative Minimum Taxable Income (AMTI) | $102,950
- Subtract AMT Exemption | $72,900
+ Subtract AMT Exemption | -$72,900
  |
  'Final Alternative Minimum Taxable Income (FAMTI)' | $30,050
  {{</table>}}
@@ -237,17 +237,17 @@ In our case, luckily, our FAMTI of $30,050 is much lower than the thershold of $
   Line Item | Value 
   ------------- | -------------
  Total Income | $120,000
- Subtract Total Adjustments | $23,550
+ Subtract Total Adjustments | -$23,550
  |
  Adjusted Gross Income (AGI) | $96,950
- Subtract Standard Deduction | $12,400
+ Subtract Standard Deduction | -$12,400
  |
  Regular Taxable Income | $84,550
- Add back in Ineligible Deductions (standard deduction, in our case)| $12,400
- Add in your ISO Exercise Spread | $6,000
+ Add back in Ineligible Deductions (standard deduction, in our case)| +$12,400
+ Add in your ISO Exercise Spread | +$6,000
  | 
  Alternative Minimum Taxable Income (AMTI) | $102,950
- Subtract AMT Exemption | $72,900
+ Subtract AMT Exemption | -$72,900
  |
  'Final Alternative Minimum Taxable Income (FAMTI)' | $30,050
  |
@@ -270,7 +270,7 @@ Because your AMT comes out to less than your Regular Income Tax, you wouldn't ne
 
 In the event that your AMT is higher than your Regular income tax, your tax program may just register the net difference as an additional line item. For example, if your AMT came out to $12,000 and your Regular Income Tax came out to $10,000, you might just see a line item saying "$2,000 for AMT" such that your total tax owed comes out to $12,000. 
 
-I should also mention that all of this is still within the realm of **FEDERAL** income taxes (FICA). None of this takes into account state taxes, which is a whole 'nother ball game. Luckily, only a few states have AMT at the state level, and we'll have an article up soon detailing this.
+I should also mention that all of this is still within the realm of **FEDERAL** income taxes, including FICA (SSI and Medicare taxes). None of this takes into account state taxes, which is a whole 'nother ball game. Luckily, only a few states have AMT at the state level, and we'll have an article up soon detailing this.
 
 This exercise is most useful if you want to plan for how much of your ISO to exercise this year, such that this exact scenario arises. This way, you could exercise the maximum amount of options early enough, but not exercise too many to trigger having to pay AMT. You could do the math yourself on Excel, but if you don't feel like doing it manually, [we've luckily built out a planning tool here](/iso-exercise-planner)
 
