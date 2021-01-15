@@ -7,7 +7,7 @@
         <h2 class="homepage-description">{{ markdownify .Site.Params.home_subtitle_1 }} <br> {{ markdownify .Site.Params.home_subtitle_2 }}</h2>
         {{ with .Content }} <div class="homepage-content text-justify">{{ . }}</div> {{ end }}
     </div>
-    <div class="button_home" align="center"><a class="button_home_link" href="/amt-calculator/" target="_blank" rel="nofollow noopener"><h2>Calculate my AMT</h2></a></div>
+    <div class="button_home" align="center"><a class="button_home_link" href="/amt-calculator/" ><h2>Calculate my AMT</h2></a></div>
 </main>
 
 {{ partial "footer" . }}
