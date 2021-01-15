@@ -3,15 +3,11 @@
 <main>
     <div class="intro">
         {{ with .Site.Params.profilePic }} <img class="profile" src="{{ . }}"> {{ end }}
-        <h1>{{ .Site.Title }}</h1>
-        <h2 id="homepage-description">{{ markdownify .Site.Params.Description }}</h2>
+        <h1 class="homepage-title">{{ .Site.Title }}</h1>
+        <h2 class="homepage-description">{{ markdownify .Site.Params.home_subtitle_1 }} <br> {{ markdownify .Site.Params.home_subtitle_2 }}</h2>
         {{ with .Content }} <div class="homepage-content text-justify">{{ . }}</div> {{ end }}
     </div>
-    <div id="home-nav-button-wrapper">
-        <button class="home-nav-button" id="home-nav-button-amt-calculator"> <a href="/amt-calculator/">Calculate my AMT</a></button>
-        <button class="home-nav-button" id="home-nav-button-iso-exercise-planner" > <a href="/iso-exercise-planner/">ISO Tax Planner</a></button>
-        <button class="home-nav-button" id="home-nav-button-learn-more"> <a href="/posts/">Learn about the AMT</a></button>
-    </div>
+    <div class="button_home" align="center"><a class="button_home_link" href="/amt-calculator/" target="_blank" rel="nofollow noopener"><h2>Calculate my AMT</h2></a></div>
 </main>
 
 {{ partial "footer" . }}

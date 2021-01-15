@@ -8,8 +8,25 @@
         --border-width: {{ if .Site.Params.showBorder | default false }} 5px {{ else }} 0 {{ end }};
     }
 
-    #homepage-description {
-        color: var(--accent);
+    h2.homepage-description {
+      color: var(--accent) !important;
+    }
+
+    .button_home_link {
+    color: #494949 !important;
+    background: #ffffff;
+    padding: 0px 10px 10px 10px;
+    margin: 20px;
+    border: 2px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+
+    .button_home_link:hover {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    transition: all 0.2s ease 0s;
+    text-decoration: none;
     }
 
     /* Chrome, Safari, Edge, Opera */
@@ -316,14 +333,9 @@ select {
 
   .calculator-form {
     padding: 93px 80px 90px 80px; } }
-@media screen and (max-width: 992px) {
 
-  .form-radio-item {
-    margin-right: 15px; }
-
-  .calculator-form {
-    padding: 93px 30px 90px 30px; } }
 @media screen and (max-width: 768px) {
+
   .form-row {
     flex-direction: column;
     -moz-flex-direction: column;
@@ -350,6 +362,42 @@ select {
     -o-flex-direction: column;
     -ms-flex-direction: column; } }
 
+@media screen and (max-width: 425px) {
+  h1 {font-size:16px;}
+
+  .submit {
+    width: 100%; }
+
+  #submit {
+    margin-bottom: 20px;
+    margin-right: 0px; }
+
+  .form-radio-group {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column; } }
+
+@media screen and (max-width: 375px) {
+    .button_home_link {
+    padding: 0px 5px 5px 5px;
+    }
+    .submit {
+    width: 100%; }
+
+    #submit {
+    margin-bottom: 20px;
+    margin-right: 0px; }
+
+    .form-radio-group {
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column; 
+    } 
+}
 /*# sourceMappingURL=style.css.map */
 
 

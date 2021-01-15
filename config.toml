@@ -7,6 +7,8 @@ googleAnalytics = "UA-171252878-1"
 [params]
     author = "Dion Wu"
     description = "Helping you understand, calculate, and plan for your Alternative Minimum Tax (AMT)"
+    home_subtitle_1 = "Helping you understand, calculate, and plan for your"
+    home_subtitle_2 = "Alternative Minimum Tax (AMT)"
     githubUsername = "#"
     accent = "green"
     showBorder = true

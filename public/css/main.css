@@ -37,23 +37,6 @@ img {
     font-size: 4vh;
 }
 
-#home-nav-button-wrapper {
-    /* transform: translateY(22vh) */
-    margin: 10%;
-}
-
-.home-nav-button {
-    max-width: fit-content;
-    display: inline-block;
-    font-size: x-large;
-    margin: 1%;   
-}
-
-.home-nav-button a:hover{
-    text-decoration: none;
-}
-
-
 /* Page content */
 
 .content {
