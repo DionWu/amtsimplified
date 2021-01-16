@@ -2,8 +2,9 @@
   <div class="main">
       <div class="container">
           <form method="POST" class="calculator-form">
+              <h3> Input the below details to calculate your AMT liability </h3>
+              <br>
               <div class="form-row">
-
                   <div class="form-group">
                       <h4 class="form-header"> Basic Information </h4>
                       <div class="form-select">
@@ -15,6 +16,15 @@
                                   <option value="single">Single</option>
                                   <option value="married_separately">Married, Filing Separately</option>
                                   <option value="married">Married, Filing Together</option>
+                              </select>
+                          </div>
+                          <div class="label-flex">
+                              <label for="filing_year" class="required">What year are you filing for? </label>
+                          </div>
+                          <div class="select-list">
+                              <select name="filing_year" id="filing_year">
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
                               </select>
                           </div>
                       </div>
@@ -181,8 +191,7 @@
   <input type="button" class="calculator_submit" id="amt_calculator_submit" onclick=check_required() value="Calculate my AMT!">
 </form>
 
-<h3> Results: </h3>
-<h4 id="total_income"></h4>
+<!--<h4 id="total_income"></h4>
 <h4 id="magi"> </h4>
 <h4 id="agi"> </h4>
 <h4 id="final_deduction"> </h4>
@@ -192,10 +201,123 @@
 <h4 id="amti"> </h4>
 <h4 id="amt_deduction"> </h4>
 <h4 id="amti_final"> </h4>
-<h4 id="amt_tax_owed" class="result-header"> </h4>
+<h4 id="amt_tax_owed" class="result-header"> </h4> -->
+<br>
 <h4 id="tax_confirmation_phrase" class="result-header"> </h4>
+<br>
 
-<!--<h2 id="placeholder"></h2>-->
+<table class="table table-bordered table-hover"><thead>
+    <tr>
+      <th>Tax System</th>
+      <th>Tax Owed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Regular Federal Income Tax</td>
+      <td id="regular_income_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>Alternative Minimum Tax</td>
+      <td id="amt_tax_owed_td"></td>
+    </tr>
+  </tbody>
+  <!--<tfoot>
+    <tr>
+      <td colspan="5" id="overall_results_td">Results:</td>
+    </tr>
+  </tfoot>-->
+</table>
+
+<!--<table class="table table-bordered table-hover" id="regular_income_tax_results_table"><thead>
+    <tr>
+      <th>Regular Income Tax Breakdown</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Income, minus Long Term Capital Gains</td>
+      <td id="total_income_td"></td>
+    </tr>
+    <tr>
+      <td>Long Term Capital Gains</td>
+      <td id="long_term_capital_gains_td"></td>
+    </tr>
+    <tr>
+      <td>Total Exemptions / Above the Line Deductions</td>
+      <td id="total_exemptions_td"></td>
+    </tr>
+    <tr>
+      <td>Adjusted Gross Income (AGI)</td>
+      <td id="agi_td"></td>
+    </tr>
+    <tr>
+      <td>Modified Adjusted Gross Income (MAGI)</td>
+      <td id="magi_td"></td>
+    </tr>
+    <tr>
+      <td>Deduction Category</td>
+      <td id="deduction_category_td"></td>
+    </tr>
+    <tr>
+      <td>Total Deductions</td>
+      <td id="final_deduction_td"></td>
+    </tr>
+    <tr>
+      <td>Taxable Income</td>
+      <td id="taxable_income_td"></td>
+    </tr>
+    <tr>
+      <td>Federal Income Tax</td>
+      <td id="federal_income_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>FICA: Social Security Tax</td>
+      <td id="ssi_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>FICA: Medicare Tax</td>
+      <td id="medicare_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>Long Term Capital Gains Tax</td>
+      <td id="long_term_capital_gains_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>Total Regular Taxes Paid</td>
+      <td id="regular_income_tax_owed"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2" id="overall_results_td">Results:</td>
+    </tr>
+  </tfoot>
+</table>
+
+<table class="table table-bordered table-hover" id="amt_tax_results_table"><thead>
+    <tr>
+      <th>Tax System</th>
+      <th>Tax Owed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Regular Federal Income Tax</td>
+      <td id="regular_income_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>Alternative Minimum Tax</td>
+      <td id="amt_tax_owed_td"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2" id="overall_results_td">Results:</td>
+    </tr>
+  </tfoot>
+</table>-->
 
 <script>
 
@@ -306,74 +428,160 @@
     var filing_status_obj = document.getElementById("filing_status");
     var filing_status = filing_status_obj.options[filing_status_obj.selectedIndex].value;
     
+    var filing_year_obj = document.getElementById("filing_year");
+    var filing_year = filing_year_obj.options[filing_year_obj.selectedIndex].value;
+    
     if (filing_status == 'single') {
-      var amt_deduction=72900;
-      var amt_phase = 518400;
-      var amt_tax_brackets = 197900;
-      var standard_deduction=12400;
-      var sli_phase = 70000;
-      var sli_max = 85000;
-      var sli_divider = 15000;
-      //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
-      var trad_401k_limit = 19500;
-      var hsa_limit = 3550;
-      var trad_ira_limit = 6000;
-      var salt_deduction_limit = 10000;
-      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,518400];
-      var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
-      var long_term_capital_gain_tax_bracket = [0,40000,441450];
-      var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
-      var additional_medicare_tax_threshold = 200000;
-      var regular_medicare_tax_rate = 0.0145;
-      var additional_medicare_tax_rate = 0.009;
-      var ssi_income_limit = 137700;
-      var ssi_tax_rate = 0.062
-
+      if (filing_year == '2020') {
+        var amt_deduction=72900;
+        var amt_phase = 518400;
+        var amt_tax_brackets = 197900;
+        var standard_deduction=12400;
+        var sli_phase = 70000;
+        var sli_magi_max = 85000;
+        // Basically for every dollar your MAGI is over the sli_phase, it reduces your deduction by some %
+        var sli_divider = sli_magi_max - sli_phase;
+        var sli_max = 2500;
+        //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
+        var trad_401k_limit = 19500;
+        var hsa_limit = 3550;
+        var trad_ira_limit = 6000;
+        var salt_deduction_limit = 10000;
+        var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,518400];
+        var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+        var long_term_capital_gain_tax_bracket = [0,40000,441450];
+        var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+        var additional_medicare_tax_threshold = 200000;
+        var regular_medicare_tax_rate = 0.0145;
+        var additional_medicare_tax_rate = 0.009;
+        var ssi_income_limit = 137700;
+        var ssi_tax_rate = 0.062
+      }
+      else if (filing_year == '2021') {
+        var amt_deduction=73600;
+        var amt_phase = 523600;
+        var amt_tax_brackets = 199900;
+        var standard_deduction=12550;
+        var sli_phase = 70000;
+        var sli_magi_max = 85000;
+        // Basically for every dollar your MAGI is over the sli_phase, it reduces your deduction by some %
+        var sli_divider = sli_magi_max - sli_phase;
+        var sli_max = 2500;
+        //LOOK INTO WHETHER SINGLE PEOPLE CAN HAVE A FAMILY HSA;     
+        var trad_401k_limit = 19500;
+        var hsa_limit = 3600;
+        var trad_ira_limit = 6000;
+        var salt_deduction_limit = 10000;
+        var reg_income_tax_bracket = [0,9950,40525,86375,164925,209425,523600];
+        var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+        var long_term_capital_gain_tax_bracket = [0,40400,445850];
+        var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+        var additional_medicare_tax_threshold = 200000;
+        var regular_medicare_tax_rate = 0.0145;
+        var additional_medicare_tax_rate = 0.009;
+        var ssi_income_limit = 142800;
+        var ssi_tax_rate = 0.062
+      }
     } else if (filing_status == 'married_separately') {
-      var amt_deduction=56700;
-      var amt_phase = 518400;
-      var amt_tax_brackets = 98950;
-      var standard_deduction=12400;
-      var sli_phase = 0;
-      var sli_max = 0;
-      var sli_divider = 0;
-      var trad_401k_limit = 19500;
-      var hsa_limit = 7100;
-      var trad_ira_limit = 6000;
-      var salt_deduction_limit = 5000;
-      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,311025];
-      var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
-      var long_term_capital_gain_tax_bracket = [0,40000,441450];
-      var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
-      var additional_medicare_tax_threshold = 125000;
-      var regular_medicare_tax_rate = 0.0145;
-      var additional_medicare_tax_rate = 0.009;
-      var ssi_income_limit = 137700;
-      var ssi_tax_rate = 0.062
+      if (filing_year == '2020') {
+        var amt_deduction=56700;
+        var amt_phase = 518400;
+        var amt_tax_brackets = 98950;
+        var standard_deduction=12400;
+        // married filing separately cannot claim sli. go figure, see IRS website
+        var sli_phase = 0;
+        var sli_magi_max = 0;
+        var sli_divider = sli_magi_max - sli_phase;
+        var sli_max = 0;
+        var trad_401k_limit = 19500;
+        var hsa_limit = 7100;
+        var trad_ira_limit = 6000;
+        var salt_deduction_limit = 5000;
+        var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,311025];
+        var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+        var long_term_capital_gain_tax_bracket = [0,40000,248300];
+        var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+        var additional_medicare_tax_threshold = 125000;
+        var regular_medicare_tax_rate = 0.0145;
+        var additional_medicare_tax_rate = 0.009;
+        var ssi_income_limit = 137700;
+        var ssi_tax_rate = 0.062
+      } else if (filing_year == '2021') {
+        var amt_deduction=57300;
+        var amt_phase = 523600;
+        var amt_tax_brackets = 99500;
+        var standard_deduction=12550;
+        // married filing separately cannot claim sli. go figure, see IRS website
+        var sli_phase = 0;
+        var sli_magi_max = 0;
+        var sli_divider = sli_magi_max - sli_phase;
+        var sli_max = 0;
+        var trad_401k_limit = 19500;
+        var hsa_limit = 7200;
+        var trad_ira_limit = 6000;
+        var salt_deduction_limit = 5000;
+        var reg_income_tax_bracket = [0,9950,40525,86375,164925,209425,523600];
+        var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+        var long_term_capital_gain_tax_bracket = [0,40400,250800];
+        var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+        var additional_medicare_tax_threshold = 125000;
+        var regular_medicare_tax_rate = 0.0145;
+        var additional_medicare_tax_rate = 0.009;
+        var ssi_income_limit = 142800;
+        var ssi_tax_rate = 0.062
+      }
 
     } else if (filing_status == 'married') {
-      var amt_deduction=113400;
-      var amt_phase = 1036800;
-      var amt_tax_brackets = 197900;
-      var standard_deduction=24800;
-      var sli_phase = 140000;
-      var sli_max = 170000;
-      var sli_divider = 30000;
-      var trad_401k_limit = 39000;
-      var hsa_limit = 7100;
-      var trad_ira_limit = 12000;
-      var salt_deduction_limit = 10000;
-      var reg_income_tax_bracket = [0,19750,80250,171050,326600,414700,622050];
-      var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
-      var long_term_capital_gain_tax_bracket = [0,40000,441450];
-      var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
-      var additional_medicare_tax_threshold = 250000;
-      var regular_medicare_tax_rate = 0.0145;
-      var additional_medicare_tax_rate = 0.009;
-      // LOOK INTO IF SSI LIMIT IS DOUBLE FORMARRIED. I COULDNT FINDANYWHERE
-      var ssi_income_limit = 275400;
-      var ssi_tax_rate = 0.062
-
+        if (filing_year == '2020') {
+          var amt_deduction=113400;
+          var amt_phase = 1036800;
+          var amt_tax_brackets = 197900;
+          var standard_deduction=24800;
+          var sli_phase = 140000;
+          var sli_magi_max = 170000;
+          // Basically for every dollar your MAGI is over the sli_phase, it reduces your deduction by some %
+          var sli_divider = sli_magi_max - sli_phase;
+          var sli_max = 2500;
+          var trad_401k_limit = 39000;
+          var hsa_limit = 7100;
+          var trad_ira_limit = 12000;
+          var salt_deduction_limit = 10000;
+          var reg_income_tax_bracket = [0,19750,80250,171050,326600,414700,622050];
+          var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+          var long_term_capital_gain_tax_bracket = [0,80000,496600];
+          var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+          var additional_medicare_tax_threshold = 250000;
+          var regular_medicare_tax_rate = 0.0145;
+          var additional_medicare_tax_rate = 0.009;
+          // LOOK INTO IF SSI LIMIT IS DOUBLE FORMARRIED. I COULDNT FINDANYWHERE
+          var ssi_income_limit = 275400;
+          var ssi_tax_rate = 0.062
+        } else if (filing_year == '2021') {
+          var amt_deduction=114600;
+          var amt_phase = 1047200;
+          var amt_tax_brackets = 199900;
+          var standard_deduction=25100;
+          var sli_phase = 140000;
+          var sli_magi_max = 170000;
+          // Basically for every dollar your MAGI is over the sli_phase, it reduces your deduction by some %
+          var sli_divider = sli_magi_max - sli_phase;
+          // sli max is 2500 per tax return (so married only cap at 2500 per thestreet.com)
+          var sli_max = 2500;
+          var trad_401k_limit = 39000;
+          var hsa_limit = 7200;
+          var trad_ira_limit = 12000;
+          var salt_deduction_limit = 10000;
+          var reg_income_tax_bracket = [0,19900,81050,172750,329850,418850,628300];
+          var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+          var long_term_capital_gain_tax_bracket = [0,80800,501600];
+          var long_term_capital_gains_tax_owed_rate = [0,0.15,0.2];
+          var additional_medicare_tax_threshold = 250000;
+          var regular_medicare_tax_rate = 0.0145;
+          var additional_medicare_tax_rate = 0.009;
+          // LOOK INTO IF SSI LIMIT IS DOUBLE FORMARRIED. I COULDNT FINDANYWHERE
+          var ssi_income_limit = 285600;
+          var ssi_tax_rate = 0.062          
+        }
     }
 
     function empty_to_zero(num) {
@@ -445,11 +653,23 @@
       document.getElementById('trad_ira_p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
     }
     
+    var total_exemptions = parseFloat(trad_401k) + parseFloat(trad_ira) + parseFloat(hsa);
+
     // MAGI: AGI but includes Trad IRA, SLI
     var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
 
+    // Married, Filing Separately cannot take the Student Loan Interest Deduction. Go Figure
+    if (filing_status == 'married_separately') {
+      document.getElementById("sli").value = 0;
+      document.getElementById('sli_p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
+    }
+    if (parseFloat(sli) > sli_max && filing_status != 'married_separately') {
+      document.getElementById("sli").value = sli_max;
+      document.getElementById('sli_p').innerHTML = "The SLI limit for your filing status is " + sli_max;
+    }
+    
     // Calculate SLI - based on MAGI
-    if (magi > sli_max) {
+    if (magi > sli_magi_max) {
       sli = 0;
     } else if (magi > sli_phase) {
       var sli_multiplier = (magi - sli_phase) / sli_divider;
@@ -465,12 +685,6 @@
       sli = sli - parseFloat(sli_correction);
       sli = sli.toFixed(2);
     } 
-
-    // Married, Filing Separately cannot take the Student Loan Interest Deduction. Go Figure
-    if (filing_status == 'married_separately') {
-      document.getElementById("sli").value = 0;
-      document.getElementById('sli_p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
-    }
 
     // Calculate AGI
     var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
@@ -514,12 +728,12 @@
       }) - 1;
     }
     
-    var regular_income_tax_owed = 0;
+    var federal_income_tax_owed = 0;
     for (var i = taxable_income_index; i >= 0; i--) {
         if (i == taxable_income_index) {
-            regular_income_tax_owed += reg_income_tax_rate[i] * (taxable_income - reg_income_tax_bracket[i]);
+            federal_income_tax_owed += reg_income_tax_rate[i] * (taxable_income - reg_income_tax_bracket[i]);
         } else {
-            regular_income_tax_owed += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
+            federal_income_tax_owed += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
         }
     }
 
@@ -554,7 +768,8 @@
     var long_term_capital_gains_tax_owed = parseFloat(long_term_capital_gains) * long_term_capital_gains_tax_owed_rate[long_term_tax_index];
     
     // Calculate Total Regular Income Tax (Federal Income Tax, Medicare, SSI, Long Term)
-    regular_income_tax_owed = regular_income_tax_owed + medicare_tax_owed + ssi_tax_owed + long_term_capital_gains_tax_owed;
+    var regular_income_tax_owed = 0;
+    regular_income_tax_owed = federal_income_tax_owed + medicare_tax_owed + ssi_tax_owed + long_term_capital_gains_tax_owed;
 
     // Calculate ISO Spread
     var iso_spread_subtotal_1 = parseFloat(shares_exercised_1) * (parseFloat(fmv_1) - parseFloat(strike_price_1));
@@ -589,11 +804,11 @@
     amt_tax_owed = amt_tax_owed + long_term_capital_gains_tax_owed;
 
     if (regular_income_tax_owed >= amt_tax_owed) {
-      var tax_confirmation_phrase = "But because your Regular Income Tax Owed is more than your AMT, you do not need to pay any additional AMT!";
+      var tax_confirmation_phrase = "Because your regular income tax owed is more than your AMT, you will not need to pay any AMT";
     } else {
       var tax_diff = amt_tax_owed - regular_income_tax_owed;
       tax_diff = currency_formatter.format(tax_diff);
-      var tax_confirmation_phrase = `Because your AMT is greater than your Regular Income Tax Owed, you will need to pay ${tax_diff} more in addition to your regular income tax this year`;
+      var tax_confirmation_phrase = `Because your AMT is greater than your regular income tax owed, you will need to pay ${tax_diff} more in addition to your regular income tax`;
     }
     
     // AMT CREDIT?
@@ -614,17 +829,34 @@
     amti_final = currency_formatter.format(amti_final);
     amt_tax_owed = currency_formatter.format(amt_tax_owed);
 
-    document.getElementById("total_income").innerHTML="Your Total Income is " + total_income;
-    document.getElementById("magi").innerHTML="MAGI is " + magi;
-    document.getElementById("agi").innerHTML="Your Adjusted Gross Income (AGI) is " + agi;
-    document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
-    document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
-    document.getElementById("regular_income_tax_owed").innerHTML= "Your Regular Income Tax Owed is: " + regular_income_tax_owed + " which includes medicare tax of " + medicare_tax_owed + ", social security tax of " + ssi_tax_owed + ", and your long term capital gains tax of: " + long_term_capital_gains_tax_owed;
+    /*
     document.getElementById("iso_spread_subtotal").innerHTML="Your ISO Spread is " + iso_spread_subtotal;
     document.getElementById("amti").innerHTML="Your AMT Taxable Income (AMTI) is " + amti;
     document.getElementById("amt_deduction").innerHTML="Your AMT deduction is " + amt_deduction;
     document.getElementById("amti_final").innerHTML="Your Final AMT Taxable Income is " + amti_final;
     document.getElementById("amt_tax_owed").innerHTML="The Alternative Minimum Tax you owe is: " + amt_tax_owed + " which includes your long term capital gains tax of: " + long_term_capital_gains_tax_owed;
+    */
     document.getElementById("tax_confirmation_phrase").innerHTML= tax_confirmation_phrase;
+    
+
+    document.getElementById("regular_income_tax_owed_td").innerHTML = regular_income_tax_owed;
+    document.getElementById("amt_tax_owed_td").innerHTML = amt_tax_owed;
+    document.getElementById("overall_results_td").innerHTML = tax_confirmation_phrase;
+
+    /*
+    document.getElementById("total_income_td").innerHTML = total_income;
+    document.getElementById("long_term_capital_gains_td").innerHTML = long_term_capital_gains;
+    document.getElementById("total_exemptions_td").innerHTML = total_exemptions;
+    document.getElementById("agi_td").innerHTML = agi;
+    document.getElementById("magi_td").innerHTML = magi;
+    document.getElementById("deduction_category_td").innerHTML = deduction_category;
+    document.getElementById("final_deduction_td").innerHTML = final_deduction;
+    document.getElementById("taxable_income_td").innerHTML = taxable_income;
+    document.getElementById("federal_income_tax_owed_td").innerHTML = federal_income_tax_owed;
+    document.getElementById("ssi_tax_owed_td").innerHTML = ssi_tax_owed;
+    document.getElementById("medicare_tax_owed_td").innerHTML = medicare_tax_owed;
+    document.getElementById("long_term_capital_gains_tax_owed_td").innerHTML = long_term_capital_gains_tax_owed;
+    document.getElementById("regular_income_tax_owed").innerHTML = regular_income_tax_owed;
+    */
   }
 </script>
