@@ -88,7 +88,7 @@ The AMT Exemption & Phaseout Thresholds dictates three things:
 
 - For example, if you are a single filer and your AMTI comes out to $528,400, you would be $10,000 over the phaseout threshold. As a result, the AMT exemption you can apply would be $2,500 (25% of 10,000) less than the normal $72,900 exemption amount, or $70,400.
 
-[We will cover all of this in detail here, which shows how the Alternative Minimum Tax is actually calculated](/posts/amt-taxes)
+[We will cover all of this in detail here, which shows how the Alternative Minimum Tax is actually calculated](/posts/how-to-calculate-alternative-minimum-tax)
 
 {{<table "table table-striped table-bordered" >}}
   Filing Status | AMT Exemption Amount | AMT Phaseout Threshold

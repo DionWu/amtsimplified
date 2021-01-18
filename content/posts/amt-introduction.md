@@ -18,7 +18,7 @@ However, it is important to keep in mind that some of the most common cases for 
 
 Exercising Incentive Stock Options (ISOs)
 -----
-This is by far the most common reason why AMT is triggered. If you exercise ISOs received from your employer and do not sell them in the same calendar year, the spread of your exercise (difference between fair market value and strike price at time of exercise) factors into the AMT calculation and may make you eligible for AMT. [You can read more about it here.](/posts/amt-taxes)
+This is by far the most common reason why AMT is triggered. If you exercise ISOs received from your employer and do not sell them in the same calendar year, the spread of your exercise (difference between fair market value and strike price at time of exercise) factors into the AMT calculation and may make you eligible for AMT. [You can read more about it here.](/posts/how-to-calculate-alternative-minimum-tax)
 
 I will reiterate here, because it is often lost and not mentioned. If you exercise ISOs (that then turn into stocks) and then subsequently sell those stocks in the same calendar year, you **do not include them as part of the ISO spread**. However, they will be included as part of your short term capital gains, which is factored into both your regular income tax calculations and the starting point for AMT calculations. So you aren't going to be saving a bunch of money by forcing yourself to exercise and then sell. In fact, you're often better off waiting for long term capital gains tax to kick in.
 

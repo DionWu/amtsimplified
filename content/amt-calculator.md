@@ -1,12 +1,12 @@
 ---
-title: AMT Calculator
+title: Alternative Minimum Tax (AMT) Calculator
 description: Calculate your Alternative Minimum Tax after exercising Incentive Stock Options (ISOs)
 ---
 _Please note details in this page are relevant for the **2020 or 2021 tax year**, and only includes Federal Taxes._
 
-_This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions._
+ _This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions._
 
-This calculator is only relevant if you **exercised Incentive Stock Options (ISO).**
+This easy to use calculator will help you understand your tax liability after **exercising Incentive Stock Options (ISO).** You can learn more about **[how the AMT is calculated in our informational articles](/posts)**
 
 ------------------
 

@@ -190,23 +190,11 @@
 
   <input type="button" class="calculator_submit" id="amt_calculator_submit" onclick=check_required() value="Calculate my AMT!">
 </form>
-
-<!--<h4 id="total_income"></h4>
-<h4 id="magi"> </h4>
-<h4 id="agi"> </h4>
-<h4 id="final_deduction"> </h4>
-<h4 id="taxable_income"> </h4>
-<h4 id="regular_income_tax_owed"> </h4>
-<h4 id="iso_spread_subtotal"> </h4>
-<h4 id="amti"> </h4>
-<h4 id="amt_deduction"> </h4>
-<h4 id="amti_final"> </h4>
-<h4 id="amt_tax_owed" class="result-header"> </h4> -->
 <br>
-<h4 id="tax_confirmation_phrase" class="result-header"> </h4>
+<h4 id="tax_confirmation_phrase" class="result-header"> Results: </h4>
 <br>
-
-<table class="table table-bordered table-hover"><thead>
+<button type="button" class="collapsible active" id="overall_tax_results_collapsible">See Overall Tax Results</button>
+<table class="table table-bordered table-hover" id="overall_tax_results_table"><thead>
     <tr>
       <th>Tax System</th>
       <th>Tax Owed</th>
@@ -214,22 +202,19 @@
   </thead>
   <tbody>
     <tr>
-      <td>Regular Federal Income Tax</td>
+      <td>Regular Income Tax</td>
       <td id="regular_income_tax_owed_td"></td>
     </tr>
     <tr>
       <td>Alternative Minimum Tax</td>
-      <td id="amt_tax_owed_td"></td>
+      <td id="final_amt_tax_owed_td"></td>
     </tr>
   </tbody>
-  <!--<tfoot>
-    <tr>
-      <td colspan="5" id="overall_results_td">Results:</td>
-    </tr>
-  </tfoot>-->
 </table>
-
-<!--<table class="table table-bordered table-hover" id="regular_income_tax_results_table"><thead>
+<br>
+<br>
+<button type="button" class="collapsible" id="regular_income_tax_results_collapsible">See Regular Income Tax Breakdown</button>
+<table class="table table-bordered table-hover" id="regular_income_tax_results_table"><thead>
     <tr>
       <th>Regular Income Tax Breakdown</th>
       <th></th>
@@ -237,87 +222,119 @@
   </thead>
   <tbody>
     <tr>
-      <td>Total Income, minus Long Term Capital Gains</td>
-      <td id="total_income_td"></td>
+      <td>Income (Wages & Short Term Capital Gains Only)</td>
+      <td id="reg_table_total_income_td"></td>
     </tr>
-    <tr>
+    <tr class="table_divider">
       <td>Long Term Capital Gains</td>
-      <td id="long_term_capital_gains_td"></td>
+      <td id="reg_table_long_term_capital_gains_td"></td>
     </tr>
-    <tr>
+    <tr class="table_divider">
       <td>Total Exemptions / Above the Line Deductions</td>
-      <td id="total_exemptions_td"></td>
+      <td id="reg_table_total_exemptions_td"></td>
     </tr>
     <tr>
       <td>Adjusted Gross Income (AGI)</td>
-      <td id="agi_td"></td>
+      <td id="reg_table_agi_td"></td>
     </tr>
-    <tr>
+    <tr class="table_divider">
       <td>Modified Adjusted Gross Income (MAGI)</td>
-      <td id="magi_td"></td>
+      <td id="reg_table_magi_td"></td>
     </tr>
     <tr>
       <td>Deduction Category</td>
-      <td id="deduction_category_td"></td>
+      <td id="reg_table_deduction_category_td"></td>
     </tr>
-    <tr>
+    <tr class="table_divider">
       <td>Total Deductions</td>
-      <td id="final_deduction_td"></td>
+      <td id="reg_table_final_deduction_td"></td>
     </tr>
-    <tr>
+    <tr class="table_divider">
       <td>Taxable Income</td>
-      <td id="taxable_income_td"></td>
+      <td id="reg_table_taxable_income_td"></td>
     </tr>
     <tr>
       <td>Federal Income Tax</td>
-      <td id="federal_income_tax_owed_td"></td>
+      <td id="reg_table_federal_income_tax_owed_td"></td>
     </tr>
     <tr>
       <td>FICA: Social Security Tax</td>
-      <td id="ssi_tax_owed_td"></td>
+      <td id="reg_table_ssi_tax_owed_td"></td>
     </tr>
     <tr>
       <td>FICA: Medicare Tax</td>
-      <td id="medicare_tax_owed_td"></td>
+      <td id="reg_table_medicare_tax_owed_td"></td>
     </tr>
-    <tr>
+    <tr class="table_divider">
       <td>Long Term Capital Gains Tax</td>
-      <td id="long_term_capital_gains_tax_owed_td"></td>
+      <td id="reg_table_long_term_capital_gains_tax_owed_td"></td>
     </tr>
     <tr>
-      <td>Total Regular Taxes Paid</td>
-      <td id="regular_income_tax_owed"></td>
+      <td>Total Regular Income Taxes Owed</td>
+      <td id="reg_table_regular_income_tax_owed_td"></td>
     </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="2" id="overall_results_td">Results:</td>
-    </tr>
-  </tfoot>
 </table>
-
+<br>
+<br>
+<button type="button" class="collapsible" id="amt_tax_results_collapsible">See Alternative Minimum Tax Breakdown</button>
 <table class="table table-bordered table-hover" id="amt_tax_results_table"><thead>
     <tr>
-      <th>Tax System</th>
-      <th>Tax Owed</th>
+      <th>Alternative Minimum Tax Breakdown</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Regular Federal Income Tax</td>
-      <td id="regular_income_tax_owed_td"></td>
+      <td>Income (Wages & Short Term Capital Gains Only)</td>
+      <td id="amt_table_total_income_td"></td>
+    </tr>
+    <tr>
+      <td>Long Term Capital Gains</td>
+      <td id="amt_table_long_term_capital_gains_td"></td>
+    </tr>
+    <tr class="table_divider">
+      <td>Total ISO Spread</td>
+      <td id="amt_table_iso_spread_subtotal_td"></td>
+    </tr>
+    <tr>
+      <td>Total Exemptions / Above the Line Deductions</td>
+      <td id="amt_table_total_exemptions_td"></td>
+    </tr>
+    <tr class="table_divider">
+      <td>Total AMT Eligible Deductions (No standard deduction, SALT, Medical Expenses)</td>
+      <td id="amt_table_amt_eligible_deductions_td"></td>
+    </tr>
+    <tr>
+      <td>Alternative Minimum Taxable Income (AMTI)</td>
+      <td id="amt_table_amti_td"></td>
+    </tr>
+    <tr class="table_divider">
+      <td>AMTI for Exemption Calculation (AMTI + Long Term Cap Gain)</td>
+      <td id="amt_table_amti_for_exemption_td"></td>
+    </tr>
+    <tr class="table_divider">
+      <td>AMT Exemption Amount</td>
+      <td id="amt_table_amt_deduction_td"></td>
+    </tr>
+    <tr class="table_divider">
+      <td>Final Alternative Minimum Taxable Income (FAMTI)</td>
+      <td id="amt_table_amti_final_td"></td>
     </tr>
     <tr>
       <td>Alternative Minimum Tax</td>
-      <td id="amt_tax_owed_td"></td>
+      <td id="amt_table_amt_tax_owed_td"></td>
+    </tr>
+    <tr class="table_divider">
+      <td>Long Term Capital Gains Tax</td>
+      <td id="amt_table_long_term_capital_gains_tax_owed_td"></td>
+    </tr>
+    <tr>
+      <td>Total Alternative Minimum Tax Owed</td>
+      <td id="amt_table_final_amt_tax_owed_td"></td>
     </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="2" id="overall_results_td">Results:</td>
-    </tr>
-  </tfoot>
-</table>-->
+</table>
 
 <script>
 
@@ -416,6 +433,21 @@
     currency: 'USD',
   });
   
+  // Collapsible results table code
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (this.classList.contains("active")) {
+        content.style.display = "table";
+      } else {
+        content.style.display = "none";
+      }
+    });
+  }
+
   function calculate_taxes() {
 
     // First clear any error / validation messages. Any further validation below will re-set them if needed
@@ -778,15 +810,24 @@
     var iso_spread_subtotal = iso_spread_subtotal_1 + iso_spread_subtotal_2 + iso_spread_subtotal_3;
     
     // Calculate AMTI (before AMT exemption)
-    // AMTI INCLUDES LONG TERM CAPITAL GAINS  
+    // To calculate the exemption amount, you must include long term capital gains
+    // However, to calculate your actual AMTI, you do not include capital gains
     if (deduction_category == 'Standard Deduction') {
-      var amti = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + standard_deduction;
+      var amt_eligible_deductions = 0;
+      var amti_for_exemption = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + standard_deduction;
     } else {
-      var amti = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+      var amt_eligible_deductions = parseFloat(sli) + parseFloat(mortgage_interest);
+      var amti_for_exemption = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+    }
+
+    if (deduction_category == 'Standard Deduction') {
+      var amti = taxable_income + iso_spread_subtotal + standard_deduction;
+    } else {
+      var amti = taxable_income + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
     }
     // AMT Deduction Calculation, including Phase Out
-    if (amti > amt_phase) {
-      amt_deduction = amt_deduction - (0.25 * (amti - amt_phase))
+    if (amti_for_exemption > amt_phase) {
+      amt_deduction = amt_deduction - (0.25 * (amti_for_exemption - amt_phase))
     }
     if (amt_deduction < 0) {
       amt_deduction = 0
@@ -801,62 +842,72 @@
     } else {
       var amt_tax_owed = amti_final * 0.26;
     }
-    amt_tax_owed = amt_tax_owed + long_term_capital_gains_tax_owed;
+    var final_amt_tax_owed = amt_tax_owed + long_term_capital_gains_tax_owed;
 
-    if (regular_income_tax_owed >= amt_tax_owed) {
-      var tax_confirmation_phrase = "Because your regular income tax owed is more than your AMT, you will not need to pay any AMT";
+    if (regular_income_tax_owed >= final_amt_tax_owed) {
+      var tax_confirmation_phrase = "Results: Because your regular income tax owed is more than your AMT, you will not need to pay any AMT";
     } else {
-      var tax_diff = amt_tax_owed - regular_income_tax_owed;
+      var tax_diff = final_amt_tax_owed - regular_income_tax_owed;
       tax_diff = currency_formatter.format(tax_diff);
-      var tax_confirmation_phrase = `Because your AMT is greater than your regular income tax owed, you will need to pay ${tax_diff} more in addition to your regular income tax`;
+      var tax_confirmation_phrase = `Results: Because your AMT is greater than your regular income tax owed, you will need to pay ${tax_diff} more in addition to your regular income tax`;
     }
     
     // AMT CREDIT?
     // DEPENDENT CREDIT?
 
+    // Transform to $0.00 format
+    long_term_capital_gains = currency_formatter.format(long_term_capital_gains);
     total_income = currency_formatter.format(total_income);
+    total_exemptions = currency_formatter.format(total_exemptions);
     agi = currency_formatter.format(agi);
     magi = currency_formatter.format(magi);
     regular_deduction_final = currency_formatter.format(regular_deduction_final);
     taxable_income = currency_formatter.format(taxable_income);
     long_term_capital_gains_tax_owed = currency_formatter.format(long_term_capital_gains_tax_owed);
+    federal_income_tax_owed = currency_formatter.format(federal_income_tax_owed);
     medicare_tax_owed = currency_formatter.format(medicare_tax_owed);
     ssi_tax_owed = currency_formatter.format(ssi_tax_owed);
     regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
     iso_spread_subtotal = currency_formatter.format(iso_spread_subtotal);
+    amt_eligible_deductions = currency_formatter.format(amt_eligible_deductions);
     amti = currency_formatter.format(amti);
+    amti_for_exemption = currency_formatter.format(amti_for_exemption);
     amt_deduction = currency_formatter.format(amt_deduction);
     amti_final = currency_formatter.format(amti_final);
     amt_tax_owed = currency_formatter.format(amt_tax_owed);
+    final_amt_tax_owed = currency_formatter.format(final_amt_tax_owed);
 
-    /*
-    document.getElementById("iso_spread_subtotal").innerHTML="Your ISO Spread is " + iso_spread_subtotal;
-    document.getElementById("amti").innerHTML="Your AMT Taxable Income (AMTI) is " + amti;
-    document.getElementById("amt_deduction").innerHTML="Your AMT deduction is " + amt_deduction;
-    document.getElementById("amti_final").innerHTML="Your Final AMT Taxable Income is " + amti_final;
-    document.getElementById("amt_tax_owed").innerHTML="The Alternative Minimum Tax you owe is: " + amt_tax_owed + " which includes your long term capital gains tax of: " + long_term_capital_gains_tax_owed;
-    */
+    // Fill in Overall Results Table
     document.getElementById("tax_confirmation_phrase").innerHTML= tax_confirmation_phrase;
-    
-
     document.getElementById("regular_income_tax_owed_td").innerHTML = regular_income_tax_owed;
-    document.getElementById("amt_tax_owed_td").innerHTML = amt_tax_owed;
-    document.getElementById("overall_results_td").innerHTML = tax_confirmation_phrase;
+    document.getElementById("final_amt_tax_owed_td").innerHTML = final_amt_tax_owed;
+    // Fill in Regular Income Results Table
+    document.getElementById("reg_table_total_income_td").innerHTML = total_income;
+    document.getElementById("reg_table_long_term_capital_gains_td").innerHTML = long_term_capital_gains;
+    document.getElementById("reg_table_total_exemptions_td").innerHTML = total_exemptions;
+    document.getElementById("reg_table_agi_td").innerHTML = agi;
+    document.getElementById("reg_table_magi_td").innerHTML = magi;
+    document.getElementById("reg_table_deduction_category_td").innerHTML = deduction_category;
+    document.getElementById("reg_table_final_deduction_td").innerHTML = regular_deduction_final;
+    document.getElementById("reg_table_taxable_income_td").innerHTML = taxable_income;
+    document.getElementById("reg_table_federal_income_tax_owed_td").innerHTML = federal_income_tax_owed;
+    document.getElementById("reg_table_ssi_tax_owed_td").innerHTML = ssi_tax_owed;
+    document.getElementById("reg_table_medicare_tax_owed_td").innerHTML = medicare_tax_owed;
+    document.getElementById("reg_table_long_term_capital_gains_tax_owed_td").innerHTML = long_term_capital_gains_tax_owed;
+    document.getElementById("reg_table_regular_income_tax_owed_td").innerHTML = regular_income_tax_owed;
+    // Fill in AMT Results Table
+    document.getElementById("amt_table_total_income_td").innerHTML = total_income;
+    document.getElementById("amt_table_long_term_capital_gains_td").innerHTML = long_term_capital_gains;
+    document.getElementById("amt_table_iso_spread_subtotal_td").innerHTML = iso_spread_subtotal;
+    document.getElementById("amt_table_total_exemptions_td").innerHTML = total_exemptions;
+    document.getElementById("amt_table_amt_eligible_deductions_td").innerHTML = amt_eligible_deductions;
+    document.getElementById("amt_table_amti_td").innerHTML = amti;
+    document.getElementById("amt_table_amti_for_exemption_td").innerHTML = amti_for_exemption;
+    document.getElementById("amt_table_amt_deduction_td").innerHTML = amt_deduction;
+    document.getElementById("amt_table_amti_final_td").innerHTML = amti_final;
+    document.getElementById("amt_table_amt_tax_owed_td").innerHTML = amt_tax_owed;
+    document.getElementById("amt_table_long_term_capital_gains_tax_owed_td").innerHTML = long_term_capital_gains_tax_owed;
+    document.getElementById("amt_table_final_amt_tax_owed_td").innerHTML = final_amt_tax_owed;
 
-    /*
-    document.getElementById("total_income_td").innerHTML = total_income;
-    document.getElementById("long_term_capital_gains_td").innerHTML = long_term_capital_gains;
-    document.getElementById("total_exemptions_td").innerHTML = total_exemptions;
-    document.getElementById("agi_td").innerHTML = agi;
-    document.getElementById("magi_td").innerHTML = magi;
-    document.getElementById("deduction_category_td").innerHTML = deduction_category;
-    document.getElementById("final_deduction_td").innerHTML = final_deduction;
-    document.getElementById("taxable_income_td").innerHTML = taxable_income;
-    document.getElementById("federal_income_tax_owed_td").innerHTML = federal_income_tax_owed;
-    document.getElementById("ssi_tax_owed_td").innerHTML = ssi_tax_owed;
-    document.getElementById("medicare_tax_owed_td").innerHTML = medicare_tax_owed;
-    document.getElementById("long_term_capital_gains_tax_owed_td").innerHTML = long_term_capital_gains_tax_owed;
-    document.getElementById("regular_income_tax_owed").innerHTML = regular_income_tax_owed;
-    */
   }
 </script>
