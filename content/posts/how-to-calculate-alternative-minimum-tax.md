@@ -21,7 +21,7 @@ How the Alternative Minimum Tax is determined can be broken up into a few broad 
 
 But Actually...
 ----
-In practice, the above process can often be a bit confusing because you are doing things differently than you would when calculating regular taxes. Thus, what is normally done is to add in a few extra steps that will seem a bit circuitous, but will generally be helpful for determining not just your AMTI but also your Regular Income Tax. This can come in handy when wanting to do things such as [plan out when to exercise your ISOs](/posts/iso-exercise-planner).
+In practice, the above process can often be a bit confusing because you are doing things differently than you would when calculating regular taxes. Thus, what is normally done is to add in a few extra steps that will seem a bit circuitous, but will generally be helpful for determining not just your AMTI but also your Regular Income Tax. This can come in handy when wanting to do things such as [plan out when to exercise your ISOs](/iso-exercise-planner).
 
 So instead, we will do the following:
 
@@ -39,7 +39,7 @@ Step 1: Figure out / Estimate your Total Income
 ----
 If you're on this website in the midst of tax season and you have all of your financial statements ready, I invite you to pull out those statements and follow alongside me.
 
-If, however, you are here to plan for any potential tax you may have to owe to Uncle Sam, or are here to [plan your ISO exercise schedule](/posts/iso-exercise-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
+If, however, you are here to plan for any potential tax you may have to owe to Uncle Sam, or are here to [plan your ISO exercise schedule](/iso-exercise-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
 
 We'll start by assessing your total income, which includes not just your salary and wages, but also things such as capital gain/loss from stock or real estate investments, social security benefits, IRA distributions, pensions, etc. 
 

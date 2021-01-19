@@ -173,13 +173,8 @@
 </form>
 
 <br>
-<h4 id="result_validation_message" class="result_header"> </h4>
+<h4 id="iso_result_message" class="result_header"> </h4>
 <br>
-<!--<h4 id="total_income" class="result_header"></h4>
-<h4 id="agi" class="result_header"> </h4>
-<h4 id="final_deduction" class="result_header"> </h4>
-<h4 id="taxable_income" class="result_header"> </h4>
-<h4 id="regular_income_tax_owed" class="result_header"> </h4>-->
 
 <table class="hidden table table-bordered table-striped" id="iso_planner_result_table">
   <tr id="iso_planner_result_header">
@@ -212,11 +207,6 @@
     <td id="iso_planner_result_shares_exercise_total"></td>
     <td id="iso_planner_result_cost_total"></td>
   </tr>
-  <!--<tfoot>
-    <tr>
-      <td colspan="5" id="iso_planner_results_td">Results:</td>
-    </tr>
-  </tfoot>-->
 </table>
 
 <script>
@@ -633,12 +623,12 @@
     // Display result message
     // If user did not enter anything (submitted all with 0s or 0.00s)
     if (iso_input_array.every(function(i) {return i === 0;} )) {
-      var result_validation_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
+      var iso_result_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
       //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
       regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
     // Else if user somehow entered FMV and strike prices that were the same
     } else if (iso_spread_array.every(function(i) {return i === 0;} )) {
-      var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT as you would net a $0 gain per share exercised!";
+      var iso_result_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT as you would net a $0 gain per share exercised!";
       //I'm lazy and there's probably a better place to format this number as opposed to 4 different places 
       regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
     // Calculate the total ISO Spread allowed (the spread resulting in no diff between regular income tax and the tax you would pay for AMT)
@@ -676,7 +666,7 @@
         var shares_to_exercise_allowed_formatted = currency_formatter.format(shares_to_exercise_allowed);
         var cost_to_exercise = shares_to_exercise_allowed_from_one * strike_price_one_parsed + shares_to_exercise_allowed_from_two * strike_price_two_parsed + shares_to_exercise_allowed_from_three * strike_price_three_parsed;
         
-        var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay AMT";
+        var iso_result_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay AMT";
       // Else, return how many of each lot to exercise, going from oldest to newest    
       } else {
         if (iso_subtotal_one > iso_spread_allowed) {
@@ -712,7 +702,7 @@
         amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
         regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
         shares_to_exercise_allowed_formatted = number_formatter.format(shares_to_exercise_allowed);
-        var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay any of the AMT";
+        var iso_result_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay any of the AMT";
       }
 
       // Calculate cost to exercise and format
@@ -796,7 +786,7 @@
     document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
     document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
     document.getElementById("regular_income_tax_owed").innerHTML= "Your Regular Income Tax Owed is: " + regular_income_tax_owed;*/
-    document.getElementById("result_validation_message").innerHTML= result_validation_message;
+    document.getElementById("iso_result_message").innerHTML= iso_result_message;
 
   }
 </script>

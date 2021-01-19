@@ -191,7 +191,7 @@
   <input type="button" class="calculator_submit" id="amt_calculator_submit" onclick=check_required() value="Calculate my AMT!">
 </form>
 <br>
-<h4 id="tax_confirmation_phrase" class="result-header"> Results: </h4>
+<h4 id="amt_calculator_result_message" class="result-header"> Results: </h4>
 <br>
 <button type="button" class="collapsible active" id="overall_tax_results_collapsible">See Overall Tax Results</button>
 <table class="table table-bordered table-hover" id="overall_tax_results_table"><thead>
@@ -747,6 +747,7 @@
     }
 
     // Calculate Regular taxable income
+    // In case where deduction brings you to negative taxable income, your taxable income is 0
     var taxable_income = agi - regular_deduction_final > 0 ? agi - regular_deduction_final : 0;
     
     // CALCULATE REGULAR TAXES
@@ -811,28 +812,65 @@
     
     // Calculate AMTI (before AMT exemption)
     // To calculate the exemption amount, you must include long term capital gains
-    // However, to calculate your actual AMTI, you do not include capital gains
-    if (deduction_category == 'Standard Deduction') {
-      var amt_eligible_deductions = 0;
-      var amti_for_exemption = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + standard_deduction;
-    } else {
-      var amt_eligible_deductions = parseFloat(sli) + parseFloat(mortgage_interest);
-      var amti_for_exemption = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
-    }
+    // However, to calculate your actual AMTI, you do not include long term capital gains
+    var amt_eligible_deductions = 0;
+    var amti_for_exemption = 0;
+    var amti = 0;
 
     if (deduction_category == 'Standard Deduction') {
-      var amti = taxable_income + iso_spread_subtotal + standard_deduction;
-    } else {
-      var amti = taxable_income + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+      amt_eligible_deductions = 0;
+      /* In rare cases where AGI was less than the standard deduction, it would be wrong to add the standard deduction back into taxable income, because you would be giving them more AGI than they have. (i.e. standard deduction is 12,400 but agi is 6,400. taxable income would be 0 (as it cant be negative), and if you added the full standard deduction their 'agi' would now be 12,400 which is wrong)
+
+      Same logic for itemized deduction. If you happen to have more deductions than standard (i.e. SALT 10k, mortage interest 10k, you take the itemized)
+      */
+      if (agi < standard_deduction) {
+        amti_for_exemption = agi + parseFloat(long_term_capital_gains) + iso_spread_subtotal;
+      } else {
+        amti_for_exemption = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + standard_deduction;
+      }
+    } 
+    else if (deduction_category == 'Itemized Deduction'){
+      // If you took itemized deduction, AMT tax code only allows for SLI and Mortgage interest deduction. So you subtract those deductions from AGI, disregard SALT and medical expenses
+      amt_eligible_deductions = parseFloat(sli) + parseFloat(mortgage_interest);
+      if (agi < itemized_deduction) {
+        amti_for_exemption = agi - amt_eligible_deductions + parseFloat(long_term_capital_gains) + iso_spread_subtotal;
+      } else {
+        amti_for_exemption = taxable_income + parseFloat(long_term_capital_gains) + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+      }
     }
+    // If the resulting AMTI_for_exemption, for whatever reason, is less than zero, set it to zero
+    amti_for_exemption = amti_for_exemption < 0 ? 0 : amti_for_exemption;
+
+    // Now we calculate your AMTI, borrowing same corner case logic as above (for when agi less than deductions)
+    if (deduction_category == 'Standard Deduction') {
+      if (agi < standard_deduction) {
+        amti = agi + iso_spread_subtotal;
+      } else {
+        amti = taxable_income + iso_spread_subtotal + standard_deduction;
+      }
+    } 
+    else if (deduction_category == 'Itemized Deduction') {
+      if (agi < itemized_deduction) {
+        amti = agi - amt_eligible_deductions + iso_spread_subtotal;
+      } else {
+        amti = taxable_income + iso_spread_subtotal + parseFloat(salt) + parseFloat(medical_expenses);
+      }
+    }
+
+    // If the resulting AMTI_for_exemption, for whatever reason, is less than zero, set it to zero
+    amti = amti < 0 ? 0 : amti;
+
     // AMT Deduction Calculation, including Phase Out
+    // If amti_for_exemption is less than the amt_phase, then we just take the full exemption, else we need to reduce by 25cents per dollar over the amt_phase
     if (amti_for_exemption > amt_phase) {
       amt_deduction = amt_deduction - (0.25 * (amti_for_exemption - amt_phase))
     }
-    if (amt_deduction < 0) {
-      amt_deduction = 0
-    }
-    var amti_final = amti - parseFloat(amt_deduction) > 0 ? amti - parseFloat(amt_deduction) : 0;
+
+    // If for whatever reason the exemption amount comes out negative, assign it to 0
+    amt_deduction = amt_deduction < 0 ? 0 : amt_deduction;
+    
+    // Calculate AMTI Final. If it's less than 0, assign it to zero
+    var amti_final = amti - parseFloat(amt_deduction) < 0 ? 0 : amti - parseFloat(amt_deduction);
 
     
     // Caculate AMT Tax, including Brackets
@@ -845,11 +883,11 @@
     var final_amt_tax_owed = amt_tax_owed + long_term_capital_gains_tax_owed;
 
     if (regular_income_tax_owed >= final_amt_tax_owed) {
-      var tax_confirmation_phrase = "Results: Because your regular income tax owed is more than your AMT, you will not need to pay any AMT";
+      var amt_calculator_result_message = "Results: Because your regular income tax owed is more than your AMT, you will not need to pay any AMT";
     } else {
       var tax_diff = final_amt_tax_owed - regular_income_tax_owed;
       tax_diff = currency_formatter.format(tax_diff);
-      var tax_confirmation_phrase = `Results: Because your AMT is greater than your regular income tax owed, you will need to pay ${tax_diff} more in addition to your regular income tax`;
+      var amt_calculator_result_message = `Results: Because your AMT is greater than your regular income tax owed, you will need to pay ${tax_diff} more in addition to your regular income tax`;
     }
     
     // AMT CREDIT?
@@ -878,7 +916,7 @@
     final_amt_tax_owed = currency_formatter.format(final_amt_tax_owed);
 
     // Fill in Overall Results Table
-    document.getElementById("tax_confirmation_phrase").innerHTML= tax_confirmation_phrase;
+    document.getElementById("amt_calculator_result_message").innerHTML= amt_calculator_result_message;
     document.getElementById("regular_income_tax_owed_td").innerHTML = regular_income_tax_owed;
     document.getElementById("final_amt_tax_owed_td").innerHTML = final_amt_tax_owed;
     // Fill in Regular Income Results Table
