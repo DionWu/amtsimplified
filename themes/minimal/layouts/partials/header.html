@@ -2,7 +2,6 @@
 <html lang="{{ .Site.LanguageCode }}">
     <head>
         {{ partial "head-open" . }}
-
         {{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
 
         <meta charset="utf-8">
@@ -16,13 +15,18 @@
             <link href="{{ .RelPermalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
             <link href="{{ .RelPermalink }}" rel="feed" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
         {{ end }}
-
-
-
         {{ if .Site.Params.MathJax | default true }}
             <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         {{ end }}
-
+        {{ if .Site.GoogleAnalytics }}
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', '{{ .Site.GoogleAnalytics }}');
+            </script>
+        {{ end }}
         {{ partial "head-close" . }}
     </head>
 
