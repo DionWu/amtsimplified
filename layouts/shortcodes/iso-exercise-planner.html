@@ -20,7 +20,7 @@
                       </div>
                       <h4 class="form-header"> Income </h4>
                       <div class="form-input">
-                          <label for="salary" class="required">Salary/Wages</label>
+                          <label for="salary" class="required">Gross Wages</label>
                           <input type="number" name="salary" id="salary" class="required_field" placeholder="0" onchange=check_min(this)>
                           <p class="calculator_validation_p calculator_minimum_p" id="salary_p"></p>
                       </div>
@@ -42,6 +42,11 @@
 
                   <div class="form-group">
                       <h4 class="form-header"> Deductions / Exemptions </h4>
+                      <div class="form-input">
+                          <label for="health_insurance_premium">Medical/Vision Insrance Premiums</label>
+                          <input type="number" name="health_insurance_premium" id="health_insurance_premium" placeholder="0" onchange=check_min(this)>
+                          <p class="calculator_minimum_p" id="health_insurance_premium_p"></p>
+                      </div>
                       <div class="form-input">
                           <label for="trad_401k">Traditional 401k Contributions</label>
                           <input type="number" name="trad_401k" id="trad_401k" placeholder="0" onchange=check_min(this)>
@@ -402,6 +407,7 @@
     var salary=empty_to_zero(document.getElementById("salary").value);
     var short_term_capital_gains=empty_to_zero(document.getElementById("short_term_capital_gains").value);
     var long_term_capital_gains=empty_to_zero(document.getElementById("long_term_capital_gains").value);
+    var health_insurance_premium = empty_to_zero(document.getElementById("health_insurance_premium").value);
     var trad_401k=empty_to_zero(document.getElementById("trad_401k").value);
     var hsa=empty_to_zero(document.getElementById("hsa").value);
     var trad_ira=empty_to_zero(document.getElementById("trad_ira").value);
@@ -436,8 +442,13 @@
       shares_exercisable_three = strike_price_three = 0;
     }
 
+    salary = parseFloat(salary);
+    short_term_capital_gains = parseFloat(short_term_capital_gains);
+    long_term_capital_gains = parseFloat(long_term_capital_gains);
+    health_insurance_premium = parseFloat(health_insurance_premium);
+
     // Calculate Total Income
-    var total_income = parseFloat(salary) + parseFloat(short_term_capital_gains);
+    var total_income = salary + short_term_capital_gains + long_term_capital_gains;
     
     // Make sure number is under 401k limit
     if (trad_401k > trad_401k_limit) {
@@ -460,10 +471,8 @@
       document.getElementById('trad_ira_p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
     }
     
-    var total_exemptions = parseFloat(trad_401k) + parseFloat(trad_ira) + parseFloat(hsa);
-
     // MAGI: AGI but includes Trad IRA, SLI
-    var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
+    var magi = total_income - health_insurance_premium - parseFloat(trad_401k) - parseFloat(hsa);
 
     // Married, Filing Separately cannot take the Student Loan Interest Deduction. Go Figure
     if (filing_status == 'married_separately') {
@@ -493,14 +502,10 @@
       sli = sli.toFixed(2);
     } 
 
-    // Married, Filing Separately cannot take the Student Loan Interest Deduction. Go Figure
-    if (filing_status == 'married_separately') {
-      document.getElementById("sli").value = 0;
-      document.getElementById('sli_p').innerHTML = "You cannot take the student loan interest deduction as 'Married, Filing Separately'";
-    }
+    var total_exemptions = parseFloat(trad_401k) + parseFloat(trad_ira) + parseFloat(hsa) + parseFloat(sli) + health_insurance_premium;
 
     // Calculate AGI
-    var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
+    var agi = total_income - total_exemptions;
     
     // Medical Expenses Deduction - only include if more than 10% of AGI, else 0
     if (medical_expenses > (agi * 0.1)) {
@@ -517,7 +522,7 @@
     }
 
     // Standard vs Itemized Deduction
-    var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);
+    var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest);
     
     if (itemized_deduction > standard_deduction) {
       var regular_deduction_final = itemized_deduction;
@@ -527,9 +532,71 @@
       var deduction_category = 'Standard Deduction';
     }
 
-    // Calculate Regular taxable income
-    var taxable_income = agi - regular_deduction_final > 0 ? agi - regular_deduction_final : 0;
+    /* Now that you've calculated MAGI and AGI, calculate if your capital gains are long term or short term, and positive or negative
+    And use this to calculate your TAXABLE_INCOME
+    shorthand chart below to depict the scenarios
+    s / l
+    + / + = +
+    - / - = -
+    b+ / - = +
+    b- / + = -
+    - / b+ = +
+    + / b- = -
+    */
+
+    var taxable_income = 0;
+    var sum_capital_gains = short_term_capital_gains + long_term_capital_gains;
+    var long_term_capital_gains_for_calc = 0;
+
+    // If the net capital gain for the year is positive
+    if (sum_capital_gains > 0) {
+      // If both are positive, do not use the sum of the two. Only use the short term cap gain number to calculate taxable income. Use the long term number for long term tax
+      if (short_term_capital_gains >= 0 && long_term_capital_gains >= 0) {
+        taxable_income = salary + short_term_capital_gains - total_exemptions - regular_deduction_final;
+        long_term_capital_gains_for_calc = long_term_capital_gains;
+
+      // If short is positive, and long is negative, use the net sum capital gain (as that remaining number is all short term gain). Long term gain is 0 for tax purposes
+      } else if (short_term_capital_gains > 0 && long_term_capital_gains < 0) {
+        taxable_income = salary + sum_capital_gains - total_exemptions - regular_deduction_final;
+
+      // If long is positive, and short is negative, do not use the net sum capital gain (as that number is all long term). assign to long_term_capital_gains_for_calc
+      } else if (short_term_capital_gains < 0 && long_term_capital_gains > 0) {
+        taxable_income = salary - total_exemptions - regular_deduction_final;
+        long_term_capital_gains_for_calc = sum_capital_gains;
+      }
+
+    // If the net capital gain for the year is negative
+    } else if (sum_capital_gains < 0) {
+      // If both are negative, you can only use at max 3000 to deduct for this year, and if it is not less than -3000, use sum_capital_gains. keep long_term_capital_gains_for_calc at 0
+      var neg_sum_capital_gains = sum_capital_gains;
+      var leftover_capital_loss_carryover = 0;
+      if (sum_capital_gains < -3000) {
+        neg_sum_capital_gains = -3000;
+        leftover_capital_loss_carryover = (sum_capital_gains + 3000) * -1;
+      }
+      taxable_income = salary + neg_sum_capital_gains - total_exemptions - regular_deduction_final;
+
+    // If the net capital gain happens to zero out, just disregard it. keep long_term_for_calc at 0
+    } else if (sum_capital_gains == 0) {
+      taxable_income = salary - total_exemptions - regular_deduction_final;
+    }
+
+    // In case where deduction brings you to negative taxable income, your taxable income is 0
+    taxable_income = taxable_income < 0 ? 0 : taxable_income;
     
+
+    // Calculate Long Term Capital Gains tax (used in regular tax system and AMT system)
+    var long_term_tax_index = 0;
+    if(taxable_income > long_term_capital_gain_tax_bracket[long_term_capital_gain_tax_bracket.length - 1]) {
+      long_term_tax_index = long_term_capital_gain_tax_bracket.length - 1;
+    } else {
+      long_term_tax_index = long_term_capital_gain_tax_bracket.findIndex(function(number) {
+        return number > taxable_income;
+      }) - 1;
+    }
+    var long_term_capital_gains_tax_owed = long_term_capital_gains_for_calc * long_term_capital_gains_tax_owed_rate[long_term_tax_index];
+
+
     // CALCULATE REGULAR TAXES
     // Returns index of first tax bracket threshold greater than taxable_income, so subtract 1 (Javascript arrays first elemnt is index 0)
     var taxable_income_index = 0;
@@ -552,7 +619,7 @@
 
     // Calculate Medicare Tax
     var medicare_tax_owed = 0;
-    var medicare_taxable_income = parseFloat(salary) - parseFloat(hsa);
+    var medicare_taxable_income = salary - health_insurance_premium - parseFloat(hsa);
     // If your medicare taxable income exceeds the limit, multiply the additional amount by the additional rate, and the remaining (which should just be the threshold) by the regular rate
     if (medicare_taxable_income > additional_medicare_tax_threshold) {
       medicare_tax_owed = (medicare_taxable_income - additional_medicare_tax_threshold) * additional_medicare_tax_rate + (additional_medicare_tax_threshold * regular_medicare_tax_rate);
@@ -567,31 +634,16 @@
     } else {
       ssi_tax_owed = salary * ssi_tax_rate;
     }
-
-    // Calculate Long Term Capital Gains tax (used in regular tax system and AMT system)
-    var long_term_tax_index = 0;
-    
-    if(taxable_income > long_term_capital_gain_tax_bracket[long_term_capital_gain_tax_bracket.length - 1]) {
-      long_term_tax_index = long_term_capital_gain_tax_bracket.length - 1;
-    } else {
-      long_term_tax_index = long_term_capital_gain_tax_bracket.findIndex(function(number) {
-        return number > taxable_income;
-      }) - 1;
-    }
-    var long_term_capital_gains_tax_owed = parseFloat(long_term_capital_gains) * long_term_capital_gains_tax_owed_rate[long_term_tax_index];
-
-
-    // Calculate AMTI Baseline (before ISO spread, AMT exemption)
-    if (deduction_category == 'Standard Deduction') {
-      var amti_baseline = taxable_income + standard_deduction;
-    } else {
-      var amti_baseline = taxable_income + parseFloat(salt) + parseFloat(medical_expenses);
-    }
     
     // Calculate Total Regular Income Tax (Federal Income Tax, Medicare, SSI, Long Term)
     var regular_income_tax_owed = 0;
     regular_income_tax_owed = federal_income_tax_owed + medicare_tax_owed + ssi_tax_owed + long_term_capital_gains_tax_owed;
 
+    // Calcualte AMT Baseline (before I SO spread, AMT exemption)
+    var amt_eligible_deductions = parseFloat(mortgage_interest);
+    var amti_baseline = agi - amt_eligible_deductions;
+    amti_baseline = amti_baseline < 0 ? 0 : amti_baseline;
+    
     // Calculate ISO Spread Per Share, per potential grant
     var fmv_parsed = parseFloat(fmv);
     var shares_exercisable_one_parsed = parseFloat(shares_exercisable_one);
