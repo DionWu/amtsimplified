@@ -145,7 +145,7 @@ For this example, let's assume you exercised 1,500 options at a strike price of 
 Step 5: (Almost there!) Figure out your AMT Exemption
 ----
 
-The AMT Exemption is a special exemption you can take as part of the AMT tax system. It is a very straightforward calculation up until you start making in excess of around $523,600 as a single filer, or over around $1,047,200 as married, filing jointly. If you fall into this category, I would advise you to spend a minute or two reading up on [the math behind the phaseout thresholds](/posts/amt-regular-tax-differences).
+The AMT Exemption is a special exemption you can take as part of the AMT tax system. It is a very straightforward calculation up until you start making in excess of around $523,600 as a single filer, or over around $1,047,200 as married, filing jointly. If you fall into this category, I would advise you to spend a minute or two reading up on [the math behind the phaseout thresholds](/learn_about_the_amt/amt-regular-tax-differences).
 
 This is essentially a large chunk of money you can subtract before calculating the actual AMTI. Think of it like a special type of deduction, that almost everyone can take. The actual exemption in 2021 (filing in 2022) is:
 

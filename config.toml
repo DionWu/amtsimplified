@@ -26,29 +26,34 @@ googleAnalytics = "UA-171252878-1"
     weight = 1
 
 [[menu.main]]
-    url = "/posts/"
+    url = "/learn_about_the_amt/"
     name = "Learn about the AMT"
     weight = 2
 
 [[menu.main]]
+    url = "/tax_credits_deductions/"
+    name = "Tax Credits & Deductions"
+    weight = 3
+
+[[menu.main]]
     url = "/amt-calculator/"
     name = "AMT Calculator"
-    weight = 3
+    weight = 4
 
 [[menu.main]]
     url = "/iso-exercise-planner/"
     name = "Incentive Stock Option Tax Planner"
-    weight = 4
+    weight = 5
 
 [[menu.main]]
     url = "/about/"
     name = "About"
-    weight = 5
+    weight = 6
 
 [[menu.main]]
     url = "https://www.buymeacoffee.com/amtsimplified"
     name = "Support Me!"
-    weight = 6    
+    weight = 7    
 
 # Social icons to be shown on the right-hand side of the navigation bar.
 # The "name" field should match the name of the icon in Font Awesome.

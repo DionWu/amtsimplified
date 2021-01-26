@@ -82,11 +82,11 @@ To calculate the Student Loan Interest Deduction, follow 3 rules (and refer to t
 Confused? Let's walk through some examples
 
 
-Example 1: Single, but Over the Threshold
+Example 1: Single, but Over the Phaseout Limit
 ----
 Bob is projected to pay $750 in student loan interest this year. His total income is $120,000. He is a single filer and contributed the max to both his HSA ($3,600) and Traditional 401k ($19,500). That means his MAGI is $96,900. Because his MAGI is above the Phaseout Limit of $85,000 as a single filer, he cannot deduct any of his student loan interest.
 
-Example 2: Married, and Under the Threshold
+Example 2: Married, and Under the Phaseout Threshold
 ----
 Joe and Jane are projected to pay $3,000 in student loan interest this year. Joe is still in school but Jane is in her first year of work and has a total income of $140,000. They are married and are planning to filing jointly. Jane is not offered an HSA at work but she did max out her contributions to her Traditional 401k ($19,500). Joe, being a full time student with no part time job, is not contributing to either a 401k or HSA.
 

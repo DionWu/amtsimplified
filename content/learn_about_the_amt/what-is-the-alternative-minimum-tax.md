@@ -4,7 +4,7 @@ description: High level overview of the AMT and what can trigger it
 weight: 1
 ---
 
-The Alternative Minimum Tax (AMT) is a separate tax system that you have to calculate in parallel to your regular income tax. Each system has a [slightly different set of rules, eligible deductions, and tax brackets.](/posts/amt-regular-tax-differences) 
+The Alternative Minimum Tax (AMT) is a separate tax system that you have to calculate in parallel to your regular income tax. Each system has a [slightly different set of rules, eligible deductions, and tax brackets.](/learn_about_the_amt/amt-regular-tax-differences) 
 
 Every year whether you know it or not, your tax filing program actually calculates both your regular income tax and alternative minimum tax. **You only end up paying the higher of the two.** 
 
@@ -14,7 +14,7 @@ With that being said, it is important to keep in mind that some of the most comm
 
 Exercising Incentive Stock Options (ISOs)
 -----
-This is by far the most common reason why AMT is triggered. If you exercise ISOs received from your employer and do not sell them in the same calendar year, the spread of your exercise (difference between fair market value and strike price at time of exercise) factors into the AMT calculation and may make you eligible for AMT. [You can read more about it here.](/posts/how-to-calculate-alternative-minimum-tax)
+This is by far the most common reason why AMT is triggered. If you exercise ISOs received from your employer and do not sell them in the same calendar year, the spread of your exercise (difference between fair market value and strike price at time of exercise) factors into the AMT calculation and may make you eligible for AMT. [You can read more about it here.](/learn_about_the_amt/how-to-calculate-alternative-minimum-tax)
 
 I will reiterate, because it is often lost and not mentioned. If you exercise ISOs and sell those stocks in the same calendar year, you **will not need to pay AMT on these stock options**. However, as this would result in a Disqualifying Disposition of ISOs, the gain is still factored into a combination of earned 'income' (which will appear on your company's W2) and short term capital gains. 
 <!--There are situations where it may be better to take a Disqualifying Disposition, and some examples are covered here -->
@@ -23,7 +23,7 @@ All of the above is why, especially in the case of exercising ISOs, planning whe
 
 Realizing a large long term capital gain
 -----
-Although your long term capital gain will still be taxed normally<!--at these favorable tax rates -->, realizing too much may make you ineligible for certain AMT specific deductions, which could ultimately cause you to have to pay AMT. In more specific terms, long term capital gains are still included in your Adjusted Gross Income (AGI) calculation, which affects the base number used in calculating your Alternative Minimum Tax. [You can read more about how the AMT is calculated in its entirety here.](/posts/how-to-calculate-alternative-minimum-tax)
+Although your long term capital gain will still be taxed normally<!--at these favorable tax rates -->, realizing too much may make you ineligible for certain AMT specific deductions, which could ultimately cause you to have to pay AMT. In more specific terms, long term capital gains are still included in your Adjusted Gross Income (AGI) calculation, which affects the base number used in calculating your Alternative Minimum Tax. [You can read more about how the AMT is calculated in its entirety here.](/learn_about_the_amt/how-to-calculate-alternative-minimum-tax)
 
 Making too much money 
 -----
@@ -31,6 +31,6 @@ And lastly, similar to the above, if your ordinary income exceeds the phase-out 
 
 ------------
 
-Now that you understand what triggers the AMT, **[see how it differs from your regular income tax](/posts/amt-regular-tax-differences).**
+Now that you understand what triggers the AMT, **[see how it differs from your regular income tax.](/learn_about_the_amt/amt-regular-tax-differences)**
 
 ------------

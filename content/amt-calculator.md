@@ -6,7 +6,7 @@ _Please note details in this page are relevant for the **2020 or 2021 tax year**
 
  _This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions._
 
-This easy to use calculator will help you understand your tax liability after **exercising Incentive Stock Options (ISO).** You can learn more about **[how the AMT is calculated in our informational articles](/posts)**
+This easy to use calculator will help you understand your tax liability after **exercising Incentive Stock Options (ISO).** You can learn more about **[how the AMT is calculated in our informational articles](/learn_about_the_amt/)**
 
 ------------------
 

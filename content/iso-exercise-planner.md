@@ -14,7 +14,7 @@ The purpose of this planner is to help you figure out the exact amount of ISOs y
 
 This can often be the key in **saving you thousands of dollars.** I personally cannot stress how useful and important this is, and how much I wish something like this existed for me in the past, which is why I built this!
 
-You can quickly learn more about all of this in **[these informational articles.](/posts/what-is-the-alternative-minimum-tax/)**
+You can quickly learn more about all of this in **[these informational articles.](/tax_credits_deductions/what-is-the-alternative-minimum-tax/)**
 
 ------------------
 
