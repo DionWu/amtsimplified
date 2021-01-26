@@ -12,4 +12,4 @@ This easy to use online calculator will help you understand your tax liability a
 
 ------------------
 
-Did you know you can save thousands of dollars on taxes if you simply planned how many ISOs you can exercise? Check out this **[ISO online calculator](/iso-tax-planner)** to reduce your taxes!
+Did you know you can save thousands of dollars on taxes if you simply planned how many ISOs you can exercise? Check out this **[ISO stock option calculator](/iso-tax-planner)** to reduce your taxes!

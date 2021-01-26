@@ -21,7 +21,7 @@ This is by far the most common reason why AMT is triggered. If you exercise ISOs
 I will reiterate, because it is often lost and not mentioned. If you exercise ISOs and sell those stocks in the same calendar year, you **will not need to pay AMT on these stock options**. However, as this would result in a Disqualifying Disposition of ISOs, the gain is still factored into a combination of earned 'income' (which will appear on your company's W2) and short term capital gains. 
 <!--There are situations where it may be better to take a Disqualifying Disposition, and some examples are covered here -->
 
-All of the above is why, especially in the case of exercising ISOs, planning when to exercise and how much you can exercise is an often overlooked and significant money saving technique. You could **literally** save thousands of dollars in taxes with just a little bit of planning. Luckily, we created a tool to for [ISO tax planning!](/iso-tax-planner)
+All of the above is why, especially in the case of exercising ISO, planning when to exercise and how much you can exercise is an often overlooked and significant money saving technique. You could **literally** save thousands of dollars in taxes with just a little bit of planning. Luckily, we created a tool to for [ISO stock option tax planning!](/iso-tax-planner)
 
 Realizing a large long term capital gain
 -----

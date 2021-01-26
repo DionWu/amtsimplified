@@ -9,7 +9,7 @@ Hi, I'm Dion. The way I found out about AMT was likely the same way you found ou
 
 - [What is the AMT](/learn_about_the_amt/what-is-the-alternative-minimum-tax)
 - [How to calculate the AMT](/learn_about_the_amt/how-to-calculate-alternative-minimum-tax) and
-- How to save on taxes, via this [ISO exercise tax planning tool](/iso-tax-planner)
+- How to save on taxes, via this [ISO stock option exercise tax planning tool](/iso-tax-planner)
 
 This obscure tax system rarely impacts the vast majority of people, so there are very few resources on the subject. Even the sites that write about AMT all seem to just copy and paste from one another - no one seems to go into any granular details about how it actually works.  Working in Tech myself, this disproportionately affects a significant amount of my friends and colleagues. And in talking to those folks, everyone seems to have the same issues around lack of education and resources. 
 

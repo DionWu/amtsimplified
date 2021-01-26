@@ -43,7 +43,7 @@ Step 1: Figure out / Estimate your Total Income
 ----
 If you're on this website in the midst of tax season and you have all of your financial statements ready, I invite you to pull out those statements and follow alongside me.
 
-If, however, you are here to plan for any potential tax you may owe to Uncle Sam, or are here to [plan how many ISOs to exercise](/iso-tax-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
+If, however, you are here to plan for any potential tax you may owe to Uncle Sam, or are here to [plan how many ISO stock options to exercise](/iso-tax-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
 
 We'll start by assessing your total income, which includes not just your salary and wages, but also things such as capital gain/loss from stock or real estate investments, social security benefits, IRA distributions, pensions, etc. 
 
