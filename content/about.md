@@ -7,7 +7,7 @@ AMT Simplified is a site dedicated to helping you understand, calculate, and pla
 
 Hi, I'm Dion. The way I found out about AMT was likely the same way you found out about it - being told I owe money to the government after filing my taxes one beautiful day in April. After multiple google searches and even sifting through IRS documentation, I realized it was incredibly difficult to find information on: 
 
-- [What AMT is](/posts/amt-introduction)
+- [What AMT is](/posts/what-is-the-amt)
 - [How it is calculated,](/posts/amt-taxes) and
 - [How you can avoid having to pay the AMT again next year, via planning how much ISOs to exercise](/iso-exercise-planner)
 
