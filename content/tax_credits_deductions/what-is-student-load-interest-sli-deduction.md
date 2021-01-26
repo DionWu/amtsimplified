@@ -3,7 +3,9 @@ title: What is the Student Loan Interest Deduction?
 description: Details, caveats, and limitations on the student loan interest deduction
 weight: 4
 ---
+{{<disclaimer>}}
 
+---------
 Quick Summary
 ---
 
@@ -111,4 +113,4 @@ That means when Karen is filing out her tax form, or when her program is calcula
 
 ------------------------------
 
-If you don't want to deal with all of this, and you'd rather have an easy, automated calculator that just factors in your student loan interest when calculating your AMT, **[you can use our handy dandy tool here.](/amt-calculator)**
+If you don't want to deal with all of this, and you'd rather have an easy, automated calculator that just factors in your student loan interest when calculating your AMT, you can use our **[AMT calculator!](/amt-calculator)**

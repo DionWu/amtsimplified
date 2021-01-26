@@ -3,7 +3,9 @@ title: What is the State and Local Tax Deduction?
 description: Details, caveats, and limitations on the SALT deduction
 weight: 6
 ---
+{{<disclaimer>}}
 
+---------
 Quick Summary
 ---
 
@@ -49,4 +51,4 @@ For sales tax, that is a little harder to calculate. Obviously you are not going
 
 ------------------------------
 
-Did you know the SALT deduction is not used in your Alternative Minimum Tax calculation? In other words, you cannot take the deduction when calculating AMT, but you does affect your Regular Income Tax! See how it affects you by [using our handy dandy tool here](/amt-calculator). 
+Did you know the SALT deduction is not used in your Alternative Minimum Tax calculation? In other words, you cannot take the deduction when calculating AMT, but you does affect your Regular Income Tax! See how it affects you by using our **[free online AMT calculator.](/amt-calculator)**

@@ -4,6 +4,14 @@ description: Detailed step by step guide with an example
 weight: 3
 ---
 
+{{<disclaimer>}}
+
+*Short on time? Use our free, **[online AMT calculator](/amt-calculator/)** to estimate your taxes owed.*
+
+*You can also figure out how to save thousands on taxes with our **[ISO exercise tax planning tool](/iso-tax-planner)***
+
+------
+
 How to calculate the AMT
 ----
 How the Alternative Minimum Tax is determined can be broken up into a few broad steps:
@@ -35,7 +43,7 @@ Step 1: Figure out / Estimate your Total Income
 ----
 If you're on this website in the midst of tax season and you have all of your financial statements ready, I invite you to pull out those statements and follow alongside me.
 
-If, however, you are here to plan for any potential tax you may have to owe to Uncle Sam, or are here to [plan your ISO exercise schedule](/iso-exercise-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
+If, however, you are here to plan for any potential tax you may owe to Uncle Sam, or are here to [plan how many ISOs to exercise](/iso-tax-planner) and want to understand the meaning behind the numbers, you will need to do your best estimation of many of the below. I often find using the previous year's tax return can be helpful.
 
 We'll start by assessing your total income, which includes not just your salary and wages, but also things such as capital gain/loss from stock or real estate investments, social security benefits, IRA distributions, pensions, etc. 
 
@@ -145,7 +153,7 @@ For this example, let's assume you exercised 1,500 options at a strike price of 
 Step 5: (Almost there!) Figure out your AMT Exemption
 ----
 
-The AMT Exemption is a special exemption you can take as part of the AMT tax system. It is a very straightforward calculation up until you start making in excess of around $523,600 as a single filer, or over around $1,047,200 as married, filing jointly. If you fall into this category, I would advise you to spend a minute or two reading up on [the math behind the phaseout thresholds](/learn_about_the_amt/amt-regular-tax-differences).
+The AMT Exemption is a special exemption you can take as part of the AMT tax system. It is a very straightforward calculation up until you start making in excess of around $523,600 as a single filer, or over around $1,047,200 as married, filing jointly. If you fall into this category, I would advise you to spend a minute or two reading up on the math behind the phaseout thresholds by understanding the [differences between the regular and AMT tax code.](/learn_about_the_amt/amt-regular-tax-differences)
 
 This is essentially a large chunk of money you can subtract before calculating the actual AMTI. Think of it like a special type of deduction, that almost everyone can take. The actual exemption in 2021 (filing in 2022) is:
 
@@ -210,9 +218,9 @@ But do you actually owe $6,331 in taxes?
 
 As mentioned in our previous articles, in any given tax filing year, you would only pay the larger of either your Regular Federal Income Tax or the Alternative Minimum Tax.
 
-Thus, in order to determine whether you actually need to cough up a few grand to Uncle Sam, you would also need to calculate your Regular Income Tax. We know it's a pain to do the math, **[so we have built a calculator for you to use to estimate how much in taxes you will owe.](/amt-calculator)**
+Thus, in order to determine whether you actually need to cough up a few grand to Uncle Sam, you would also need to calculate your Regular Income Tax. We know it's a pain to do the math, so we have built an **[online AMT calculator](/amt-calculator)** so you don't have to!
 
-And if you want to avoid paying AMT altogether, I would highly encourage you to **[check out our ISO planning calculator, which can save you thousands of dollars in taxes a year!](/iso-exercise-planner)**
+And if you want to avoid paying AMT altogether, I would highly encourage you to check out our **[ISO tax calculator,](/iso-tax-planner)** which can save you thousands of dollars in tax
 
 <!--Step 3: Standard Deduction or Itemized Deduction?
 ----

@@ -3,7 +3,9 @@ title: What is the Mortgage Interest Deduction?
 description: Details, caveats, and limitations on the mortgage interest deduction
 weight: 5
 ---
+{{<disclaimer>}}
 
+---------
 Quick Summary
 ---
 
@@ -15,7 +17,7 @@ Quick Summary
 
 What is the Mortgage Interest Deduction?
 ---
-I don't know about you, but I've always been told that buying a home is a sound financial decision - the pinnacle of a 'near guaranteed return on investment' that also allows you to deduct a hearty amount from your taxes. Without getting into the rent vs buy argument, it is indeed true that owning a home opens the door for some tax deductions. [One example is the State and Local Tax (SALT) deduction, which can be found here.](/tax_credits_deductions/what-is-the-state-and-local-tax-salt-deduction) Another is the mortgage interest deduction.
+I don't know about you, but I've always been told that buying a home is a sound financial decision - the pinnacle of a 'near guaranteed return on investment' that also allows you to deduct a hearty amount from your taxes. Without getting into the rent vs buy argument, it is indeed true that owning a home opens the door for some tax deductions. One example is the [State and Local Tax (SALT) deduction.](/tax_credits_deductions/what-is-the-state-and-local-tax-salt-deduction) Another is the mortgage interest deduction.
 
 Whenever you pay back any loan, your monthly payments are actually split into 2 categories. Part of the money goes into paying down your principal (the literal number you borrowed). The other goes into paying down your interest (extra money you owe the lender for taking a risk and lending you money). When first beginning to pay your mortgage, a good chunk of your payments go primarily into paying the interest. And for most people, that feels bad because it doesn't actually seem like you're reducing your loan. 
 
@@ -27,7 +29,7 @@ If you do indeed deduct your mortgage interest, that means you are taking the **
 
 Cool, I paid a mortgage this year. That means I can deduct the interest paid!
 ---
-Not quite. You cannot just deduct the interest from any ol' mortgage. There are a few caveats, and if you're in a more complicated situation than what is listed below, consult an accountant or take a look at the [IRS form 936](https://www.irs.gov/forms-pubs/about-publication-936). In general, you can deduct the interest:
+Not quite. You cannot just deduct the interest from any ol' mortgage. There are a few caveats, and if you're in a more complicated situation than what is listed below, consult an accountant or take a look at the [IRS form 936.](https://www.irs.gov/forms-pubs/about-publication-936) In general, you can deduct the interest:
 
 - If this is **your primary residence.** The vast majority of people fall into this category. A primary residence means you live at the property you are using to deduct and it's not some rental / passive income property.
 
@@ -90,7 +92,7 @@ Each method has some basic assumptions you need to satisfy in order to do them, 
 
 ------------------------------
 
-Calculating your mortgage interest deduction is not just useful to calculating your regular taxes, but also for determining if you owe any AMT as it's one of the few commonly used itemized deductions that are still permitted under the AMT tax code. To find out more, [you can use our handy calculator here](/amt-calculator). 
+Calculating your mortgage interest deduction is not just useful to calculating your regular taxes, but also for determining if you owe any AMT as it's one of the few commonly used itemized deductions that are still permitted under the AMT tax code. To find out more, you can use our **[online AMT calulator.](/amt-calculator)**
 
 ------------------------------
 

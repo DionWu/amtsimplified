@@ -41,7 +41,7 @@ googleAnalytics = "UA-171252878-1"
     weight = 4
 
 [[menu.main]]
-    url = "/iso-exercise-planner/"
+    url = "/iso-tax-planner/"
     name = "Incentive Stock Option Tax Planner"
     weight = 5
 
