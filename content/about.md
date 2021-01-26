@@ -7,8 +7,8 @@ AMT Simplified is a site dedicated to helping you understand, calculate, and pla
 
 Hi, I'm Dion. The way I found out about AMT was likely the same way you found out about it - being told I owe money to the government after filing my taxes one beautiful day in April. After multiple google searches and even sifting through IRS documentation, I realized it was incredibly difficult to find information on: 
 
-- [What AMT is](/posts/what-is-the-amt)
-- [How it is calculated,](/posts/amt-taxes) and
+- [What the AMT is](/posts/what-is-the-alternative-minimum-tax)
+- [How it is calculated,](/posts/how-to-calculate-alternative-minimum-tax) and
 - [How you can avoid having to pay the AMT again next year, via planning how much ISOs to exercise](/iso-exercise-planner)
 
 This obscure tax system rarely impacts the vast majority of people, so there are very few resources on the subject. Even the sites that write about AMT all seem to just copy and paste from one another - no one seems to go into any granular details about how it actually works.  Working in Tech myself, this disproportionately affects a significant amount of my friends and colleagues. And in talking to those folks, everyone seems to have the same issues around lack of education and resources. 
