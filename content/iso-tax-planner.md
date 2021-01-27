@@ -1,6 +1,6 @@
 ---
 title: Incentive Stock Option Tax Planner
-description: Save thousands on taxes by figuring out how many ISOs you can exercise safely
+description: Save thousands on taxes by determining how many ISOs to exercise without triggering AMT
 ---
 {{<disclaimer>}}
 

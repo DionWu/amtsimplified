@@ -1,6 +1,6 @@
 ---
 title: Alternative Minimum Tax (AMT) Calculator
-description: Calculate your Alternative Minimum Tax after exercising Incentive Stock Options (ISOs)
+description: Calculate your Alternative Minimum Tax from exercising Incentive Stock Options (ISOs)
 ---
 {{<disclaimer>}}
 

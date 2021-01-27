@@ -1,6 +1,6 @@
 ---
 title: How to Calculate the Alternative Minimum Tax
-description: Detailed step by step guide with an example
+description: Detailed step by step guide on how to calculate the AMT
 weight: 3
 ---
 
@@ -23,21 +23,7 @@ How the Alternative Minimum Tax is determined can be broken up into a few broad 
 5. Subtract the **AMT exemption**, if eligible, to get your **Alternative Minimum Taxable Income (AMTI)**
 6. Calculate your **Alternative Minimum Tax** based on the tax brackets.
 
-<!--But Actually...
-----
-In practice, the above process can often be a bit confusing because you are doing things differently than you would when calculating regular taxes. Thus, what is normally done is to add in a few extra steps that will seem a bit circuitous, but will generally be helpful for determining not just your AMTI but also your Regular Income Tax. This can come in handy when wanting to do things such as [plan out when to exercise your ISOs](/iso-exercise-planner).
-
-So instead, we will do the following:
-
-1. Figure out or estimate your **Total Income**
-2. Subtract **total adjustments** to get your **Adjusted Gross Income (AGI)**
-3. Figure out if you want to take the **Standard Deduction** or an **Itemized Deduction**
-4. Subtract whichever **Deductions** to get your **Regular Taxable Income**
-5. Figure out your ISO Exercise Spread, and add that alongside certain deductions that are ineligible in the AMT system to determine your **Alternative Minimum Taxable Income (AMTI)**. 
-6. Take your AMTI and subtract the **AMT exemption** to get your 'Final Alternative Minimum Taxable Income' **(FAMTI)**
-7. Calculate your **Alternative Minimum Tax**
-8. Calculate your **Regular Income Tax**, which we won't go over in detail here but is automatically done [using our AMT calculator](/amt-calculator)
-9. Figure out which tax is higher. You only need to pay the higher one! -->
+-----------
 
 Step 1: Figure out / Estimate your Total Income
 ----
@@ -103,9 +89,9 @@ _For the purposes of this example, we will use your gross income (before 401k co
 
 Step 3: Subtract AMT eligible deductions
 ----
-There are also quite a few AMT eligible deductions, most of which are not commonly used or known. The most common is the deduction on mortgage interest paid. <!--Truthfully, calculating this could be a pain if you have a jumbo loan, due to the restrictions placed by the Tax Cuts and Jobs act of 2017. You can read more about it here -->
+There are also quite a few AMT eligible deductions, most of which are not commonly used or known. These include drilling costs, biofuel producer credits, or most commonly, deductions on mortgage interest paid. If you're in a complex situation, I'd always advise consulting with a tax advisor, and for the purposes of this example we will presume that you own a home and you want to subtract your mortgage interest paid this year, which turns out to be $10,000.
 
-Thus, let's just presume that you own a home and you want to subtract your mortgage interest paid this year, which turns out to be $10,000
+As an aside, calculating this could be a pain if you have a jumbo loan, due to the restrictions placed by the Tax Cuts and Jobs act of 2017. You can read more about the [mortgage interest deduction here.](/tax_credits_deductions/what-is-the-mortgage-interest-deduction)
 
 {{<table "table table-striped table-bordered" >}}
  Item| Value 
