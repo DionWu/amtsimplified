@@ -1,6 +1,7 @@
 ---
 title: What is the Medical Expense Deduction?
 description: Details, caveats, and limitations on the medical (and dental!) expense deduction
+date: 2021-01-26
 weight: 7
 ---
 {{<disclaimer>}}

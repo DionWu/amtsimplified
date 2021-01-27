@@ -1,6 +1,7 @@
 ---
 title: Differences between Alternative Minimum Tax and Regular Income Tax
 description: Comparing differences in the two tax systems
+date: 2021-01-26
 weight: 2
 ---
 {{<disclaimer>}}

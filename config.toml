@@ -31,8 +31,8 @@ googleAnalytics = "UA-171252878-1"
     weight = 2
 
 [[menu.main]]
-    url = "/tax_credits_deductions/"
-    name = "Tax Credits & Deductions"
+    url = "/articles/"
+    name = "Articles"
     weight = 3
 
 [[menu.main]]
@@ -52,7 +52,7 @@ googleAnalytics = "UA-171252878-1"
 
 [[menu.main]]
     url = "https://www.buymeacoffee.com/amtsimplified"
-    name = "Support Me!"
+    name = "Support the Site!"
     weight = 7    
 
 # Social icons to be shown on the right-hand side of the navigation bar.

@@ -1,6 +1,7 @@
 ---
 title: How to Calculate the Alternative Minimum Tax
 description: Detailed step by step guide on how to calculate the AMT
+date: 2021-01-26
 weight: 3
 ---
 
@@ -91,7 +92,7 @@ Step 3: Subtract AMT eligible deductions
 ----
 There are also quite a few AMT eligible deductions, most of which are not commonly used or known. These include drilling costs, biofuel producer credits, or most commonly, deductions on mortgage interest paid. If you're in a complex situation, I'd always advise consulting with a tax advisor, and for the purposes of this example we will presume that you own a home and you want to subtract your mortgage interest paid this year, which turns out to be $10,000.
 
-As an aside, calculating this could be a pain if you have a jumbo loan, due to the restrictions placed by the Tax Cuts and Jobs act of 2017. You can read more about the [mortgage interest deduction here.](/tax_credits_deductions/what-is-the-mortgage-interest-deduction)
+As an aside, calculating this could be a pain if you have a jumbo loan, due to the restrictions placed by the Tax Cuts and Jobs act of 2017. You can read more about the [mortgage interest deduction here.](/articles/what-is-the-mortgage-interest-deduction)
 
 {{<table "table table-striped table-bordered" >}}
  Item| Value 

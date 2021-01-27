@@ -1,6 +1,7 @@
 ---
 title: What is the State and Local Tax Deduction?
 description: Details, caveats, and limitations on the SALT deduction
+date: 2021-01-26
 weight: 6
 ---
 {{<disclaimer>}}
@@ -35,7 +36,7 @@ The SALT deduction limit of $10,000 was put into place with the TCJA passed in 2
 
 Property Tax
 ---
-For most folks, if you own a home and pay a mortgage, it is almost a no brainer to choose to itemize your deduction instead of taking the standard deduction. This is because you not only can [deduct your mortgage interest paid](/tax_credits_deductions/what-is-the-mortgage-interest-deduction) but also the property tax as part of this SALT deduction. And a good portion of the time, those two items alone add up to more than the standard deduction. U
+For most folks, if you own a home and pay a mortgage, it is almost a no brainer to choose to itemize your deduction instead of taking the standard deduction. This is because you not only can [deduct your mortgage interest paid](/articles/what-is-the-mortgage-interest-deduction) but also the property tax as part of this SALT deduction. And a good portion of the time, those two items alone add up to more than the standard deduction. U
 
 If you co-own a property with someone else, the same rule applies as it does for mortgage interest paid. The IRS asks that you deduct only the portion of the property tax paid that you were responsible for. In other words, if you split a home 50/50 with someone, but the other person paid all the property tax for a given year, only that person is eligible to include the tax paid as part of his/her deduction. Keep this in mind when 'paying' for property taxes if you fall in this situation. A good tip is to either pay from a joint account or simply remember to split the bill when the time comes.
 

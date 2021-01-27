@@ -1,11 +1,12 @@
 ---
 title: Incentive Stock Option Tax Planner
 description: Save thousands on taxes by determining how many ISOs to exercise without triggering AMT
+date: 2021-01-26
 ---
 {{<disclaimer>}}
 
 
-The purpose of this planner is to help you figure out the exact amount of ISOs you can exercise without triggering the additional AMT tax. 
+The purpose of this planner is to help you figure out the exact amount of ISOs you can exercise without triggering the additional AMT tax. You can **[learn about ISOs here.](/articles/incentive-stock-option-iso-basics/)**
 
 This can often be the key in **saving you thousands of dollars.** I personally cannot stress how useful and important this is, and how much I wish something like this existed for me in the past, which is why I built this!
 

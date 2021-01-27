@@ -1,6 +1,7 @@
 ---
 title: What is the Mortgage Interest Deduction?
 description: Details, caveats, and limitations on the mortgage interest deduction
+date: 2021-01-26
 weight: 5
 ---
 {{<disclaimer>}}
@@ -17,7 +18,7 @@ Quick Summary
 
 What is the Mortgage Interest Deduction?
 ---
-I don't know about you, but I've always been told that buying a home is a sound financial decision - the pinnacle of a 'near guaranteed return on investment' that also allows you to deduct a hearty amount from your taxes. Without getting into the rent vs buy argument, it is indeed true that owning a home opens the door for some tax deductions. One example is the [State and Local Tax (SALT) deduction.](/tax_credits_deductions/what-is-the-state-and-local-tax-salt-deduction) Another is the mortgage interest deduction.
+I don't know about you, but I've always been told that buying a home is a sound financial decision - the pinnacle of a 'near guaranteed return on investment' that also allows you to deduct a hearty amount from your taxes. Without getting into the rent vs buy argument, it is indeed true that owning a home opens the door for some tax deductions. One example is the [State and Local Tax (SALT) deduction.](/articles/what-is-the-state-and-local-tax-salt-deduction) Another is the mortgage interest deduction.
 
 Whenever you pay back any loan, your monthly payments are actually split into 2 categories. Part of the money goes into paying down your principal (the literal number you borrowed). The other goes into paying down your interest (extra money you owe the lender for taking a risk and lending you money). When first beginning to pay your mortgage, a good chunk of your payments go primarily into paying the interest. And for most people, that feels bad because it doesn't actually seem like you're reducing your loan. 
 

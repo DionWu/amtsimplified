@@ -1,6 +1,7 @@
 ---
 title: What is the Student Loan Interest Deduction?
 description: Details, caveats, and limitations on the student loan interest deduction
+date: 2021-01-26
 weight: 4
 ---
 {{<disclaimer>}}

@@ -1,6 +1,7 @@
 ---
 title: About Me
 description: 
+date: 2021-01-26
 ---
 
 AMT Simplified is a site dedicated to helping you understand, calculate, and plan for your Alternative Minimum Tax. It's my hope this website can help save you money!
