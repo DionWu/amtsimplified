@@ -217,7 +217,11 @@
     </tr>
   </tbody>
 </table>
-<br>
+
+
+<h4> <a href="https://www.jdoqocy.com/b3111p-85-7NPOORQPRUWNPQROUPWW" class="link_to_ad freetaxusa_amt_calc_ad"> File your taxes with FreeTaxUSA! </a></h4>
+<h4>They are one of the oldest and most trusted services that millions of Americans use every year. Stop paying to file your federal taxes!</h4>
+
 <br>
 <button type="button" class="collapsible" id="regular_income_tax_results_collapsible">See Regular Income Tax Breakdown</button>
 <table class="table table-bordered table-hover" id="regular_income_tax_results_table"><thead>
@@ -813,6 +817,7 @@
     // If the net capital gain happens to zero out, just disregard it. keep long_term_for_calc at 0
     } else if (sum_capital_gains == 0) {
       taxable_income = salary - total_exemptions - regular_deduction_final;
+      leftover_capital_loss_carryover = 0;
     }
 
     // In case where deduction brings you to negative taxable income, your taxable income is 0

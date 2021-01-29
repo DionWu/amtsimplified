@@ -3,4 +3,11 @@
   Override this in your site to insert code just before the closing <body> tag.
   For example, to install an analytics tracking package.
 -->
- <a class="donate_link" href="https://www.buymeacoffee.com/amtsimplified"><strong>If you found any of this helpful, please consider supporting the site!</strong></a>
+
+{{if .IsHome}}
+
+{{ else }}
+	
+	<a class="donate_link" href="https://www.buymeacoffee.com/amtsimplified"><strong>If you found any of this helpful, please consider supporting the site!</strong></a>
+
+{{ end }}
