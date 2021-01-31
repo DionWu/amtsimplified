@@ -2,7 +2,8 @@
 title: Incentive Stock Options - Qualifying vs Disqualifying Dispositions
 description: Explaining what each is and how they can impact your AMT (and regular taxes too!)
 date: 2021-01-26
-weight: 2
+weight: 6
+tags: ["incentive stock options"]
 ---
 {{<disclaimer>}}
 

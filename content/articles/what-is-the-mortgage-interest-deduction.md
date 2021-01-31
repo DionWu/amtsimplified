@@ -2,7 +2,8 @@
 title: What is the Mortgage Interest Deduction?
 description: Details, caveats, and limitations on the mortgage interest deduction
 date: 2021-01-26
-weight: 5
+weight: 8
+tags: ["deductions"]
 ---
 {{<disclaimer>}}
 

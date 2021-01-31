@@ -2,7 +2,8 @@
 title: "Introduction to the Incentive Stock Option (ISO)"
 description: An easy to understand explanation of ISO terminology and concepts
 date: 2021-01-26
-weight: 1
+weight: 5
+tags: ["incentive stock options"]
 ---
 {{<disclaimer>}}
 
@@ -13,7 +14,7 @@ Quick Summary
 ---
 - ISOs are a great form of compensation with very little risk but potential upside
 - ISOs are very similar to regular stock options, but differ in how they are treated at time of the sale ([qualified or disqualified dispositions](/articles/iso-difference-between-qualifying-and-disqualifying-disposition/))
-- In addition, exercising Incentive Stock Options may trigger the [Alternative Minimum Tax](/learn_about_the_amt/what-is-the-alternative-minimum-tax/)
+- In addition, exercising Incentive Stock Options may trigger the [Alternative Minimum Tax](/articles/what-is-the-alternative-minimum-tax/)
 - To potentially save thousands of dollars on taxes, it is always best to [plan out when to exercise your ISOs](/iso-tax-planner/)
 
 ------------------
@@ -57,7 +58,7 @@ In addition to the above, there are a few other pieces of terminology relevant t
 Tax Implications of ISOs
 ---
 
-When you exercise an ISO, you will need to report it when filing for taxes. This is probably why you're here! Apart from impacting your regular income tax, exercising ISOs is one of the few things that trigger the Alternative Minimum Tax, which is a completely separate tax system which oftentimes can lead to you having to pay additional taxes in a given year. We have a few [articles that cover the basics of the AMT](/learn_about_the_amt/)
+When you exercise an ISO, you will need to report it when filing for taxes. This is probably why you're here! Apart from impacting your regular income tax, exercising ISOs is one of the few things that trigger the Alternative Minimum Tax, which is a completely separate tax system which oftentimes can lead to you having to pay additional taxes in a given year. We have a few [articles that cover the basics of the AMT](/articles/)
 
 Although you are not taxed immediately, you are going to be 'double taxed' on any ISO. Once on the exercising of the option, and the second time on the sale of the stock (as a capital gain). And even though this seems particularly unfair, it works similarly to your income tax. You get taxed on your wages, and if you were to choose to buy stocks and sell them, you would be taxed on that as well - there's just a different system for this calculation - the AMT.
 

@@ -2,7 +2,8 @@
 title: What is the State and Local Tax Deduction?
 description: Details, caveats, and limitations on the SALT deduction
 date: 2021-01-26
-weight: 6
+weight: 7
+tags: ["deductions"]
 ---
 {{<disclaimer>}}
 

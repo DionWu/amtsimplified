@@ -25,10 +25,10 @@ googleAnalytics = "UA-171252878-1"
     name = "Home"
     weight = 1
 
-[[menu.main]]
-    url = "/learn_about_the_amt/"
-    name = "Learn About The AMT"
-    weight = 2
+#[[menu.main]]
+    #url = "/filing_taxes/"
+    #name = "File Your Taxes"
+    #weight = 2
 
 [[menu.main]]
     url = "/articles/"

@@ -10,8 +10,12 @@ The purpose of this planner is to help you figure out the exact amount of ISOs y
 
 This can often be the key in **saving you thousands of dollars.** I personally cannot stress how useful and important this is, and how much I wish something like this existed for me in the past, which is why I built this!
 
-You can quickly **[learn about the alternative minimum tax](/learn_about_the_amt/what-is-the-alternative-minimum-tax/)** here. If instead you wanted to calculate how much AMT you owe for this year check out our **[online AMT calculator!](/amt-calculator/)**
+You can quickly **[learn about the alternative minimum tax](/articles/what-is-the-alternative-minimum-tax/)** here. If instead you wanted to calculate how much AMT you owe for this year check out our **[online AMT calculator!](/amt-calculator/)**
 
 ------------------
 
 {{<iso-exercise-planner >}}
+
+------------------
+
+In addition, did you know paying AMT in one year makes you eligible for claiming a tax credit in the following year? You can **[read more about the AMT credit here.](/articles/what_is_the_amt_credit_carryover)**

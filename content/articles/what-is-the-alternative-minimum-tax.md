@@ -3,6 +3,7 @@ title: What is the Alternative Minimum Tax
 description: High level overview of the AMT and what can trigger it
 date: 2021-01-26
 weight: 1
+tags: ["alternative minimum tax"]
 ---
 {{<disclaimer>}}
 
@@ -34,5 +35,7 @@ And lastly, similar to the above, if your ordinary income exceeds the phase-out 
 ------------
 
 Now that you understand what triggers the AMT, **[see how it differs from your regular income tax.](/learn_about_the_amt/amt-regular-tax-differences)**
+
+Lastly, did you know paying AMT in one year makes you eligible for claiming a tax credit in the following year? You can **[read more about the AMT credit here.](/learn_about_the_amt/what_is_the_amt_credit_carryover)**
 
 ------------
