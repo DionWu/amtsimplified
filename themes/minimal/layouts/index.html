@@ -4,10 +4,47 @@
     <div class="intro">
         {{ with .Site.Params.profilePic }} <img class="profile" src="{{ . }}"> {{ end }}
         <h1 class="homepage-title">{{ .Site.Title }}</h1>
-        <h2 class="homepage-description">{{ markdownify .Site.Params.home_subtitle_1 }} <br> {{ markdownify .Site.Params.home_subtitle_2 }}</h2>
+        <h3 class="homepage-description">{{ markdownify .Site.Params.home_subtitle_1 }} <br> {{ markdownify .Site.Params.home_subtitle_2 }}</h3>
         {{ with .Content }} <div class="homepage-content text-justify">{{ . }}</div> {{ end }}
     </div>
-    <div class="button_home" align="center"><a class="button_home_link" href="/amt-calculator/" ><h2>Calculate my AMT</h2></a></div>
+    <!--<div class="button_home" align="center"><a class="button_home_link" href="/amt-calculator/" ><h2>Calculate my AMT</h2></a></div>-->
+    <br>
+    <br>
+    <br>
+    <br>
+
+<div class="dynamic-sectional-description" >
+	<div class="sectional-content" >
+		  <div class="row" >
+		    <div class="col-md-4 col-sm-4 col-xs-12 small-home-post-border" >
+		      <div class="sectional-box" >
+		        <div class="sectional-box-content" >
+		          <h4 ><a href="/articles/" >Learn about the AMT</a></h4>
+		          <p>Just what is the alternative minimum tax? How is it different than my regular taxes and what can I do to lower my taxes owed?</p>
+		          <p>Did you know <strong>you can claim a tax credit</strong> for the years after you pay the AMT?</p>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-4 col-sm-4 col-xs-12 small-home-post-border" >
+		      <div class="sectional-box" >
+		        <div class="sectional-box-content" >
+		          <h4 ><a href="/amt-calculator/" >Calculate my AMT</a></h4>
+		          <p> Do I owe additional taxes this year? What about next year?</p> 
+		          <p>Use our <strong>most popular, free online calculator</strong> to determine the taxes you may owe.</p>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-4 col-sm-4 col-xs-12 small-home-post-border" >
+		      <div class="sectional-box" >
+		        <div class="sectional-box-content" >
+		          <h4><a href="/iso-tax-planner/" >Save on future taxes</a></h4>
+		          <p>You can save thousands of dollars with the right planning. All you need to know is <strong>how many Incentive Stock Options you can safely exercise</strong> in a given year.</p>
+		          <p>Our ISO Tax Planner can help you do just that!</p>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
 </main>
 
 {{ partial "footer" . }}

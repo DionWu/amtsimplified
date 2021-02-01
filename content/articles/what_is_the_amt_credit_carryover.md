@@ -1,6 +1,6 @@
 ---
 title: What is the AMT Credit Carryover (IRS Form 8801)
-description: How to use the AMT tax credit to save on future tax returns
+description: How to use the alternative minimum tax credit to save on future tax returns
 date: 2021-01-31
 weight: 4
 tags: ["alternative minimum tax", "tax forms"]
@@ -13,7 +13,7 @@ Quick Summary
 ---
 
 - Paying the AMT today means you might be able to apply that amount as credit to future tax filing years
-- The AMT credit is only eligible to be used **in future years where you don't also have to pay AMT**
+- The alternative minimum tax credit is only eligible to be used **in future years where you don't also have to pay AMT**
 - You must fill out a form 8801 to claim this credit, and include it in your tax return.
 - There are 2 categories for items on your form 8801: deferral and exclusion items. 
 	- **Deferral items (such as exercising ISOs) allow you to claim AMT credit** in future years 
