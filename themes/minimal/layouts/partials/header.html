@@ -14,7 +14,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ if .IsNode }}{{ .Site.Title }}{{ end}}{{ if .Title }}{{ .Title }}{{ end }}</title>
+        <title>{{ if .IsNode }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
 
         <meta name="description" content="{{ .Description }}">
 
