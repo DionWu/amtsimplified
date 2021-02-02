@@ -21,12 +21,13 @@ As such, you'll **only ever see me recommend one product: [Credit Karma](https:/
 [{{<figure src="/img/credit_karma_logo.png" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
 
 That's because:
+
 - I use it personally (4 years and counting)
 - It's **actually completely free for both federal and state.** No gimmicks, upcharges, fees, etc unlike every other product (i.e. TurboTax, FreeTaxUSA, H&R Block)
 - All you need is a Credit Karma account, which many people have - no extra frills. So you can monitor your credit score, check your spending, and file taxes all in one place
 - They have an amazing interface which simplifies the tax code for individuals
 - Because I'm so familiar with it, I can answer questions you may have (amtsimplified@gmail.com)
-- And lastly, to be frank, I'd like to cover the expenses of maintaining this site and server through Credit Karma's affiliate program or **[your generous donations here!](https://www.buymeacoffee.com/amtsimplified)** <!--<a href="https://www.buymeacoffee.com/amtsimplified" class="donate_link">your generous donations here!</a>-->
+- And lastly, to be frank, I'd like to cover the expenses of maintaining this site and server through Credit Karma's affiliate program or **[your generous donations here!](https://www.buymeacoffee.com/amtsimplified)** 
 
 With that being said, let's get into it!
 
