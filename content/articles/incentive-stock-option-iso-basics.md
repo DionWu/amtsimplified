@@ -6,10 +6,12 @@ weight: 5
 tags: ["incentive stock options"]
 ---
 {{<disclaimer>}}
+{{<direct_to_filing_taxes>}}
+
+---------
 
 The below article is specifically geared towards Incentive Stock Options (ISOs), which is just one of many employer sponsored equity programs
 
----------
 Quick Summary
 ---
 - ISOs are a great form of compensation with very little risk but potential upside

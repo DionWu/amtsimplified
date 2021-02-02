@@ -6,6 +6,7 @@ weight: 1
 tags: ["alternative minimum tax"]
 ---
 {{<disclaimer>}}
+{{<direct_to_filing_taxes>}}
 
 ------------------
 The Alternative Minimum Tax (AMT) is a separate tax system that you have to calculate in parallel to your regular income tax. Each system has a slightly different set of rules, eligible deductions, and tax brackets. Learn more about the [differences between the AMT and Regular Income tax system here](/articles/amt-regular-tax-differences) 
@@ -34,8 +35,6 @@ And lastly, similar to the above, if your ordinary income exceeds the phase-out 
 
 ------------
 
-Now that you understand what triggers the AMT, **[see how it differs from your regular income tax.](/articles/amt-regular-tax-differences)**
-
-Lastly, did you know paying AMT in one year makes you eligible for claiming a tax credit in the following year? You can **[read more about the AMT credit here.](/articles/what_is_the_amt_credit_carryover)**
+**[Next Up: See what triggers the AMT and how it differs from your regular income tax.](/articles/amt-regular-tax-differences)**
 
 ------------

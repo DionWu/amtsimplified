@@ -6,6 +6,7 @@ weight: 9
 tags: ["deductions"]
 ---
 {{<disclaimer>}}
+{{<direct_to_filing_taxes>}}
 
 ---------
 Quick Summary

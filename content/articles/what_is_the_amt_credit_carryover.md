@@ -6,6 +6,7 @@ weight: 4
 tags: ["alternative minimum tax", "tax forms"]
 ---
 {{<disclaimer>}}
+{{<direct_to_filing_taxes>}}
 
 ------------------
 
@@ -104,3 +105,5 @@ Going back to the previous example:
 Now that you know everything about the AMT, why don't you try calculating your tax owed with our **[AMT Calculator?](/amt-calculator)** 
 
 Or better yet, figure out how to save thousands on taxes with our **[ISO tax planner](/iso-tax-planner/)** which shows you exactly how many incentive stock options you can exercise without triggering AMT
+
+**[Next Up: Ready to file taxes? I\'ll show you how to file your AMT for free with 3 easy steps](/filing_taxes/how_to_file_taxes_for_amt)**

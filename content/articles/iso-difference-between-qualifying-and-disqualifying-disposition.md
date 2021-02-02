@@ -7,9 +7,12 @@ tags: ["incentive stock options"]
 ---
 {{<disclaimer>}}
 
-The below article is specifically geared towards the exercise and sale of Incentive Stock Options (ISOs) but can also be relevant for other potential workplace equity programs (i.e ESPP). It may help to brush up on the [basics of ISO terminology](/articles/incentive-stock-option-iso-basics)
+{{<direct_to_filing_taxes>}}
 
 ---------
+
+The below article is specifically geared towards the exercise and sale of Incentive Stock Options (ISOs) but can also be relevant for other potential workplace equity programs (i.e ESPP). It may help to brush up on the [basics of ISO terminology](/articles/incentive-stock-option-iso-basics)
+
 Quick Summary
 ---
 

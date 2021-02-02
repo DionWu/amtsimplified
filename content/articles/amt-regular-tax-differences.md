@@ -7,10 +7,10 @@ tags: ["alternative minimum tax"]
 ---
 {{<disclaimer>}}
 
+{{<direct_to_filing_taxes>}}
+
 ------------------
 Before diving into how the AMT is actually calculated, it may be helpful to visually see the differences between the ordinary income tax that you may be familiar with and the alternative minimum tax.
-
-If you just want to know [how the AMT is calculated, click here](/articles/how-to-calculate-alternative-minimum-tax)
 
 ***Key Disclaimers***
 - *When using the term **'Taxable Income'**, it is referring to the uniquely calculated taxable income in that tax system. For example, with the AMT, 'Taxable Income' is actually referring to a special 'Alternative Minimum Taxable Income' (AMTI) number.*
@@ -108,8 +108,8 @@ The AMT Exemption & Phaseout Thresholds dictates three things:
 - If you are a single filer and your AMTI comes out to $528,400, you would be $10,000 over the phaseout threshold. As a result, the AMT exemption you can apply would be $2,500 (25% of 10,000) less than the normal $72,900 exemption amount, or $70,400.
 - In other words, your final AMTI in this case would be $525,900 (528,400 - 2,500)
 
-We cover all of this in detail here, which shows **[how the Alternative Minimum Tax is actually calculated](/articles/how-to-calculate-alternative-minimum-tax)**
+---------------
 
-Lastly, did you know paying AMT in one year makes you eligible for claiming a tax credit in the following year? You can **[read more about the AMT credit here.](/articles/what_is_the_amt_credit_carryover)**
+**[Next up, we cover all of these calculations in detail here, which shows how the Alternative Minimum Tax is actually calculated](/articles/how-to-calculate-alternative-minimum-tax)**
 
 ---------------
