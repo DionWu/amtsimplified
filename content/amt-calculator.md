@@ -7,6 +7,8 @@ date: 2021-01-26
 
 This easy to use online calculator will help you understand your tax liability after **[exercising Incentive Stock Options (ISO).](/articles/incentive-stock-option-iso-basics/)** You can learn more about **[how to calculate the AMT](/articles/)** in our informational articles.
 
+{{<direct_to_filing_taxes>}}
+
 ------------------
 
 {{<amt-calculator >}}
