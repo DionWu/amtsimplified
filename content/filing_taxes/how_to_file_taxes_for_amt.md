@@ -18,7 +18,8 @@ I don't have ads, pop-ups, or charge to use any of the calculators - my goal and
 
 As such, you'll **only ever see me recommend one product: [Credit Karma](https://credit-karma-tax.pxf.io/amtsimplified)** 
 
-[{{<figure src="/img/credit_karma_logo.png" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
+[{{<figure src="/img/credit_karma_logo.png" class="img_logo_small" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
+
 
 That's because:
 
@@ -50,7 +51,7 @@ The only 3 things you need to file your AMT
 
 1. Your Incentive Stock Option exercise information
 2. Calculate your ISO exercise spread subtotal
-3. Fill it into IRS Form 6251
+3. Fill it into IRS Form 6251 (i.e. into some textboxes on your filing software)
 
 Step 1: Finding your ISO exercise information
 ---
@@ -72,13 +73,14 @@ In the coming days, I'll be adding in an embedded calculator to help you do this
 
 If you're just trying to see what your ISO subtotal is and not calculate your AMT, feel free to fill in any random number for your Total Gross Wages as it won't affect your ISO spread.
 
-Step 3: Fill this number into IRS Form 6251 - Row 2i
+Step 3: Fill this number into IRS Form 6251
 ---
 
 IRS Form 6251 is the form you attach to your tax return to denote any Alternative Minimum Tax. Specifically, for exercising ISOs, your subtotal will go into Row 2i "Exercise of incentive stock options (excess of AMT income over regular tax income)".
 
-Your filing software should aide you in this without you having to hunt down form 6251 yourself. The reason I use **[Credit Karma](https://credit-karma-tax.pxf.io/amtsimplified)** is because they make this extremely clear and intuitive:
+Luckily, your filing software should aide you in this without you having to hunt down form 6251 yourself. The reason I use **[Credit Karma](https://credit-karma-tax.pxf.io/amtsimplified)** is because they make this extremely clear, intuitive, and it's literally just one box to fill in.
 
+<!--
 ------------------
 Once you're on your tax home page, scroll down to a section titled **'AMT and other additional taxes'.** Click 'Edit/Review'.
 
@@ -87,10 +89,19 @@ Once you're on your tax home page, scroll down to a section titled **'AMT and ot
 ------------------
 Then click into and Edit/Review the section on **'Alternative Minimum Tax'** 
 
-![Credit Karma AMT Tax Sub Page](/img/ck_subpage_amt.png)
+![Credit Karma AMT Tax Sub Page](/img/ck_subpage_amt.png) -->
 
 ------------------
-And finally, enter your ISO subtotal from Step 2 into the box **'Exercise of Incentive Stock Options'**
+
+If this is your first time, they'll ask you to fill out a few basic questions about yourself so they know what categories of line items to ask you about (deductions, types of income, home ownership, etc). The easiest thing to do is just answer these questions as if you didn't exercise any ISOs. 
+
+Because once you're on your tax home page, simply scroll down to the bottom and look for the search bar. **Type in AMT and click 'AMT Calculation'**
+
+![Credit Karma Search for AMT](/img/ck_amt_search.png)
+
+------------------
+
+Then, simply enter your ISO subtotal from Step 2 into the box **'Exercise of Incentive Stock Options'**
 
 ![Credit Karma ISO Spread Page - AMT](/img/ck_isospread_input_amt.png)
 
