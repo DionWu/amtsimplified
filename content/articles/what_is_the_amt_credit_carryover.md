@@ -2,7 +2,7 @@
 title: What is the AMT Credit (IRS Form 8801)
 description: How to use the alternative minimum tax credit to save on future tax returns
 date: 2021-01-31
-weight: 4
+weight: 2
 tags: ["alternative minimum tax", "amt credit"]
 ---
 {{<disclaimer>}}

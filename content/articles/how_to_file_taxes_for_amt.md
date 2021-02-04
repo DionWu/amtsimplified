@@ -10,39 +10,20 @@ tags: ["alternative minimum tax", "filing taxes"]
 
 *This post may contain affiliate links and I may earn a small commission when you click on the links at no additional cost to you. If you find this article informative, I would appreciate your support!*
 
-------------------
-
-One quick note...
----
-I built this site as a free resource and to spread financial awareness of the AMT tax to my friends and colleagues.
-
-I don't have ads, pop-ups, or charge to use any of the calculators - my goal and passion is honestly just financial education for all.
-
-I cover the expenses of maintaining this site by **recommending the one and only product I use for filing my taxes: [Credit Karma](https://credit-karma-tax.pxf.io/amtsimplified)** 
-
-[{{<figure src="/img/credit_karma_logo.png" class="img_logo_small" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
-
-That's because:
-
-- I use it personally (4 years and counting)
-- It's **actually completely free for both federal and state.** No gimmicks, upcharges, fees
-- All you need is a Credit Karma account, which many people already have - no extra frills
-- They have an amazing interface which simplifies the tax code for individuals
-- Because I'm so familiar with it, I can answer questions you may have (amtsimplified@gmail.com)
-
-If you're interested, I would appreciate if you **[check it out using my link!](https://credit-karma-tax.pxf.io/amtsimplified)**
 
 ------------------
 
 Quick Summary
 ---
-- Please, for the love of all that is good, stop paying to file your taxes! I cannot stress this enough. The law mandates that everyone should be able to file for free, and there are a multitude of resources that let you do so
-
-- My recommendation is always to file **[completely for free through Credit Karma Tax!](https://credit-karma-tax.pxf.io/amtsimplified)** I've personally been using them for 4 years now
-
 - For most tax filing software, to calculate the tax on ISOs, you'll need a log of ISOs exercised, date of exercise, strike price, and fair market value (FMV) at time of exercise. If you aren't sure what these terms mean, you can read about the [basics of incentive stock options here](/articles/incentive-stock-option-iso-basics/)
 
 - Please note: ISOs that you exercise and sell in the same calendar year are not subject to AMT. These will be classified as [disqualifying dispositions](/articles/iso-difference-between-qualifying-and-disqualifying-disposition/) and will be included in your regular income tax. Don't double count these!
+
+- Please, for the love of all that is good, stop paying to file your taxes! I cannot stress this enough. The law mandates that everyone should be able to file for free, and there are a multitude of resources that let you do so
+
+- My recommendation is always to file **[completely for free through Credit Karma Tax!](https://credit-karma-tax.pxf.io/amtsimplified)** I've personally been using them for 4 years now. If you don't have an account, you can easily [sign up for free!](https://creditkarma.myi4.net/5Xoko)
+
+[{{<figure src="/img/credit_karma_logo.png" class="img_logo_small" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
 
 ------------------
 

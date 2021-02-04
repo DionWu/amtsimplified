@@ -21,7 +21,7 @@ Quick Summary
 
 - With that being said, as the focus of this website is the AMT due to exercising Incentive Stock Options, filling out Form 8801 is a piece of cake with the right tax software. 
 
-- **[I always recommend Credit Karma as the tax filing program of choice, as it\'s completely free and is the one I\'ve used for the past 4 years](https://credit-karma-tax.pxf.io/amtsimplified)**
+- **[I always recommend Credit Karma as the tax filing program of choice, as it\'s completely free and is the one I\'ve used for the past 4 years](https://credit-karma-tax.pxf.io/amtsimplified)** If you don't have an account, you can easily [sign up for free!](https://creditkarma.myi4.net/5Xoko)
 
 [{{<figure src="/img/credit_karma_logo.png" class="img_logo_small" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
 
