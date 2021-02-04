@@ -9,10 +9,6 @@ tags: ["alternative minimum tax"]
 {{<disclaimer>}}
 {{<direct_to_filing_taxes>}}
 
-*Short on time? Use our free, **[online AMT calculator](/amt-calculator/)** to estimate your taxes owed.*
-
-*You can also figure out how to save thousands on taxes with our **[ISO exercise tax planning tool](/iso-tax-planner)***
-
 ------
 
 How to calculate the AMT
@@ -211,7 +207,9 @@ Thus, in order to determine whether you actually need to cough up a few grand to
 
 And if you want to avoid paying AMT altogether, I would highly encourage you to check out our **[ISO tax calculator,](/iso-tax-planner)** which can save you thousands of dollars in tax
 
-**[Next Up: Did you know if you pay additional AMT this year, you may qualify for a tax credit next year? Read more about the AMT credit here.](/articles/what_is_the_amt_credit_carryover)**
+--------
+
+<a href="/articles/what_is_the_amt_credit_carryover" class="next_up_link"><h4> >> Next Up: Did you know if you pay additional AMT this year, you may qualify for a tax credit next year? </h4></a>
 
 <!--Step 3: Standard Deduction or Itemized Deduction?
 ----

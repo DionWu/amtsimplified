@@ -110,6 +110,4 @@ The AMT Exemption & Phaseout Thresholds dictates three things:
 
 ---------------
 
-**[Next up, we cover all of these calculations in detail here, which shows how the Alternative Minimum Tax is actually calculated](/articles/how-to-calculate-alternative-minimum-tax)**
-
----------------
+<a href="/articles/how-to-calculate-alternative-minimum-tax" class="next_up_link"><h4> >> Next up, we show how the Alternative Minimum Tax is actually calculated with easy to follow examples </h4></a>

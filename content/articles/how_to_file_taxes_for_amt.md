@@ -1,8 +1,10 @@
 ---
-title: How to File Your Alternative Minimum Tax for Free
+title: How to File Your Alternative Minimum Tax for Free (IRS Form 6251)
 description: File your Incentive Stock Option Tax / AMT in 3 easy steps
 date: 2021-02-02
+weight: 1
 tags: ["alternative minimum tax", "filing taxes"]
+
 ---
 {{<disclaimer>}}
 
@@ -10,27 +12,25 @@ tags: ["alternative minimum tax", "filing taxes"]
 
 ------------------
 
-Quick Disclaimer
+One quick note...
 ---
-Before diving into the article, I just wanted to make a disclaimer up front. I built this site as a free resource and to spread financial awareness of this tax to my friends and colleagues, as there were no comprehensive places to find information on the AMT online. 
+I built this site as a free resource and to spread financial awareness of the AMT tax to my friends and colleagues.
 
 I don't have ads, pop-ups, or charge to use any of the calculators - my goal and passion is honestly just financial education for all.
 
-As such, you'll **only ever see me recommend one product: [Credit Karma](https://credit-karma-tax.pxf.io/amtsimplified)** 
+I cover the expenses of maintaining this site by **recommending the one and only product I use for filing my taxes: [Credit Karma](https://credit-karma-tax.pxf.io/amtsimplified)** 
 
 [{{<figure src="/img/credit_karma_logo.png" class="img_logo_small" alt="Credit Karma Tax Logo">}}](https://credit-karma-tax.pxf.io/amtsimplified)
-
 
 That's because:
 
 - I use it personally (4 years and counting)
-- It's **actually completely free for both federal and state.** No gimmicks, upcharges, fees, etc unlike every other product (i.e. TurboTax, FreeTaxUSA, H&R Block)
-- All you need is a Credit Karma account, which many people have - no extra frills. So you can monitor your credit score, check your spending, and file taxes all in one place
+- It's **actually completely free for both federal and state.** No gimmicks, upcharges, fees
+- All you need is a Credit Karma account, which many people already have - no extra frills
 - They have an amazing interface which simplifies the tax code for individuals
 - Because I'm so familiar with it, I can answer questions you may have (amtsimplified@gmail.com)
-- And lastly, to be frank, I'd like to cover the expenses of maintaining this site and server through Credit Karma's affiliate program or **[your generous donations here!](https://www.buymeacoffee.com/amtsimplified)** 
 
-With that being said, let's get into it!
+If you're interested, I would appreciate if you **[check it out using my link!](https://credit-karma-tax.pxf.io/amtsimplified)**
 
 ------------------
 
@@ -109,8 +109,5 @@ Then, simply enter your ISO subtotal from Step 2 into the box **'Exercise of Inc
 
 ------------------
 
-Did you have to pay additional taxes?
----
-If you did, be sure to check out our **[ISO Tax Planner](/iso-tax-planner/)** to ensure that you don't have to pay this next year. People have saved thousands of dollars just by spending a few minutes on this planner.
+<a href="/articles/what_is_the_amt_credit_carryover/" class="next_up_link"><h4> >> If you have to pay AMT this year, you may be eligible for an AMT Credit to use on next year's taxes! Read more here </h4></a>
 
-In addition, if you have to pay the AMT this year, that means you may be eligible for an **[AMT Credit](/articles/what_is_the_amt_credit_carryover/)** to reduce your tax bill in the future!

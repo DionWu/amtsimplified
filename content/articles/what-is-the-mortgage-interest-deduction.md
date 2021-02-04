@@ -95,7 +95,7 @@ Each method has some basic assumptions you need to satisfy in order to do them, 
 
 ------------------------------
 
-Calculating your mortgage interest deduction is not just useful to calculating your regular taxes, but also for determining if you owe any AMT as it's one of the few commonly used itemized deductions that are still permitted under the AMT tax code. To find out more, you can use our **[online AMT calulator.](/amt-calculator)**
+<a href="/articles/how_to_file_taxes_for_amt" class="next_up_link"><h4> >> Next Step: Learn how to file your Alternative Minimum Taxes in 3 easy steps</h4></a>
 
 ------------------------------
 

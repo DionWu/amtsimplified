@@ -1,14 +1,15 @@
 ---
-title: What is the AMT Credit Carryover (IRS Form 8801)
+title: What is the AMT Credit (IRS Form 8801)
 description: How to use the alternative minimum tax credit to save on future tax returns
 date: 2021-01-31
 weight: 4
-tags: ["alternative minimum tax", "tax forms"]
+tags: ["alternative minimum tax", "amt credit"]
 ---
 {{<disclaimer>}}
-{{<direct_to_filing_taxes>}}
 
 ------------------
+
+<a href="/articles/how_to_claim_amt_credit" class="next_up_link"> If you already know about the AMT Credit, skip to this article to show how you can claim it in 3 easy steps </h4></a>
 
 Quick Summary
 ---
@@ -102,8 +103,5 @@ Going back to the previous example:
 
 ------------------
 
-Now that you know everything about the AMT, why don't you try calculating your tax owed with our **[AMT Calculator?](/amt-calculator)** 
+<a href="/articles/how_to_claim_amt_credit" class="next_up_link"><h4> >> Next Step: Claim your AMT Credit on your tax return in 3 easy steps</h4></a>
 
-Or better yet, figure out how to save thousands on taxes with our **[ISO tax planner](/iso-tax-planner/)** which shows you exactly how many incentive stock options you can exercise without triggering AMT
-
-**[Next Up: Ready to file taxes? I\'ll show you how to file your AMT for free with 3 easy steps](/filing_taxes/how_to_file_taxes_for_amt)**

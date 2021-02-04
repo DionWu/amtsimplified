@@ -35,6 +35,6 @@ And lastly, similar to the above, if your ordinary income exceeds the phase-out 
 
 ------------
 
-**[Next Up: See what triggers the AMT and how it differs from your regular income tax.](/articles/amt-regular-tax-differences)**
+<a href="/articles/amt-regular-tax-differences" class="next_up_link"><h4> >> Next Up: See what triggers the AMT and how it differs from your regular income tax.</h4></a>
 
 ------------

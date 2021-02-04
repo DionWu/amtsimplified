@@ -68,4 +68,4 @@ In addition, the sale of a stock that was from exercising an ISO is subject to a
 
 ------------------
 
-One surefire way to avoid paying the AMT is actually to smartly plan out how many ISOs to exercise in a given year. It's often a bad idea to exercise all your vested options at once. **[Our ISO tax planning tool can help!](/iso-tax-planner)**
+<a href="/iso-tax-planner" class="next_up_link"><h4> >> Next Up: Avoid paying AMT simply by planning out how many ISOs to exercise each year using our ISO Tax Calculator</h4></a>

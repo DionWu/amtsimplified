@@ -105,4 +105,4 @@ If Gary sold these stocks today, his sale would be a **disqualifying disposition
 
 ------------------
 
-All of this is just to reinforce a few key reminders when doing long term planning of your finances, and more specifically when to exercise your ISOs. If you want to better plan how to reduce your AMT liability by **[smartly planning when to exercise your stock options, click here!](/iso-tax-planner)**
+<a href="/iso-tax-planner" class="next_up_link"><h4> >> Next Up: Avoid paying AMT simply by planning out how many ISOs to exercise each year using our ISO Tax Calculator</h4></a>

@@ -50,4 +50,4 @@ According to the IRS site, you cannot deduct:
 
 ------------------------------
 
-**Did you know** the Medical expense deduction is not used in your Alternative Minimum Tax calculation? In other words, you cannot take the deduction when calculating AMT but it is factored into your Regular Income Tax. See how it affects you by using our **[AMT calculator.](/amt-calculator)**
+<a href="/articles/how_to_file_taxes_for_amt" class="next_up_link"><h4> >> Next Step: Learn how to file your Alternative Minimum Taxes in 3 easy steps</h4></a>

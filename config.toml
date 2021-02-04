@@ -4,6 +4,13 @@ title = "AMT Simplified"
 theme = "minimal"
 googleAnalytics = "UA-171252878-1"
 
+[markup]
+    defaultMarkdownHandler = "goldmark"
+
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+            
 [params]
     author = "Dion Wu"
     description = "Helping you understand, calculate, and plan for your Alternative Minimum Tax (AMT)"
@@ -26,7 +33,7 @@ googleAnalytics = "UA-171252878-1"
     weight = 1
 
 [[menu.main]]
-    url = "/filing_taxes/how_to_file_taxes_for_amt"
+    url = "/articles/how_to_file_taxes_for_amt"
     name = "How to File Your Taxes"
     weight = 2
 

@@ -116,4 +116,4 @@ That means when Karen is filing out her tax form, or when her program is calcula
 
 ------------------------------
 
-If you don't want to deal with all of this, and you'd rather have an easy, automated calculator that just factors in your student loan interest when calculating your AMT, you can use our **[AMT calculator!](/amt-calculator)**
+<a href="/articles/how_to_file_taxes_for_amt" class="next_up_link"><h4> >> Next Step: Learn how to file your Alternative Minimum Taxes in 3 easy steps</h4></a>
