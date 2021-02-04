@@ -8,6 +8,7 @@
         --border-width: {{ if .Site.Params.showBorder | default false }} 5px {{ else }} 0 {{ end }};
     }
 
+
     .homepage-description {
       color: var(--accent) !important;
     }
@@ -107,19 +108,24 @@ h4.form-header, h4.iso-form-header {
     text-decoration: underline;
 }
 
-img {
-  max-width: 50% !important;
-  height: auto; }
+/*img {
+  max-width: 50%;
+  height: auto; }*/
 
-.img_logo_small {
-  width:480px;
-  height:48px; 
-}
+@media only screen and (min-width: 769px) {
+  img {
+    max-width: 50% !important;
+  }
+  .img_logo_small {
+    max-width: 80% !important;
+  }
+}  
 
-.ck_amt_calc_ad_img, .ck_iso_calc_ad_img {
-  max-width:800px;
-  min-width:480px;
-}
+@media only screen and (max-width: 768px) {
+  img {
+    max-width: 100%;
+  }
+}  
 
 figure {
   margin: 0; }
@@ -312,6 +318,7 @@ input.error {
 select {
     border: none;
     width: 100%;
+    background: transparent;
 }
 
 .select-list {
@@ -483,39 +490,7 @@ select {
     }
 
 
-    /* I GIVE UP ON TOOLTIPS
-    .tooltip_label {
-      border-bottom:1px dotted #666
-    }
-    .tooltip_label .tooltip{
-        position:absolute;
-      display:inline-block;
-      border: 1px solid red;
-    }
-    .tooltip_label:hover .tooltip{
-      color:red;
-    }*/
-
-        /* default height 
-    .content {
-      display:flex;
-    }
-    .content_text {
-      flex: 0 0 90%;
-    }
-    .ad_side_banner_div {
-      position: relative;
-      float:right;
-    }
-    .ad_side_banner {
-       height: 60px;
-    }
-    @media only screen and (height:90px) {
-       /* 90 pixels high */
-       .ad_side_banner {
-          height:90px;
-       }
-    }
+    
     @media only screen and (height:125px) {
        /* 125 pixels high */
        .ad_side_banner {
