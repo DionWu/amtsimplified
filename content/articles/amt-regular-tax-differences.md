@@ -5,6 +5,9 @@ date: 2021-01-26
 weight: 2
 tags: ["alternative minimum tax"]
 ---
+{{<ck_footer_banner>}}
+
+------------------
 {{<disclaimer>}}
 
 {{<direct_to_filing_taxes>}}

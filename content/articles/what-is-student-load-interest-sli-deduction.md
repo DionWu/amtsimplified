@@ -5,6 +5,9 @@ date: 2021-01-26
 weight: 9
 tags: ["deductions"]
 ---
+{{<ck_footer_banner>}}
+
+------------------
 {{<disclaimer>}}
 {{<direct_to_filing_taxes>}}
 

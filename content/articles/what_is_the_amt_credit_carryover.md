@@ -5,6 +5,9 @@ date: 2021-01-31
 weight: 2
 tags: ["alternative minimum tax", "amt credit"]
 ---
+{{<ck_footer_banner>}}
+
+------------------
 {{<disclaimer>}}
 
 ------------------
