@@ -392,7 +392,6 @@ Because your AMT comes out to less than your Regular Income Tax, you wouldn't ne
 In the event that your AMT is higher than your Regular income tax, your tax program may just register the net difference as an additional line item. For example, if your AMT came out to $12,000 and your Regular Income Tax came out to $10,000, you might just see a line item saying "$2,000 for AMT" such that your total tax owed comes out to $12,000. 
 
 I should also mention that all of this is still within the realm of **FEDERAL** income taxes, including FICA (SSI and Medicare taxes). None of this takes into account state taxes, which is a whole 'nother ball game. Luckily, only a few states have AMT at the state level, and we'll have an article up soon detailing this.
-
-This exercise is most useful if you want to plan for how much of your ISO to exercise this year, such that this exact scenario arises. This way, you could exercise the maximum amount of options early enough, but not exercise too many to trigger having to pay AMT. You could do the math yourself on Excel, but if you don't feel like doing it manually, [we've luckily built out a planning tool here](/iso-exercise-planner) -->
+-->
 
 ------
