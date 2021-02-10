@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Incentive Stock Option Tax Planner</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Montserrat,sans-serif', sans-serif;
+        background-color: white;
+    }
+    :root {
+        --accent: green;
+        --border-width:  5px ;
+    }
+
+    #homepage-description {
+        color: var(--accent);
+    }
+
+     
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+     
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .calculator-input-text {
+        display: inline-block;
+    }
+    .calculator-validation-p {
+        display: inline;
+        color: red;
+    }
+    .calculator-tooltip {
+    border-bottom: 1px dotted black;  
+    }
+
+     
+    .calculator-tooltip .calculator-tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: -30px;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    } 
+
+
+     
+    .calculator-tooltip .calculator-tooltip-text a{
+    color: white;
+    }
+
+
+     
+    .calculator-tooltip:hover .calculator-tooltip-text {
+    visibility: visible;
+    }
+
+     
+    #iso-planner-result-header {
+        background-color: var(--accent);
+        color: white;
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://amtsimplified.com/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%2csans-serif">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.73.0" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171252878-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-171252878-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+<script data-ad-client="ca-pub-3493120493138233" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Incentive Stock Option Tax Planner</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/posts/">Learn about the AMT</a></li>
+                            
+                                <li><a href="/amt-calculator/">AMT Calculator</a></li>
+                            
+                                <li><a href="/iso-exercise-planner/">Incentive Stock Option Tax Planner</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:amtsimplified@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Incentive Stock Option Tax Planner</h2>
+        <h5>Minimize your AMT by exercising the right amount of ISOs</h5>
+        
+
+    </div>
+
+    <div align="start" class="content"><p><em>Please note details in this article are relevant for the 2020 tax year (filing in 2021), and only applies to Federal Taxes</em></p>
+<p><em>This calculator only highlights some of the most commonly used parts of the tax code. If you are in a unique situation, always consult with a tax accountant for any detailed questions</em></p>
+<p><strong>Coming Soon:</strong> Allowing for inputs of if you sell exercised stock in the same calendar year, aesthetics, and having your inputs save over from this planner to the AMT calculator</p>
+<hr>
+<h2 id="calculate-how-many-isos-you-can-exercise-without-having-to-pay-the-amt">Calculate how many ISOs you can exercise without having to pay the AMT</h2>
+<p><strong>Instructions:</strong> Fill in the below information with either real numbers (if you know them) or estimates of how much each line item will be for the given year.</p>
+<hr>
+<form id="iso-exercise-planner-form">
+<h3> Step 1: Figure out your Regular Income Tax </h3>
+<label for="filing_status">Choose your Filing Status</label>
+<select name="filing_status" id="filing_status">
+  <option value="single">Single</option>
+  <option value="married_separately">Married, Filing Separately</option>
+  <option value="married">Married, Filing Together</option>
+</select> <br><br>
+<div class="calculator-input-text">Salary: 
+</div> <input type="number" placeholder="0" class="calculate-form required_field" onchange=check_min(this) id="salary" /> <p class="calculator-validation-p" id="salary-p"></p><br>
+
+<div class="calculator-input-text">Short Term Capital Gains: </div>
+<input type="number" placeholder="0" class="calculate-form" id="short-term-capital-gains"><br>
+
+<h4 id="total_income" class="result-header"> </h4>
+<div class="calculator-input-text">Traditional 401k Contributions: </div> 
+<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-401k"><p class="calculator-validation-p" id="trad-401k-p"></p><br>
+
+<div class="calculator-input-text">HSA Contributions: </div>
+<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="hsa"><p class="calculator-validation-p" id="hsa-p"></p><br>
+<div class="calculator-input-text">Traditional IRA Contributions: </div>
+<input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="trad-ira"><p class="calculator-validation-p" id="trad-ira-p"></p><br>
+
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-sli" target="_blank">Learn about the SLI Deduction here</a></span>
+  Student Loan Interest Paid: 
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="sli"><p class="calculator-validation-p" id="sli-p"></p><br>
+
+<h4 id="agi" class="result-header"> </h4>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-medical-expense" target="_blank">Learn about medical expenses here </a></span>
+  Medical Expenses: 
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="medical-expenses"><p class="calculator-validation-p" id="medical-expenses-p"></p><br>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-salt" target="_blank">Read about the SALT here</a></span>
+  State and Local Tax (SALT): 
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="salt"><p class="calculator-validation-p" id="salt-p"></p><br>
+<div class="calculator-input-text calculator-tooltip">
+  <span class="calculator-tooltip-text"><a href="/posts/what-is-mortgage-interest" target="_blank">Learn about your mortgage interest here</a></span>
+  Mortgage Interest Paid: 
+</div> <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="mortgage-interest"><p class="calculator-validation-p" id="mortgage-interest-p"></p><br>
+
+<h4 id="final_deduction" class="result-header"> </h4>
+<h4 id="taxable_income" class="result-header"> </h4>
+<h4 id="regular_income_tax" class="result-header"></h4>
+
+<h3> Step 2: Input Exercisable ISO Grants </h3>
+<br><label for="iso_forms_count" class="calculator-tooltip">  
+  <span class="calculator-tooltip-text">Please enter grants from oldest to newest. <br> If you have more than 3, enter the 3 oldest</span>
+  How many different ISO Grants could you potentially exercise from?</label>
+<select name="iso_forms_count" id="iso_forms_count">
+  <option value="iso_forms_count_one">1</option>
+  <option value="iso_forms_count_two">2</option>
+  <option value="iso_forms_count_three">3</option>
+</select> 
+<div id="iso-form-container-for-all">
+  <br><div class="calculator-input-text calculator-tooltip">
+    <span class="calculator-tooltip-text">Enter the current FMV or your best estimate for when you plan to exercise </span>
+    Fair Market Value: </div>
+    <input type="number" placeholder="0.00" class="calculate-form required_field" onchange=check_min(this) id="fmv" ><p class="calculator-validation-p" id="fmv-p"></p><br>
+  
+    <div class ="iso-form-containers" id="iso-form-container-1">
+    <br>
+    <h5 class="iso-form-labels" id="iso-form-label-1"> Input the details of grant #1 below </h5>
+    <div class="calculator-input-text">Exercisable Shares: </div>
+    <input type="number" placeholder="0" class="calculate-form required_field" onchange=check_min(this) id="shares-exercisable-1" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-1-p"></p><br>
+    <div class="calculator-input-text">Strike Price: </div>
+    <input type="number" placeholder="0.00" class="calculate-form required_field" onchange=check_min(this) id="strike-price-1" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-1-p"></p><br>
+    </div>
+
+  <div class ="iso-form-containers" id="iso-form-container-2">
+    <br>
+    <h5 class="iso-form-labels" id="iso-form-label-2"> Input the details of grant #2 below </h5>
+    <div class="calculator-input-text">Exercisable Shares: </div>
+    <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="shares-exercisable-2" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-2-p"></p><br>
+    <div class="calculator-input-text">Strike Price: </div>
+    <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price-2" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-2-p"></p><br>
+  </div>
+  
+  <div class ="iso-form-containers" id="iso-form-container-3">
+    <br>
+    <h5 class="iso-form-labels" id="iso-form-label-3"> Input the details of grant #3 below </h5>
+    <div class="calculator-input-text">Exercisable Shares: </div>
+    <input type="number" placeholder="0" class="calculate-form" onchange=check_min(this) id="shares-exercisable-3" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="shares-exercisable-3-p"></p><br>
+    <div class="calculator-input-text">Strike Price: </div>
+    <input type="number" placeholder="0.00" class="calculate-form" onchange=check_min(this) id="strike-price-3" ><p class="calculator-validation-p calculator-validation-iso-forms-p" id="strike-price-3-p"></p><br>
+  </div>
+</div>
+
+<br><input type="button" value="Calculate" onclick=check_required()>
+</form>
+<h3> Results: </h3>
+<h4 id="iso_spread_allowed" class="result-header"> </h4>
+<h4 id="result_validation_message" class="result-header"> </h4>
+
+
+<table class="hidden table table-bordered table-striped" id="iso-planner-result-table">
+  <tr id="iso-planner-result-header">
+    <th>Grant Number</th>
+    <th>Strike Price</th>
+    <th>Shares You Can Exercise</th>
+    <th>Cost For You to Exercise</th>
+  </tr>
+  <tr class="iso-planner-result-row" id="iso-planner-result-row-1">
+    <td id="iso-planner-result-grant-label_1">Grant #1</td>
+    <td id="iso-planner-result-strike-price_1"></td>
+    <td id="iso-planner-result-shares-exercise_1"></td>
+    <td id="iso-planner-result-cost_1"></td>
+  </tr>
+  <tr class="iso-planner-result-row" id="iso-planner-result-row-2">
+    <td id="iso-planner-result-grant-label_2">Grant #2</td>
+    <td id="iso-planner-result-strike-price_2"></td>
+    <td id="iso-planner-result-shares-exercise_2"></td>
+    <td id="iso-planner-result-cost_2"></td>
+  </tr>
+  <tr class="iso-planner-result-row" id="iso-planner-result-row-3">
+    <td id="iso-planner-result-grant-label_3">Grant #3</td>
+    <td id="iso-planner-result-strike-price_3"></td>
+    <td id="iso-planner-result-shares-exercise_3"></td>
+    <td id="iso-planner-result-cost_3"></td>
+  </tr>
+  <tr class="iso-planner-result-row" id="iso-planner-result-row-total">
+    <td id="iso-planner-result-grant-label_total">Total</td>
+    <td id="iso-planner-result-strike-price_total"></td>
+    <td id="iso-planner-result-shares-exercise_total"></td>
+    <td id="iso-planner-result-cost_total"></td>
+  </tr>
+</table>
+<script>
+
+  
+  
+  
+  
+  
+  $(document).ready(function() {
+    $('#iso-form-container-2').hide();
+    $('#iso-form-container-3').hide();
+    
+    $('#iso_forms_count').change(function(){
+      if ($(this).val() == "iso_forms_count_one") {
+        $('#iso-form-container-3').hide();
+        $('#iso-form-container-2').hide();
+        $('#iso-form-container-1').show();
+        $('.calculator-validation-iso-forms-p').text("");
+        $('#shares-exercisable-2').removeClass("required_field");
+        $('#strike-price-2').removeClass("required_field");
+        $('#shares-exercisable-3').removeClass("required_field");
+        $('#strike-price-3').removeClass("required_field");
+        $('#iso-planner-result-table').addClass("hidden");
+        $('.result-header').text('');
+      } else if ($(this).val() == "iso_forms_count_two") {
+        $('#iso-form-container-3').hide();
+        $('#iso-form-container-1').show();
+        $('#iso-form-container-2').show();
+        $('.calculator-validation-iso-forms-p').text("");
+        $('#shares-exercisable-2').addClass("required_field");
+        $('#strike-price-2').addClass("required_field");
+        $('#shares-exercisable-3').removeClass("required_field");
+        $('#strike-price-3').removeClass("required_field");
+        $('#iso-planner-result-table').addClass("hidden");
+        $('.result-header').text('');
+      } else if ($(this).val() == "iso_forms_count_three") {
+        $('#iso-form-container-1').show();
+        $('#iso-form-container-2').show();
+        $('#iso-form-container-3').show();
+        $('.calculator-validation-iso-forms-p').text("");
+        $('#shares-exercisable-2').addClass("required_field");
+        $('#strike-price-2').addClass("required_field");
+        $('#shares-exercisable-3').addClass("required_field");
+        $('#strike-price-3').addClass("required_field");
+        $('#iso-planner-result-table').addClass("hidden");
+        $('.result-header').text('');
+      }
+    })
+  })
+    
+  
+  
+  
+  function check_required() {
+    var required_array = document.getElementsByClassName("required_field");
+    var confirmation_array = [];
+      
+    for (i=0; i<required_array.length; i++) {
+      if (required_array[i].value == "") {
+        var p_id = required_array[i].id;
+        p_id = p_id.concat('-p');
+        document.getElementById(p_id).innerHTML = "This field is required";
+        confirmation_array.push(false);
+      } else {
+        confirmation_array.push(true);
+      }
+    }
+    var confirmation = confirmation_array.every(Boolean);
+    if(confirmation) {
+      calculate_taxes();
+    }
+  }
+
+
+  function check_min(input) {
+    var input_id = document.getElementById(input.id).id;
+    var p_id = input_id.concat('-p');
+    if (input.value < 0) {
+      input.value = "";
+      document.getElementById(p_id).innerHTML = "This number must not be negative";
+    } else {
+      document.getElementById(p_id).innerHTML = "";
+    }
+  }
+  
+  var currency_formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  var number_formatter = new Intl.NumberFormat('en-US');
+
+  function calculate_taxes() {
+
+    
+    var all_validation_messages = document.getElementsByClassName("calculator-validation-p");
+    for (i=0;i<all_validation_messages.length;i++) {
+      all_validation_messages[i].innerHTML = "";
+    }
+    
+    var filing_status_obj = document.getElementById("filing_status");
+    var filing_status = filing_status_obj.options[filing_status_obj.selectedIndex].value;
+    
+    if (filing_status == 'single') {
+      var amt_deduction=72900;
+      var amt_phase = 518400;
+      var amt_tax_brackets = 197900;
+      var standard_deduction=12400;
+      var sli_phase = 70000;
+      var sli_max = 85000;
+      var sli_divider = 15000;
+      
+      var trad_401k_limit = 19500;
+      var hsa_limit = 3550;
+      var trad_ira_limit = 6000;
+      var salt_deduction_limit = 10000;
+      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,518400];
+
+    } else if (filing_status == 'married_separately') {
+      var amt_deduction=56700;
+      var amt_phase = 518400;
+      var amt_tax_brackets = 98950;
+      var standard_deduction=12400;
+      var sli_phase = 0;
+      var sli_max = 0;
+      var sli_divider = 0;
+      var trad_401k_limit = 19500;
+      var hsa_limit = 7100;
+      var trad_ira_limit = 6000;
+      var salt_deduction_limit = 5000;
+      var reg_income_tax_bracket = [0,9875,40125,85525,163300,207350,311025];
+
+    } else if (filing_status == 'married') {
+      var amt_deduction=113400;
+      var amt_phase = 1036800;
+      var amt_tax_brackets = 197900;
+      var standard_deduction=24800;
+      var sli_phase = 140000;
+      var sli_max = 170000;
+      var sli_divider = 30000;
+      var trad_401k_limit = 39000;
+      var hsa_limit = 7100;
+      var trad_ira_limit = 12000;
+      var salt_deduction_limit = 10000;
+      var reg_income_tax_bracket = [0,19750,80250,171050,326600,414700,622050];
+
+    }
+    function empty_to_zero(num) {
+      if (num.length == 0) num = 0;
+      return num;
+    }
+
+    
+    var salary=empty_to_zero(document.getElementById("salary").value);
+    var short_term_capital_gains=empty_to_zero(document.getElementById("short-term-capital-gains").value);
+    var trad_401k=empty_to_zero(document.getElementById("trad-401k").value);
+    var hsa=empty_to_zero(document.getElementById("hsa").value);
+    var trad_ira=empty_to_zero(document.getElementById("trad-ira").value);
+    var sli=empty_to_zero(document.getElementById("sli").value);
+    var medical_expenses=empty_to_zero(document.getElementById("medical-expenses").value);
+    var salt=empty_to_zero(document.getElementById("salt").value);
+    var mortgage_interest=empty_to_zero(document.getElementById("mortgage-interest").value);
+
+    var iso_form_count_obj = document.getElementById("iso_forms_count");
+    var iso_form_count = iso_form_count_obj.options[iso_form_count_obj.selectedIndex].value;
+    
+    var fmv=empty_to_zero(document.getElementById("fmv").value);    
+    var shares_exercisable_1=empty_to_zero(document.getElementById("shares-exercisable-1").value);
+    var strike_price_1=empty_to_zero(document.getElementById("strike-price-1").value);
+    var shares_exercisable_2=empty_to_zero(document.getElementById("shares-exercisable-2").value);
+    var strike_price_2=empty_to_zero(document.getElementById("strike-price-2").value);
+    var shares_exercisable_3=empty_to_zero(document.getElementById("shares-exercisable-3").value);
+    var strike_price_3=empty_to_zero(document.getElementById("strike-price-3").value);
+    
+    
+    
+    if (iso_form_count == "iso_forms_count_one") {
+      shares_exercisable_2 = strike_price_2 = shares_exercisable_3 = strike_price_3 = 0;
+    } else if (iso_form_count == "iso_forms_count_two") {
+      shares_exercisable_3 = strike_price_3 = 0;
+    }
+
+    
+    var total_income = parseFloat(salary) + parseFloat(short_term_capital_gains);
+    
+    
+    if (trad_401k > trad_401k_limit) {
+      trad_401k = trad_401k_limit;
+      document.getElementById("salt").value = trad_401k_limit;
+      document.getElementById('trad-401k-p').innerHTML = "The 401k limit for your filing status is: " + trad_401k_limit;
+    }
+    
+    if (hsa > hsa_limit) {
+      hsa = hsa_limit;
+      document.getElementById("salt").value = hsa_limit;
+      document.getElementById('hsa-p').innerHTML = "The HSA limit for your filing status is: " + hsa_limit;
+    }
+
+    
+    if (trad_ira > trad_ira_limit) {
+      trad_ira = trad_ira_limit;
+      document.getElementById("salt").value = trad_ira_limit;
+      document.getElementById('trad-ira-p').innerHTML = "The IRA limit for your filing status is: " + trad_ira_limit;
+    }
+    
+    var magi = total_income - parseFloat(trad_401k) - parseFloat(hsa);
+
+    if (magi > sli_max) {
+      sli = 0;
+    } else if (magi > sli_phase) {
+      var sli_multiplier = (magi - sli_phase) / sli_divider;
+      if (sli_multiplier > 1) {
+        sli_multiplier = 1;
+      } else if (sli_multiplier < 0) {
+        sli_multiplier = 0;
+      } else {
+        sli_multiplier = sli_multiplier.toFixed(3);
+      }
+      
+      sli_correction = parseFloat(sli) * parseFloat(sli_multiplier);
+      sli = sli - parseFloat(sli_correction);
+      sli = sli.toFixed(2);
+    } 
+
+    
+    var agi = total_income - parseFloat(trad_401k) - parseFloat(hsa) - parseFloat(trad_ira) - parseFloat(sli);
+    
+    
+    if (medical_expenses > (agi * 0.1)) {
+      medical_expenses = medical_expenses - (agi * 0.1);
+    } else {
+      medical_expenses = 0;
+    }
+    
+    
+    if (salt > salt_deduction_limit) {
+      salt = salt_deduction_limit;
+      document.getElementById("salt").value = salt_deduction_limit;
+      document.getElementById('salt-p').innerHTML = "The SALT limit for your filing status is: " + salt_deduction_limit;
+    }
+
+    
+    var itemized_deduction = parseFloat(medical_expenses) + parseFloat(salt) + parseFloat(mortgage_interest) + parseFloat(sli);
+    if (itemized_deduction > standard_deduction) {
+      var regular_deduction_final = itemized_deduction;
+      var deduction_category = 'Itemized Deduction';
+    } else {
+      var regular_deduction_final = standard_deduction;
+      var deduction_category = 'Standard Deduction';
+    }
+
+    
+    var taxable_income = agi - regular_deduction_final;
+    
+    
+    var reg_income_tax_rate = [0.1,0.12,0.22,0.24,0.32,0.35,0.37];
+    
+    var taxable_income_index = reg_income_tax_bracket.findIndex(function(number) {
+        return number > taxable_income;
+    }) - 1;
+    
+    var regular_income_tax = 0;
+    if (taxable_income > 0) {
+      for (var i = taxable_income_index; i >= 0; i--) {
+          if (i == taxable_income_index) {
+              regular_income_tax += reg_income_tax_rate[taxable_income_index] * (taxable_income - reg_income_tax_bracket[taxable_income_index]);
+          } else {
+              regular_income_tax += reg_income_tax_rate[i] * (reg_income_tax_bracket[i+1] - reg_income_tax_bracket[i]);
+          }
+      }
+    }
+
+    
+    if (deduction_category == 'Standard Deduction') {
+      var amti_baseline = taxable_income + standard_deduction;
+    } else {
+      var amti_baseline = taxable_income + parseFloat(salt) + parseFloat(medical_expenses);
+    }
+    
+    
+    var fmv_parsed = parseFloat(fmv);
+    var shares_exercisable_1_parsed = parseFloat(shares_exercisable_1);
+    var shares_exercisable_2_parsed = parseFloat(shares_exercisable_2);
+    var shares_exercisable_3_parsed = parseFloat(shares_exercisable_3);
+    var strike_price_1_parsed = parseFloat(strike_price_1);
+    var strike_price_2_parsed = parseFloat(strike_price_2);
+    var strike_price_3_parsed = parseFloat(strike_price_3);
+
+    if (strike_price_1_parsed === 0) {
+      var iso_spread_pershare_1 = 0;
+    } else {
+      var iso_spread_pershare_1 = fmv_parsed - strike_price_1_parsed;
+    }
+    if (strike_price_2_parsed === 0) {
+      var iso_spread_pershare_2= 0;
+    } else {
+      var iso_spread_pershare_2 = fmv_parsed - strike_price_2_parsed;
+    }
+    if (strike_price_3_parsed === 0) {
+      var iso_spread_pershare_3 = 0;
+    } else {
+      var iso_spread_pershare_3 = fmv_parsed - strike_price_3_parsed;
+    }
+
+    var iso_input_array = [fmv_parsed, shares_exercisable_1_parsed, shares_exercisable_2_parsed, shares_exercisable_3_parsed, strike_price_1_parsed, strike_price_2_parsed, strike_price_3_parsed];
+    var iso_spread_array = [iso_spread_pershare_1,iso_spread_pershare_2,iso_spread_pershare_3];
+
+    
+    
+    if (iso_input_array.every(function(i) {return i === 0;} )) {
+      var result_validation_message = "You did not input any relevant ISO details, so we cannot calculate how many to exercise!";
+      
+      regular_income_tax = currency_formatter.format(regular_income_tax);
+    
+    } else if (iso_spread_array.every(function(i) {return i === 0;} )) {
+      var result_validation_message = "Because your FMV and Strike Prices are the same, you don't need to worry about AMT!";
+      
+      regular_income_tax = currency_formatter.format(regular_income_tax);
+    
+    } else {
+
+      
+      var iso_subtotal_1 = shares_exercisable_1_parsed * iso_spread_pershare_1;
+      var iso_subtotal_2 = shares_exercisable_2_parsed * iso_spread_pershare_2;
+      var iso_subtotal_3 = shares_exercisable_3_parsed * iso_spread_pershare_3;
+      var iso_subtotal_all = iso_subtotal_1 + iso_subtotal_2 + iso_subtotal_3;
+      var iso_spread_threshold = amt_tax_brackets - (amti_baseline + iso_subtotal_all - amt_deduction);
+      
+      if (iso_spread_threshold < 0) {
+        var iso_spread_allowed =  (regular_income_tax - amt_tax_brackets * 0.26) / 0.28 + amt_tax_brackets + amt_deduction - amti_baseline;
+      } else {
+        var iso_spread_allowed =  regular_income_tax / 0.26 - amti_baseline + amt_deduction;
+      }
+      
+      if (iso_subtotal_all <= iso_spread_allowed) {
+        var famti = amti_baseline + iso_subtotal_all - amt_deduction;
+        if (famti - amt_tax_brackets > 0) {
+          var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
+        } else {
+          var amt_taxes_owed = famti * 0.26;
+        }
+        amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
+        regular_income_tax = currency_formatter.format(regular_income_tax);
+
+        var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
+        var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
+        var shares_to_exercise_allowed_from3 = shares_exercisable_3_parsed;
+        var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
+        var shares_to_exercise_allowed_formatted = currency_formatter.format(shares_to_exercise_allowed);
+        var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;
+        
+        var result_validation_message = "You can exercise all of your options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+      
+      } else {
+        if (iso_subtotal_1 > iso_spread_allowed) {
+          var shares_to_exercise_allowed_from1 = Math.floor(iso_spread_allowed / iso_spread_pershare_1);
+          var shares_to_exercise_allowed_from2 = 0;
+          var shares_to_exercise_allowed_from3 = 0;
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1;
+          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed;
+          var famti = amti_baseline - amt_deduction + shares_to_exercise_allowed * iso_spread_pershare_1;
+        } else if (iso_subtotal_2 + iso_subtotal_1 > iso_spread_allowed) {
+          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1;
+          var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
+          var shares_to_exercise_allowed_from2 = Math.floor(iso_spread_remaining / iso_spread_pershare_2);
+          var shares_to_exercise_allowed_from3 = 0;
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2;
+          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed;
+          var famti = amti_baseline - amt_deduction + iso_subtotal_1 + shares_to_exercise_allowed_from2 * iso_spread_pershare_2;
+        } else {
+          var iso_spread_remaining = iso_spread_allowed - iso_subtotal_1 - iso_subtotal_2;
+          var shares_to_exercise_allowed_from1 = shares_exercisable_1_parsed;
+          var shares_to_exercise_allowed_from2 = shares_exercisable_2_parsed;
+          var shares_to_exercise_allowed_from3 = Math.floor(iso_spread_remaining / iso_spread_pershare_3);
+          var shares_to_exercise_allowed = shares_to_exercise_allowed_from1 + shares_to_exercise_allowed_from2 + shares_to_exercise_allowed_from3;
+          var cost_to_exercise = shares_to_exercise_allowed_from1 * strike_price_1_parsed + shares_to_exercise_allowed_from2 * strike_price_2_parsed + shares_to_exercise_allowed_from3 * strike_price_3_parsed;;
+          var famti = amti_baseline - amt_deduction + iso_subtotal_1 + iso_subtotal_2 + shares_to_exercise_allowed_from3 * iso_spread_pershare_3;
+        }
+        if (famti - amt_tax_brackets > 0) {
+          var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
+        } else {
+          var amt_taxes_owed = famti * 0.26;
+        }
+        amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
+        regular_income_tax = currency_formatter.format(regular_income_tax);
+        shares_to_exercise_allowed_formatted = number_formatter.format(shares_to_exercise_allowed);
+        var result_validation_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax + " you do not need to pay AMT";
+      }
+
+      
+      cost_to_exercise1 = strike_price_1_parsed * shares_to_exercise_allowed_from1;
+      cost_to_exercise2 = strike_price_2_parsed * shares_to_exercise_allowed_from2;
+      cost_to_exercise3 = strike_price_3_parsed * shares_to_exercise_allowed_from3;
+      var cost_to_exercise = cost_to_exercise1 + cost_to_exercise2 + cost_to_exercise3;
+    
+      cost_to_exercise1 = currency_formatter.format(cost_to_exercise1);
+      cost_to_exercise2 = currency_formatter.format(cost_to_exercise2);
+      cost_to_exercise3 = currency_formatter.format(cost_to_exercise3);
+      
+      strike_price_1_parsed = currency_formatter.format(strike_price_1_parsed);
+      strike_price_2_parsed = currency_formatter.format(strike_price_2_parsed);
+      strike_price_3_parsed = currency_formatter.format(strike_price_3_parsed);
+
+      shares_to_exercise_allowed_from1_formatted = number_formatter.format(shares_to_exercise_allowed_from1);
+      shares_to_exercise_allowed_from2_formatted = number_formatter.format(shares_to_exercise_allowed_from2);
+      shares_to_exercise_allowed_from3_formatted = number_formatter.format(shares_to_exercise_allowed_from3);
+      
+      
+      document.getElementById("iso-planner-result-table").classList.remove("hidden");
+      if (iso_form_count == "iso_forms_count_one") {
+        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-2").classList.add("hidden");
+        document.getElementById("iso-planner-result-row-3").classList.add("hidden");
+
+        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
+        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
+
+      } else if (iso_form_count == "iso_forms_count_two") {
+        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-3").classList.add("hidden");
+
+        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
+        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
+        document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2_formatted;
+        document.getElementById("iso-planner-result-cost_2").innerHTML = cost_to_exercise2;
+
+      } else if (iso_form_count == "iso_forms_count_three") {
+        document.getElementById("iso-planner-result-row-1").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-2").classList.remove("hidden");
+        document.getElementById("iso-planner-result-row-3").classList.remove("hidden");
+
+        document.getElementById("iso-planner-result-strike-price_1").innerHTML = strike_price_1_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_1").innerHTML = shares_to_exercise_allowed_from1_formatted;
+        document.getElementById("iso-planner-result-cost_1").innerHTML = cost_to_exercise1;
+        document.getElementById("iso-planner-result-strike-price_2").innerHTML = strike_price_2_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_2").innerHTML = shares_to_exercise_allowed_from2_formatted;
+        document.getElementById("iso-planner-result-cost_2").innerHTML = cost_to_exercise2;
+        document.getElementById("iso-planner-result-strike-price_3").innerHTML = strike_price_3_parsed;
+        document.getElementById("iso-planner-result-shares-exercise_3").innerHTML = shares_to_exercise_allowed_from3_formatted;
+        document.getElementById("iso-planner-result-cost_3").innerHTML = cost_to_exercise3;
+      }
+        
+      var average_strike_price = cost_to_exercise / shares_to_exercise_allowed;
+      average_strike_price = currency_formatter.format(average_strike_price);
+      cost_to_exercise = currency_formatter.format(cost_to_exercise);
+
+      document.getElementById("iso-planner-result-strike-price_total").innerHTML = "Average: " + average_strike_price;
+      document.getElementById("iso-planner-result-shares-exercise_total").innerHTML = shares_to_exercise_allowed_formatted;
+      document.getElementById("iso-planner-result-cost_total").innerHTML = cost_to_exercise;
+
+    }
+
+    
+    
+
+    total_income = currency_formatter.format(total_income);
+    agi = currency_formatter.format(agi);
+    regular_deduction_final = currency_formatter.format(regular_deduction_final);
+    taxable_income = currency_formatter.format(taxable_income);
+
+    document.getElementById("total_income").innerHTML="Your Total Income is " + total_income;
+    document.getElementById("agi").innerHTML="Your Adjusted Gross Income (AGI) is " + agi;
+    document.getElementById("final_deduction").innerHTML="You took the " + deduction_category + " and your deduction is " + regular_deduction_final;
+    document.getElementById("taxable_income").innerHTML="Your Taxable Income is " + taxable_income;
+    document.getElementById("regular_income_tax").innerHTML= "Your Regular Income Tax is: " + regular_income_tax;
+    document.getElementById("result_validation_message").innerHTML= result_validation_message;
+    
+
+  }
+</script>
+<!-- raw HTML omitted -->
+</div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
