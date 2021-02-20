@@ -40,11 +40,12 @@ ISO Specific Terminology
 ---
 
 In addition to the above, there are a few other pieces of terminology relevant to Incentive Stock Options
+
 - You would typically receive ISOs as part of a compensation package for working at a company. The 'batch' of ISOs promised to you is typically called an Equity/ISO **Grant** or **Award**.
 
 	- Each grant will come with a set strike price for those options, as well as a **Grant / Award Date**, which is literally the date in which the grant is legally assigned to you. Throughout your tenure at a single company, you can receive multiple grants of options, each with different grant dates and possibly different strike prices.
 
-<br>
+
 
 - To **Vest** means for options to actually become yours, almost like they are being 'released' to you. This is important because although you may have an ISO grant, not all the options in that grant are actually yours. It's similar to your salary. When you start a job, you are promised to be paid a certain dollar amount for a year of work. If you only work half a year and leave, you would only end up getting half the salary promised.
 
