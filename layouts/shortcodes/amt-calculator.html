@@ -309,14 +309,14 @@
       <td>Income (Wages & Short Term Capital Gains Only)</td>
       <td id="amt_table_total_income_td"></td>
     </tr>
-    <tr>
+    <!--<tr>
       <td>Net Long Term Capital Gains</td>
       <td id="amt_table_long_term_capital_gains_td"></td>
     </tr>
     <tr>
       <td>Capital Loss Carryforward (to next year)</td>
       <td id="amt_table_leftover_capital_loss_carryover_td"></td>
-    </tr>
+    </tr>-->
     <tr class="table_divider">
       <td>Total ISO Spread</td>
       <td id="amt_table_iso_spread_subtotal_td"></td>
@@ -969,7 +969,7 @@
     document.getElementById("final_amt_tax_owed_td").innerHTML = final_amt_tax_owed;
     // Fill in Regular Income Results Table
     document.getElementById("reg_table_total_income_td").innerHTML = total_income;
-    document.getElementById("reg_table_long_term_capital_gains_td").innerHTML = long_term_capital_gains_for_calc;
+    //document.getElementById("reg_table_long_term_capital_gains_td").innerHTML = long_term_capital_gains_for_calc;
     document.getElementById("reg_table_leftover_capital_loss_carryover_td").innerHTML = leftover_capital_loss_carryover;
     document.getElementById("reg_table_total_exemptions_td").innerHTML = total_exemptions;
     document.getElementById("reg_table_agi_td").innerHTML = agi;
@@ -985,7 +985,7 @@
     // Fill in AMT Results Table
     document.getElementById("amt_table_total_income_td").innerHTML = total_income;
     //document.getElementById("amt_table_long_term_capital_gains_td").innerHTML = long_term_capital_gains_for_calc;
-    document.getElementById("amt_table_leftover_capital_loss_carryover_td").innerHTML = leftover_capital_loss_carryover;
+    //document.getElementById("amt_table_leftover_capital_loss_carryover_td").innerHTML = leftover_capital_loss_carryover;
     document.getElementById("amt_table_iso_spread_subtotal_td").innerHTML = iso_spread_subtotal;
     document.getElementById("amt_table_total_exemptions_td").innerHTML = total_exemptions;
     document.getElementById("amt_table_amt_eligible_deductions_td").innerHTML = amt_eligible_deductions;
@@ -994,7 +994,7 @@
     document.getElementById("amt_table_amt_deduction_td").innerHTML = amt_deduction;
     document.getElementById("amt_table_amti_final_td").innerHTML = amti_final;
     document.getElementById("amt_table_amt_tax_owed_td").innerHTML = amt_tax_owed;
-    document.getElementById("amt_table_long_term_capital_gains_tax_owed_td").innerHTML = long_term_capital_gains_tax_owed;
+    //document.getElementById("amt_table_long_term_capital_gains_tax_owed_td").innerHTML = long_term_capital_gains_tax_owed;
     document.getElementById("amt_table_final_amt_tax_owed_td").innerHTML = final_amt_tax_owed;
 
   }
