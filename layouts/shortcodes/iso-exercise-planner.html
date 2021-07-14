@@ -760,12 +760,16 @@
         if (famti - amt_tax_brackets > 0) {
           var amt_taxes_owed = (famti - amt_tax_brackets) * 0.28 + amt_tax_brackets * 0.26;
         } else {
-          var amt_taxes_owed = famti * 0.26;
+          if (famti < 0) {
+            var amt_taxes_owed = 0
+          } else {
+              var amt_taxes_owed = famti * 0.26;
+          }
         }
         amt_taxes_owed = currency_formatter.format(amt_taxes_owed);
         regular_income_tax_owed = currency_formatter.format(regular_income_tax_owed);
         shares_to_exercise_allowed_formatted = number_formatter.format(shares_to_exercise_allowed);
-        var iso_result_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be " + amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay any of the AMT";
+        var iso_result_message = "You can exercise a total of " + shares_to_exercise_allowed_formatted + " options! If you do so your AMT owed would be "+ amt_taxes_owed + " but because it is less than your regular income tax of " + regular_income_tax_owed + " you do not need to pay any of the AMT";
       }
 
       // Calculate cost to exercise and format

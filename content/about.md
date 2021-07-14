@@ -6,7 +6,7 @@ date: 2021-01-26
 
 AMT Simplified is a site dedicated to helping you understand, calculate, and plan for your Alternative Minimum Tax. It's my hope this website can help save you money!
 
-Hi, I'm Dion. The way I found out about AMT was likely the same way you found out about it - being told I owe money to the government after filing my taxes one beautiful day in April. After multiple google searches and even sifting through IRS documentation, I realized it was incredibly difficult to find information on: 
+The way I found out about AMT was likely the same way you found out about it - being told I owe money to the government after filing my taxes one beautiful day in April. After multiple google searches and even sifting through IRS documentation, I realized it was incredibly difficult to find information on: 
 
 - [What is the AMT](/articles/what-is-the-alternative-minimum-tax)
 - [How to calculate the AMT](/articles/how-to-calculate-alternative-minimum-tax) and
